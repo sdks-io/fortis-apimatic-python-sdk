@@ -6,17 +6,17 @@ transactions_ach_controller = client.transactions_ach
 
 ## Class Name
 
-`TransactionsACHController`
+`TransactionsAchController`
 
 ## Methods
 
 * [ACH Credit](../../doc/controllers/transactions-ach.md#ach-credit)
-* [ACH Credit - Previous Transaction](../../doc/controllers/transactions-ach.md#ach-credit---previous-transaction)
-* [ACH Credit - Tokenized](../../doc/controllers/transactions-ach.md#ach-credit---tokenized)
+* [ACH Credit-Previous Transaction](../../doc/controllers/transactions-ach.md#ach-credit-previous-transaction)
+* [ACH Credit-Tokenized](../../doc/controllers/transactions-ach.md#ach-credit-tokenized)
 * [ACH Debit](../../doc/controllers/transactions-ach.md#ach-debit)
-* [ACH Debit - Previous Transaction](../../doc/controllers/transactions-ach.md#ach-debit---previous-transaction)
-* [ACH Debit - Tokenized](../../doc/controllers/transactions-ach.md#ach-debit---tokenized)
-* [ACH Refund - Previous Transaction](../../doc/controllers/transactions-ach.md#ach-refund---previous-transaction)
+* [ACH Debit-Previous Transaction](../../doc/controllers/transactions-ach.md#ach-debit-previous-transaction)
+* [ACH Debit-Tokenized](../../doc/controllers/transactions-ach.md#ach-debit-tokenized)
+* [ACH Refund-Previous Transaction](../../doc/controllers/transactions-ach.md#ach-refund-previous-transaction)
 
 
 # ACH Credit
@@ -34,11 +34,11 @@ def ach_credit(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchCreditKeyedRequest`](../../doc/models/v1-transactions-ach-credit-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -47,7 +47,7 @@ body = V1TransactionsAchCreditKeyedRequest(
     transaction_amount=1,
     account_holder_name='smith',
     account_number='24345',
-    account_type=AccountType16Enum.CHECKING,
+    account_type=AccountType16.CHECKING,
     routing_number='051904524',
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
@@ -56,13 +56,11 @@ body = V1TransactionsAchCreditKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -96,15 +94,17 @@ body = V1TransactionsAchCreditKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     ach_identifier='P',
-    ach_sec_code=AchSecCode31Enum.C21,
     effective_date='2021-12-01',
     check_number='8520748520963'
 )
 
 result = transactions_ach_controller.ach_credit(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1158,11 +1158,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Credit - Previous Transaction
+# ACH Credit-Previous Transaction
 
 ACH Transaction that is intended for a Blind Refund, where using a previous transaction id to re process. Must have Fortis approval prior to use.
 
@@ -1177,11 +1177,11 @@ def ach_credit_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchCreditPrevTrxnRequest`](../../doc/models/v1-transactions-ach-credit-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1195,13 +1195,11 @@ body = V1TransactionsAchCreditPrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -1235,16 +1233,18 @@ body = V1TransactionsAchCreditPrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     ach_identifier='P',
-    ach_sec_code=AchSecCode31Enum.C21,
     effective_date='2021-12-01',
     account_holder_name='smith',
     previous_transaction_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
 result = transactions_ach_controller.ach_credit_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2298,11 +2298,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Credit - Tokenized
+# ACH Credit-Tokenized
 
 ACH Transaction using an ACH Token_id that is intended for a Blind Refund, where a previous transaction id is not known. Must have approval prior to use.
 
@@ -2317,11 +2317,11 @@ def ach_credit_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchCreditTokenRequest`](../../doc/models/v1-transactions-ach-credit-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -2335,13 +2335,11 @@ body = V1TransactionsAchCreditTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -2375,9 +2373,7 @@ body = V1TransactionsAchCreditTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     ach_identifier='P',
-    ach_sec_code=AchSecCode31Enum.C21,
     effective_date='2021-12-01',
     account_holder_name='smith',
     account_vault_id='11e95f8ec39de8fbdb0a4f1a',
@@ -2385,7 +2381,11 @@ body = V1TransactionsAchCreditTokenRequest(
 )
 
 result = transactions_ach_controller.ach_credit_tokenized(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -3439,7 +3439,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -3458,11 +3458,11 @@ def ach_debit(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchDebitKeyedRequest`](../../doc/models/v1-transactions-ach-debit-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -3471,7 +3471,7 @@ body = V1TransactionsAchDebitKeyedRequest(
     transaction_amount=1,
     account_holder_name='smith',
     account_number='24345',
-    account_type=AccountType16Enum.CHECKING,
+    account_type=AccountType16.CHECKING,
     routing_number='051904524',
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
@@ -3480,13 +3480,11 @@ body = V1TransactionsAchDebitKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -3520,15 +3518,17 @@ body = V1TransactionsAchDebitKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     ach_identifier='P',
-    ach_sec_code=AchSecCode31Enum.C21,
     effective_date='2021-12-01',
     check_number='8520748520963'
 )
 
 result = transactions_ach_controller.ach_debit(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4582,11 +4582,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Debit - Previous Transaction
+# ACH Debit-Previous Transaction
 
 Create an ACH Sale transaction with a previous ACH transaction_id.
 
@@ -4601,11 +4601,11 @@ def ach_debit_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchDebitPrevTrxnRequest`](../../doc/models/v1-transactions-ach-debit-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -4619,13 +4619,11 @@ body = V1TransactionsAchDebitPrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -4659,16 +4657,18 @@ body = V1TransactionsAchDebitPrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     ach_identifier='P',
-    ach_sec_code=AchSecCode31Enum.C21,
     effective_date='2021-12-01',
     account_holder_name='smith',
     previous_transaction_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
 result = transactions_ach_controller.ach_debit_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -5722,11 +5722,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Debit - Tokenized
+# ACH Debit-Tokenized
 
 Utilize an ACH Token_id previously created to process an ACH Sale transaction.
 
@@ -5741,11 +5741,11 @@ def ach_debit_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchDebitTokenRequest`](../../doc/models/v1-transactions-ach-debit-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -5759,13 +5759,11 @@ body = V1TransactionsAchDebitTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -5799,9 +5797,7 @@ body = V1TransactionsAchDebitTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     ach_identifier='P',
-    ach_sec_code=AchSecCode31Enum.C21,
     effective_date='2021-12-01',
     account_holder_name='smith',
     account_vault_id='11e95f8ec39de8fbdb0a4f1a',
@@ -5809,7 +5805,11 @@ body = V1TransactionsAchDebitTokenRequest(
 )
 
 result = transactions_ach_controller.ach_debit_tokenized(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -6863,11 +6863,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# ACH Refund - Previous Transaction
+# ACH Refund-Previous Transaction
 
 Create a new ACH refund transaction using previous transaction id
 
@@ -6882,11 +6882,11 @@ def ach_refund_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsAchRefundPrevTrxnRequest`](../../doc/models/v1-transactions-ach-refund-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -6900,13 +6900,11 @@ body = V1TransactionsAchRefundPrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -6940,16 +6938,18 @@ body = V1TransactionsAchRefundPrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     ach_identifier='P',
-    ach_sec_code=AchSecCode31Enum.C21,
     effective_date='2021-12-01',
     account_holder_name='smith',
     previous_transaction_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
 result = transactions_ach_controller.ach_refund_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -8003,6 +8003,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

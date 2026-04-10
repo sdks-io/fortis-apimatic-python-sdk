@@ -16,7 +16,7 @@ class BankAccount(object):
         routing_number (str): Nine-digit Bank routing number.
         account_number (str): Bank account number.
         account_holder_name (str): Name on bank account.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -91,9 +91,10 @@ class BankAccount(object):
             if "account_holder_name" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(routing_number,

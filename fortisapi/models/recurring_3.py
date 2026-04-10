@@ -25,15 +25,15 @@ class Recurring3(object):
         end_date (str): End date
         installment_total_count (int): Installment Total Count
         interval (int): Interval
-        interval_type (IntervalTypeEnum): Interval Type
+        interval_type (IntervalType): The model property of type IntervalType.
         location_id (str): Location ID
         notification_days (int): Notification Days
-        payment_method (PaymentMethod1Enum): Payment Method
+        payment_method (PaymentMethod1): The model property of type PaymentMethod1.
         product_transaction_id (str): Product Transaction ID
         recurring_id (str): Recurring ID
         recurring_api_id (str): Recurring Api ID
         start_date (str): Start date
-        status (StatusEnum): Status
+        status (Status): The model property of type Status.
         transaction_amount (int): Transaction amount
         terms_agree (bool): Terms Agree
         terms_agree_ip (str): Terms Agree Ip
@@ -48,10 +48,11 @@ class Recurring3(object):
         next_run_date (str): Next Run Date
         created_ts (int): Created Time Stamp
         modified_ts (int): Modified Time Stamp
-        recurring_type_id (RecurringTypeIdEnum): Recurring Type
+        recurring_type_id (RecurringTypeId): The model property of type
+            RecurringTypeId.
         installment_amount_total (int): Installment Amount Total
         created_user_id (str): User ID Created the register
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -447,9 +448,10 @@ class Recurring3(object):
             if dictionary.get("created_user_id")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(account_vault_id,

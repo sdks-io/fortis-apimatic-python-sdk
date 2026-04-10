@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.http.http_method_enum import (
     HttpMethodEnum,
@@ -48,10 +48,11 @@ class PaymentCardReaderTokenController(BaseController):
                 initialize the card reader
 
         Returns:
-            ResponsePaymentCardReaderToken: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -62,7 +63,8 @@ class PaymentCardReaderTokenController(BaseController):
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
                 .key("product_transaction_id")
-                .value(product_transaction_id))
+                .value(product_transaction_id)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -72,5 +74,6 @@ class PaymentCardReaderTokenController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponsePaymentCardReaderToken.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

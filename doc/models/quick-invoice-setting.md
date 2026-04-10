@@ -3,6 +3,8 @@
 
 Quick Invoice Setting Information on `expand`
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `QuickInvoiceSetting`
@@ -20,6 +22,7 @@ Quick Invoice Setting Information on `expand`
 | `default_notification_days_before_due_date` | `float` | Optional | Default Quick Invoice Notification Days Before Due Date<br><br>**Constraints**: `>= 0`, `<= 60` |
 | `show_custom_fields` | `bool` | Optional | Show Custom Fields |
 | `id` | `str` | Optional | Quick Invoice Settings ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -33,7 +36,11 @@ Quick Invoice Setting Information on `expand`
   "default_notification_days_after_due_date": 7,
   "default_notification_days_before_due_date": 3,
   "show_custom_fields": false,
-  "id": "11e95f8ec39de8fbdb0a4f1a"
+  "id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

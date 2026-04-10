@@ -1,6 +1,8 @@
 
 # Response Declined Recurring Transaction Resend
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `ResponseDeclinedRecurringTransactionResend`
@@ -9,8 +11,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type21Enum`](../../doc/models/type-21-enum.md) | Optional | Resource Type<br><br>**Default**: `"DeclinedRecurringTransactionResend"` |
+| `mtype` | [`Type21`](../../doc/models/type-21.md) | Optional | - |
 | `data` | [`Data5`](../../doc/models/data-5.md) | Optional | - |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -21,7 +24,15 @@
     "id": "id0",
     "email_log_id": "email_log_id2",
     "success": false,
-    "email": "email6"
+    "email": "email6",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

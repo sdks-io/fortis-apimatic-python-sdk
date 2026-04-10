@@ -12,9 +12,9 @@ class ResponseLocation(object):
     """Implementation of the 'responseLocation' model.
 
     Attributes:
-        mtype (Type43Enum): Resource Type
+        mtype (Type43): The model property of type Type43.
         data (Data10): The model property of type Data10.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -32,12 +32,13 @@ class ResponseLocation(object):
 
     def __init__(
         self,
-        mtype="Location",
+        mtype=APIHelper.SKIP,
         data=APIHelper.SKIP,
         additional_properties=None):
         """Initialize a ResponseLocation instance."""
         # Initialize members of the class
-        self.mtype = mtype
+        if mtype is not APIHelper.SKIP:
+            self.mtype = mtype
         if data is not APIHelper.SKIP:
             self.data = data
 
@@ -67,16 +68,17 @@ class ResponseLocation(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else "Location"
+                else APIHelper.SKIP
         data =\
             Data10.from_dictionary(
                 dictionary.get("data"))\
                 if "data" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,

@@ -37,7 +37,7 @@ class Data28(object):
             VISA, MC, and Discover Only
         issuing_network (str): For Discover card types 00 - Discover 01 - Diners 02 -
             JCB (Japanese Credit Bank) 03 - CUP (China Union Pay) 04 PayPal
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -213,9 +213,10 @@ class Data28(object):
             if "issuing_network" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(issuer_bank_name,

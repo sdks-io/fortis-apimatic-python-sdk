@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
@@ -46,18 +46,19 @@ class DeviceTermsController(BaseController):
         """Initialize DeviceTermsController object."""
         super(DeviceTermsController, self).__init__(config)
 
-    def create_a_new_device_term(self,
-                                 body):
+    def createanewdeviceterm(self,
+                             body):
         """Perform a POST request to /v1/device-terms.
 
         Args:
             body (V1DeviceTermsRequest): The request body parameter.
 
         Returns:
-            ResponseTransactionProcessing: Response from the API. Accepted
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Accepted
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -70,7 +71,8 @@ class DeviceTermsController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -81,22 +83,23 @@ class DeviceTermsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionProcessing.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def list_all_device_terms_related(self,
-                                      page=None,
-                                      order=None,
-                                      filter_by=None,
-                                      expand=None,
-                                      format=None,
-                                      typeahead=None,
-                                      fields=None):
+    def listalldevicetermsrelated(self,
+                                  page=None,
+                                  order=None,
+                                  filter_by=None,
+                                  expand=None,
+                                  format=None,
+                                  typeahead=None,
+                                  fields=None):
         """Perform a GET request to /v1/device-terms.
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -120,27 +123,27 @@ class DeviceTermsController(BaseController):
                 "value": "946702799" }, { "key": "created_ts", "operator": "<=",
                 value: "1695061891" }] > >/endpoint?filter_by=[{ "key": "last_name",
                 "operator": "IN", "value": "Williams,Brown,Allman" }] >
-            expand (List[Expand8Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            expand (List[Expand8], optional): Most endpoints in the API have a way to
+                retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field31Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field31], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseDeviceTermsCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -179,32 +182,33 @@ class DeviceTermsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseDeviceTermsCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def view_single_device_term_record(self,
-                                       device_terms_id,
-                                       expand=None,
-                                       fields=None):
+    def viewsingledevicetermrecord(self,
+                                   device_terms_id,
+                                   expand=None,
+                                   fields=None):
         """Perform a GET request to /v1/device-terms/{device_terms_id}.
 
         Args:
             device_terms_id (str): Device term ID
-            expand (List[Expand8Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            fields (List[Field31Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            expand (List[Expand8], optional): Most endpoints in the API have a way to
+                retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            fields (List[Field31], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseDeviceTerm: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -216,6 +220,7 @@ class DeviceTermsController(BaseController):
             .template_param(Parameter()
                 .key("device_terms_id")
                 .value(device_terms_id)
+                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("expand")
@@ -232,5 +237,6 @@ class DeviceTermsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseDeviceTerm.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

@@ -12,9 +12,9 @@ class ResponseRemoveVerification(object):
     """Implementation of the 'responseRemoveVerification' model.
 
     Attributes:
-        mtype (Type134Enum): Resource Type
+        mtype (Type134): The model property of type Type134.
         data (Data32): The model property of type Data32.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -32,12 +32,13 @@ class ResponseRemoveVerification(object):
 
     def __init__(
         self,
-        mtype="RemoveVerification",
+        mtype=APIHelper.SKIP,
         data=APIHelper.SKIP,
         additional_properties=None):
         """Initialize a ResponseRemoveVerification instance."""
         # Initialize members of the class
-        self.mtype = mtype
+        if mtype is not APIHelper.SKIP:
+            self.mtype = mtype
         if data is not APIHelper.SKIP:
             self.data = data
 
@@ -67,16 +68,17 @@ class ResponseRemoveVerification(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else "RemoveVerification"
+                else APIHelper.SKIP
         data =\
             Data32.from_dictionary(
                 dictionary.get("data"))\
                 if "data" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,

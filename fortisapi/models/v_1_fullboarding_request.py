@@ -20,7 +20,7 @@ from fortisapi.models.pricing_element import (
 
 
 class V1FullboardingRequest(object):
-    """Implementation of the 'V1 Fullboarding Request' model.
+    """Implementation of the 'V1FullboardingRequest' model.
 
     Attributes:
         parent_id (str): Location ID
@@ -37,8 +37,7 @@ class V1FullboardingRequest(object):
         website (str): Merchant's business website. >(Required if "ecommerce_percent"
             is greater than 0). >
         phone_number (str): Merchant's phone number.
-        ownership_type (OwnershipTypeEnum): The Ownership Type of the merchant's
-            business.
+        ownership_type (OwnershipType): The model property of type OwnershipType.
         fed_tax_id (str): Federal Tax ID (EIN).
         average_ticket (int): Average Transaction Amount. >Average transaction amount
             rounded to the next dollar. >
@@ -64,10 +63,7 @@ class V1FullboardingRequest(object):
             entity.
         personally_guaranteed (bool): Indicates whether or not the merchant is
             personally guaranteed.
-        preferred_language (PreferredLanguageEnum): Merchant preferred language.
-            English(“en-US”) will be used if no value is supplied. >Merchant
-            preferred language. English(“en-US”) will be used if no value is
-            supplied. >
+        preferred_language (Any): The model property of type Any.
         addresses (List[Address81]): The model property of type List[Address81].
         owners (List[Owner]): The model property of type List[Owner].
         bank_accounts (List[BankAccount1]): The model property of type
@@ -79,9 +75,9 @@ class V1FullboardingRequest(object):
             List[KycResponseObject].
         metadata (Any): Valid JSON of metadata related to merchant.
         signer_ip (str): Signer IP address.
-        sec_codes (List[SecCodeEnum]): Array of SEC codes that will be allowed, Only
+        sec_codes (List[SecCode]): Array of SEC codes that will be allowed, Only
             applicable for ACH. Valid values are 'PPD', 'WEB', 'TEL', 'CCD'.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -143,7 +139,6 @@ class V1FullboardingRequest(object):
         "legal_name",
         "website",
         "ec_monthly_volume",
-        "preferred_language",
         "signer_ip",
     ]
 
@@ -355,7 +350,7 @@ class V1FullboardingRequest(object):
                 else APIHelper.SKIP
         preferred_language =\
             dictionary.get("preferred_language")\
-            if "preferred_language" in dictionary.keys()\
+            if dictionary.get("preferred_language")\
                 else APIHelper.SKIP
         documents = None
         if dictionary.get("documents") is not None:
@@ -394,9 +389,10 @@ class V1FullboardingRequest(object):
             if dictionary.get("sec_codes")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(email,

@@ -1,6 +1,8 @@
 
 # Data
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `Data`
@@ -15,6 +17,7 @@
 | `progress` | `int` | Optional | The current percentage progress<br><br>**Constraints**: `>= 0`, `<= 100` |
 | `error` | `str` | Optional | In case of error processing, it will contain the error details |
 | `ttl` | `int` | Optional | The date (in [Epoch Time](https://en.wikipedia.org/wiki/Unix_time)) this status register is set to expire. Usually 30 days after the request. |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -25,7 +28,11 @@
   "id": "11e95f8ec39de8fbdb0a4f1a",
   "progress": 100,
   "ttl": 7956886942,
-  "error": "error8"
+  "error": "error8",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -1,6 +1,8 @@
 
 # Field 18
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `Field18`
@@ -17,6 +19,7 @@
 | `readonly` | `bool` | Optional | Read Only |
 | `visible` | `bool` | Optional | Visible |
 | `value` | `str` | Optional | Value |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -33,7 +36,11 @@
   ],
   "required": true,
   "readonly": true,
-  "visible": true
+  "visible": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -19,7 +19,7 @@ class Address(object):
         country (str): The alpha 2 or alpha 3 format country code. If alpha 3 is
             provided, it will be converted to alpha 2.
         street (str): Street of contact
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -114,9 +114,10 @@ class Address(object):
             if "street" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(city,

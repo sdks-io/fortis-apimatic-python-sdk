@@ -11,9 +11,9 @@ class Conditions(object):
     """Implementation of the 'Conditions' model.
 
     Attributes:
-        method (MethodEnum): The model property of type MethodEnum.
-        values (ValuesEnum): The model property of type ValuesEnum.
-        additional_properties (Dict[str, object]): The additional properties for the
+        method (Method): The model property of type Method.
+        values (Values): The model property of type Values.
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -73,9 +73,10 @@ class Conditions(object):
             if dictionary.get("values")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(method,

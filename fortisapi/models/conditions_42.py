@@ -11,9 +11,9 @@ class Conditions42(object):
     """Implementation of the 'Conditions42' model.
 
     Attributes:
-        method (Method5Enum): The model property of type Method5Enum.
-        values (Values6Enum): The model property of type Values6Enum.
-        additional_properties (Dict[str, object]): The additional properties for the
+        method (Method5): The model property of type Method5.
+        values (Values6): The model property of type Values6.
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -73,9 +73,10 @@ class Conditions42(object):
             if dictionary.get("values")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(method,

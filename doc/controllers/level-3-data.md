@@ -10,18 +10,18 @@ level_3_data_controller = client.level_3_data
 
 ## Methods
 
-* [Create a New Level 3 Entry for a Master Card](../../doc/controllers/level-3-data.md#create-a-new-level-3-entry-for-a-master-card)
-* [Create a New Level 3 Entry for a Visa](../../doc/controllers/level-3-data.md#create-a-new-level-3-entry-for-a-visa)
-* [Delete a Single Level 3 Record](../../doc/controllers/level-3-data.md#delete-a-single-level-3-record)
-* [View Single Level 3 Record](../../doc/controllers/level-3-data.md#view-single-level-3-record)
+* [Createanew Level 3 Entryfora Master Card](../../doc/controllers/level-3-data.md#createanew-level-3-entryfora-master-card)
+* [Createanew Level 3 Entryfora Visa](../../doc/controllers/level-3-data.md#createanew-level-3-entryfora-visa)
+* [Deleteasinglelevel 3 Record](../../doc/controllers/level-3-data.md#deleteasinglelevel-3-record)
+* [Viewsinglelevel 3 Record](../../doc/controllers/level-3-data.md#viewsinglelevel-3-record)
 
 
-# Create a New Level 3 Entry for a Master Card
+# Createanew Level 3 Entryfora Master Card
 
 ```python
-def create_a_new_level_3_entry_for_a_master_card(self,
-                                                transaction_id,
-                                                body)
+def createanew_level_3_entryfora_master_card(self,
+                                            transaction_id,
+                                            body)
 ```
 
 ## Parameters
@@ -33,7 +33,7 @@ def create_a_new_level_3_entry_for_a_master_card(self,
 
 ## Response Type
 
-[`ResponseTransactionLevel3Master`](../../doc/models/response-transaction-level-3-master.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionLevel3Master`](../../doc/models/response-transaction-level-3-master.md).
 
 ## Example Usage
 
@@ -41,7 +41,7 @@ def create_a_new_level_3_entry_for_a_master_card(self,
 transaction_id = '11e95f8ec39de8fbdb0a4f1a'
 
 body = V1TransactionsLevel3MasterCardRequest(
-    level_3_data=Level3Data5(
+    level_3_data=Level3Data3(
         line_items=[
             LineItem19(
                 description='cool drink',
@@ -49,7 +49,6 @@ body = V1TransactionsLevel3MasterCardRequest(
                 unit_code='gll',
                 unit_cost=10,
                 alternate_tax_id='1234',
-                debit_credit=DebitCreditEnum.C,
                 discount_amount=10,
                 discount_rate=11,
                 quantity=5,
@@ -66,16 +65,19 @@ body = V1TransactionsLevel3MasterCardRequest(
         sales_tax=200,
         shipfrom_zip_code='AZ12345',
         shipto_zip_code='MI48335',
-        tax_amount=0,
-        tax_exempt=TaxExemptEnum.ENUM_0
+        tax_amount=0
     )
 )
 
-result = level_3_data_controller.create_a_new_level_3_entry_for_a_master_card(
+result = level_3_data_controller.createanew_level_3_entryfora_master_card(
     transaction_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -130,16 +132,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Level 3 Entry for a Visa
+# Createanew Level 3 Entryfora Visa
 
 ```python
-def create_a_new_level_3_entry_for_a_visa(self,
-                                         transaction_id,
-                                         body)
+def createanew_level_3_entryfora_visa(self,
+                                     transaction_id,
+                                     body)
 ```
 
 ## Parameters
@@ -151,7 +153,7 @@ def create_a_new_level_3_entry_for_a_visa(self,
 
 ## Response Type
 
-[`ResponseTransactionLevel3Visa`](../../doc/models/response-transaction-level-3-visa.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionLevel3Visa`](../../doc/models/response-transaction-level-3-visa.md).
 
 ## Example Usage
 
@@ -159,7 +161,7 @@ def create_a_new_level_3_entry_for_a_visa(self,
 transaction_id = '11e95f8ec39de8fbdb0a4f1a'
 
 body = V1TransactionsLevel3VisaRequest(
-    level_3_data=Level3Data6(
+    level_3_data=Level3Data4(
         line_items=[
             LineItem20(
                 description='cool drink',
@@ -182,7 +184,6 @@ body = V1TransactionsLevel3VisaRequest(
         shipfrom_zip_code='AZ1234',
         shipto_zip_code='FL1234',
         tax_amount=10,
-        tax_exempt=TaxExemptEnum.ENUM_0,
         customer_vat_registration='12345678',
         merchant_vat_registration='123456',
         order_date='171006',
@@ -192,11 +193,15 @@ body = V1TransactionsLevel3VisaRequest(
     )
 )
 
-result = level_3_data_controller.create_a_new_level_3_entry_for_a_visa(
+result = level_3_data_controller.createanew_level_3_entryfora_visa(
     transaction_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -251,16 +256,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Delete a Single Level 3 Record
+# Deleteasinglelevel 3 Record
 
 ```python
-def delete_a_single_level_3_record(self,
-                                  transaction_id,
-                                  level_3_id)
+def deleteasinglelevel_3_record(self,
+                               transaction_id,
+                               level_3_id)
 ```
 
 ## Parameters
@@ -272,7 +277,7 @@ def delete_a_single_level_3_record(self,
 
 ## Response Type
 
-[`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md).
 
 ## Example Usage
 
@@ -281,11 +286,15 @@ transaction_id = '11e95f8ec39de8fbdb0a4f1a'
 
 level_3_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = level_3_data_controller.delete_a_single_level_3_record(
+result = level_3_data_controller.deleteasinglelevel_3_record(
     transaction_id,
     level_3_id
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -340,15 +349,15 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Level 3 Record
+# Viewsinglelevel 3 Record
 
 ```python
-def view_single_level_3_record(self,
-                              transaction_id,
-                              level_3_id)
+def viewsinglelevel_3_record(self,
+                            transaction_id,
+                            level_3_id)
 ```
 
 ## Parameters
@@ -360,7 +369,7 @@ def view_single_level_3_record(self,
 
 ## Response Type
 
-[`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionLevel3`](../../doc/models/response-transaction-level-3.md).
 
 ## Example Usage
 
@@ -369,11 +378,15 @@ transaction_id = '11e95f8ec39de8fbdb0a4f1a'
 
 level_3_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = level_3_data_controller.view_single_level_3_record(
+result = level_3_data_controller.viewsinglelevel_3_record(
     transaction_id,
     level_3_id
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -428,5 +441,5 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

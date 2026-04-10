@@ -20,7 +20,7 @@ class IdentityVerification2(object):
         ssn_4 (str): The last four of the account_holder social security number.
         dob_year (str): Used for certain ACH transactions where Identity Verification
             is enabled on the terminal being used.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -105,9 +105,10 @@ class IdentityVerification2(object):
             if "dob_year" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(dl_state,

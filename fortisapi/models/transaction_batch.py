@@ -31,7 +31,7 @@ class TransactionBatch(object):
         total_void_count (int): Total Void Count
         total_blind_refund_amount (int): Total Blind Refund Amount
         total_blind_refund_count (int): Total Blind Refund Count
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -243,9 +243,10 @@ class TransactionBatch(object):
             if "total_blind_refund_count" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(id,

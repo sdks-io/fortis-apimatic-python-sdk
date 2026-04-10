@@ -20,28 +20,16 @@ class BroadInfo(object):
     This field is optional.
 
     Attributes:
-        category (CategoryEnum): Indicates the category/type of information. This
-            field is required. >01 - General > >02 - Certificate expiry > >03 - Fraud
-            alert > >04 - Operational alert > >05 - Transactional data > >06 - Other
-            > >80 through 99 - PS-specific value (dependent on the payment scheme
-            type) >
+        category (Category): The model property of type Category.
         description (str): Information to be broadcasted to the recipients. Accepted
             value length is maximum 4000 characters. This field is optional.
         expire_date (str): The date after which the relevance of the broadcasted
             information (e.g., ceritifacte expiration dates) expires. The accepted
             value length is 8 characters. The accepted format is YYYYMMDD.
-        severity (SeverityEnum): Indicates the importance/severity level of the
-            broadcasted information. This field is required. >01 - Critical.
-            Immediate action to be taken by recipient > >02 - Major. Major impact;
-            Upcoming action to be taken by recipient > >03 - Minor. Minor impact;
-            Upcoming action to be taken by recipient > >04 - Informational.
-            Informational only with no immediate action by recipient >
-        recipients (RecipientsEnum): Indicates the intended recipient(s) of the
-            broadcasted information. This field is required. >01 - 3DS SDK > >02 -
-            3DS Server > >03 - DS > >04 - ACS >
-        source (SourceEnum): Indicates the source of the broadcasted information.
-            This field is required. >01 - 3DS Server > >02 - DS > >03 - ACS >
-        additional_properties (Dict[str, object]): The additional properties for the
+        severity (Severity): The model property of type Severity.
+        recipients (Recipients): The model property of type Recipients.
+        source (Source): The model property of type Source.
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -137,9 +125,10 @@ class BroadInfo(object):
             if dictionary.get("source")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(category,

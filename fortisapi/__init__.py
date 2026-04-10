@@ -7,6 +7,7 @@ __all__ = [
     "exceptions",
     "fortisapi_client",
     "http",
+    "logging",
     "models",
     "utilities",
 ]

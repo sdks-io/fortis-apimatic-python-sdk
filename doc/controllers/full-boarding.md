@@ -26,7 +26,7 @@ def merchant_boarding_full(self,
 
 ## Response Type
 
-[`ResponseFullboarding`](../../doc/models/response-fullboarding.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseFullboarding`](../../doc/models/response-fullboarding.md).
 
 ## Example Usage
 
@@ -35,7 +35,7 @@ body = V1FullboardingRequest(
     email='email@domain.com',
     dba_name='Discount Home Goods',
     phone_number='5555551234',
-    ownership_type=OwnershipTypeEnum.LLP,
+    ownership_type=OwnershipType.NP,
     fed_tax_id='0000000000',
     average_ticket=15,
     high_ticket=150,
@@ -54,7 +54,7 @@ body = V1FullboardingRequest(
             state_province='TX',
             postal_code='75087',
             country_code='US',
-            address_type=AddressTypeEnum.LOCATION,
+            address_type=AddressType.CORPORATE,
             address_line_2='Apt 707'
         )
     ],
@@ -84,7 +84,7 @@ body = V1FullboardingRequest(
             account_holder_name='James Bond',
             routing_number='111111111',
             account_number='1234567',
-            account_type=AccountType12Enum.CHECKING,
+            account_type=AccountType12.CHECKING,
             is_primary=True
         )
     ],
@@ -93,12 +93,15 @@ body = V1FullboardingRequest(
     legal_name='Total Home Goods, LLP',
     website='http://www.example.com',
     ec_monthly_volume=22,
-    preferred_language=PreferredLanguageEnum.FRCA,
     signer_ip='192.168.0.10'
 )
 
 result = full_boarding_controller.merchant_boarding_full(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -123,6 +126,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

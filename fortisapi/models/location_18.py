@@ -8,7 +8,7 @@ from fortisapi.api_helper import APIHelper
 from fortisapi.models.additional_access import (
     AdditionalAccess,
 )
-from fortisapi.models.address_1 import Address1
+from fortisapi.models.address_6 import Address6
 
 
 class Location18(object):
@@ -19,7 +19,7 @@ class Location18(object):
         created_ts (int): Created Time Stamp
         modified_ts (int): Modified Time Stamp
         account_number (str): Account number
-        address (Address1): Address
+        address (Address6): The model property of type Address6.
         branding_domain_id (str): GUID for Branding Domain
         contact_email_trx_receipt_default (bool): If true, will email contact receipt
             for any transaction
@@ -41,12 +41,12 @@ class Location18(object):
         show_contact_notes (bool): If set to true will show 'Notes' tab on Contact
         show_contact_files (bool): If set to true will show 'Files' tab on Contact
         created_user_id (str): User ID Created the register
-        location_type (LocationTypeEnum): Location Type
+        location_type (Any): The model property of type Any.
         parent_name (str): Name of the parent location
         ticket_hash_key (str): Ticket Hash Key
         additional_access (AdditionalAccess): The model property of type
             AdditionalAccess.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -130,7 +130,6 @@ class Location18(object):
         "office_ext_phone",
         "tz",
         "created_user_id",
-        "location_type",
         "parent_name",
         "ticket_hash_key",
     ]
@@ -266,7 +265,7 @@ class Location18(object):
             if "account_number" in dictionary.keys()\
                 else APIHelper.SKIP
         address =\
-            Address1.from_dictionary(
+            Address6.from_dictionary(
                 dictionary.get("address"))\
                 if "address" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -348,7 +347,7 @@ class Location18(object):
                 else APIHelper.SKIP
         location_type =\
             dictionary.get("location_type")\
-            if "location_type" in dictionary.keys()\
+            if dictionary.get("location_type")\
                 else APIHelper.SKIP
         parent_name =\
             dictionary.get("parent_name")\
@@ -364,9 +363,10 @@ class Location18(object):
                 if "additional_access" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(id,

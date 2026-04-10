@@ -1,6 +1,8 @@
 
 # Product Transaction 1
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `ProductTransaction1`
@@ -10,14 +12,14 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `processor_version` | `str` | Optional | Processor Version |
-| `industry_type` | [`IndustryTypeEnum`](../../doc/models/industry-type-enum.md) | Optional | Industry Type<br><br>**Constraints**: *Maximum Length*: `45` |
+| `industry_type` | `Any` | Optional | - |
 | `title` | `str` | Optional | Title<br><br>**Constraints**: *Maximum Length*: `64` |
-| `payment_method` | [`PaymentMethodEnum`](../../doc/models/payment-method-enum.md) | Optional | Payment method |
-| `processor` | [`ProcessorEnum`](../../doc/models/processor-enum.md) | Optional | Processor |
+| `payment_method` | [`PaymentMethod`](../../doc/models/payment-method.md) | Optional | - |
+| `processor` | `Any` | Optional | - |
 | `mcc` | `str` | Optional | MCC<br><br>**Constraints**: *Maximum Length*: `4`, *Pattern*: `^\d+$` |
-| `tax_surcharge_config` | [`TaxSurchargeConfigEnum`](../../doc/models/tax-surcharge-config-enum.md) | Optional | Tax Surcharge Config<br><br>**Default**: `2` |
+| `tax_surcharge_config` | `Any` | Optional | - |
 | `terminal_id` | `str` | Optional | Terminal ID<br><br>**Constraints**: *Maximum Length*: `24` |
-| `partner` | [`PartnerEnum`](../../doc/models/partner-enum.md) | Optional | Partner<br><br>**Constraints**: *Maximum Length*: `24` |
+| `partner` | `Any` | Optional | - |
 | `product_ach_pv_store_id` | `str` | Optional | Product Ach Pv Store ID |
 | `invoice_adjustment_title` | `str` | Optional | Invoice Adjustment Title |
 | `location_id` | `str` | Optional | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
@@ -70,7 +72,7 @@
 | `receipt_add_account_above_signature` | `str` | Optional | Receipt Add Account Above Signature<br><br>**Constraints**: *Maximum Length*: `1032` |
 | `receipt_add_recurring_above_signature` | `str` | Optional | Receipt Add Recurring Above Signature<br><br>**Constraints**: *Maximum Length*: `1032` |
 | `receipt_vt_above_signature` | `str` | Optional | Receipt VT Above Signature<br><br>**Constraints**: *Maximum Length*: `1032` |
-| `default_transaction_type` | [`DefaultTransactionTypeEnum`](../../doc/models/default-transaction-type-enum.md) | Optional | Default Transaction Type |
+| `default_transaction_type` | `Any` | Optional | - |
 | `username` | `str` | Optional | Username<br><br>**Constraints**: *Maximum Length*: `512` |
 | `password` | `str` | Optional | Passowrd<br><br>**Constraints**: *Maximum Length*: `512` |
 | `current_batch` | `float` | Optional | Current Batch<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1`, `<= 9999` |
@@ -86,8 +88,8 @@
 | `hosted_payment_page_allow` | `bool` | Optional | Hosted Payment Page Allow |
 | `surcharge_id` | `str` | Optional | Surcharge ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `allow_big_commerce` | `bool` | Optional | Allow Big Commerce |
-| `level_3_default` | [`Level3Default`](../../doc/models/level-3-default.md) | Optional | Level3 Default |
-| `cau_subscribe_type_id` | [`CauSubscribeTypeIdEnum`](../../doc/models/cau-subscribe-type-id-enum.md) | Optional | Cau Subscribe Type ID |
+| `level_3_default` | [`Level3Default1`](../../doc/models/level-3-default-1.md) | Optional | - |
+| `cau_subscribe_type_id` | `Any` | Optional | - |
 | `cau_account_number` | `str` | Optional | Cau Account Number<br><br>**Constraints**: *Minimum Length*: `32`, *Maximum Length*: `32`, *Pattern*: `^[a-zA-Z0-9\-]+$` |
 | `location_billing_account_id` | `str` | Optional | Location Billing Account ID |
 | `product_billing_group_id` | `str` | Optional | Product Billing Group ID |
@@ -110,7 +112,7 @@
 | `allow_secondary_amount` | `bool` | Optional | Allow Retained Amount |
 | `show_google_pay` | `bool` | Optional | Vt Require Street |
 | `show_apple_pay` | `bool` | Optional | Vt Require Street |
-| `batch_risk_config` | [`BatchRiskConfig`](../../doc/models/batch-risk-config.md) | Optional | Batch Risk Config |
+| `batch_risk_config` | [`BatchRiskConfig1`](../../doc/models/batch-risk-config-1.md) | Optional | - |
 | `currency_code` | `float` | Optional | Currency Code |
 | `enable_ach_validation` | `bool` | Optional | Enable ACH Validation |
 | `enable_ach_retry` | `bool` | Optional | Enable ACH Retry |
@@ -129,8 +131,9 @@
 | `is_secondary_amount_allowed` | `bool` | Optional | Allow Retained Amount |
 | `fortis_id` | `str` | Optional | - |
 | `product_billing_group_code` | `str` | Optional | Product Billing Group Code |
-| `cau_subscribe_type_code` | [`CauSubscribeTypeCodeEnum`](../../doc/models/cau-subscribe-type-code-enum.md) | Optional | Cau Subscribe Type Code |
+| `cau_subscribe_type_code` | `Any` | Optional | - |
 | `merchant_code` | `str` | Optional | Merchant Code<br><br>**Constraints**: *Maximum Length*: `24` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -138,11 +141,7 @@
 {
   "processor_version": "1_0_0",
   "title": "My terminal",
-  "payment_method": "cc",
-  "processor": "zgate",
   "mcc": "1111",
-  "tax_surcharge_config": 2,
-  "partner": "standalone",
   "location_id": "11e95f8ec39de8fbdb0a4f1a",
   "vt_clerk_number": true,
   "vt_billing_phone": true,
@@ -191,7 +190,6 @@
   "hosted_payment_page_allow": false,
   "surcharge_id": "11e95f8ec39de8fbdb0a4f1a",
   "allow_big_commerce": false,
-  "cau_subscribe_type_id": 0,
   "location_billing_account_id": "11eb88b873980c64a21e5fd2",
   "product_billing_group_id": "nofees",
   "account_number": "12345678",
@@ -227,8 +225,19 @@
   "is_secondary_amount_allowed": false,
   "fortis_id": "8149742",
   "product_billing_group_code": "nofees",
-  "cau_subscribe_type_code": 0,
-  "industry_type": "ecommerce"
+  "industry_type": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "payment_method": "cash",
+  "processor": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

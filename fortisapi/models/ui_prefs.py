@@ -15,10 +15,10 @@ class UiPrefs(object):
     Attributes:
         entry_page (str): Ui Prefs Entry Page
         page_size (int): Ui Prefs Page Size
-        report_export_type (ReportExportTypeEnum): Ui Prefs Export Type
-        process_method (ProcessMethodEnum): Ui Prefs Process Method
+        report_export_type (Any): The model property of type Any.
+        process_method (Any): The model property of type Any.
         default_terminal (str): Ui Prefs Default Termianl
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -43,8 +43,6 @@ class UiPrefs(object):
     _nullables = [
         "entry_page",
         "page_size",
-        "report_export_type",
-        "process_method",
         "default_terminal",
     ]
 
@@ -102,20 +100,21 @@ class UiPrefs(object):
                 else APIHelper.SKIP
         report_export_type =\
             dictionary.get("report_export_type")\
-            if "report_export_type" in dictionary.keys()\
+            if dictionary.get("report_export_type")\
                 else APIHelper.SKIP
         process_method =\
             dictionary.get("process_method")\
-            if "process_method" in dictionary.keys()\
+            if dictionary.get("process_method")\
                 else APIHelper.SKIP
         default_terminal =\
             dictionary.get("default_terminal")\
             if "default_terminal" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(entry_page,

@@ -11,7 +11,7 @@ class PostbackLog(object):
     """Implementation of the 'PostbackLog' model.
 
     Attributes:
-        postback_status_id (PostbackStatusIdEnum): Postback Status Id
+        postback_status_id (Any): The model property of type Any.
         id (str): Postback Log Id
         postback_config_id (str): Postback Config Id
         changelog_id (str): Changelog Id
@@ -20,7 +20,7 @@ class PostbackLog(object):
         created_ts (int): Created Time Stamp
         model (str): MOdel
         model_id (str): Model Id
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -51,7 +51,6 @@ class PostbackLog(object):
     ]
 
     _nullables = [
-        "postback_status_id",
         "http_verb",
         "next_run_ts",
         "created_ts",
@@ -117,7 +116,7 @@ class PostbackLog(object):
         # Extract variables from the dictionary
         postback_status_id =\
             dictionary.get("postback_status_id")\
-            if "postback_status_id" in dictionary.keys()\
+            if dictionary.get("postback_status_id")\
                 else APIHelper.SKIP
         id =\
             dictionary.get("id")\
@@ -152,9 +151,10 @@ class PostbackLog(object):
             if "model_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(postback_status_id,

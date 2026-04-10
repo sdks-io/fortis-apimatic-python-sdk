@@ -27,7 +27,7 @@ class LineItem20(object):
         unit_code (str): Units of measurement as used in international trade. (See
             Codes for Units of Measurement below for unit code abbreviations)
         unit_cost (int): Unit cost of the item ,Can accept Four (4) decimal places.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -157,9 +157,10 @@ class LineItem20(object):
             if "tax_rate" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(description,

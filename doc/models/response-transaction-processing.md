@@ -1,6 +1,8 @@
 
 # Response Transaction Processing
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `ResponseTransactionProcessing`
@@ -9,8 +11,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type5Enum`](../../doc/models/type-5-enum.md) | Optional | Resource Type<br><br>**Default**: `"TransactionProcessing"` |
+| `mtype` | [`Type5`](../../doc/models/type-5.md) | Optional | - |
 | `data` | [`Data1`](../../doc/models/data-1.md) | Optional | - |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -20,8 +23,20 @@
   "data": {
     "async": {
       "code": "00000038-0000-0000-0000-000000000000",
-      "link": "link8"
+      "link": "link8",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    },
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
     }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

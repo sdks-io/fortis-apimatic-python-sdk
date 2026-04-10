@@ -31,7 +31,7 @@ def cash_refund(self,
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -45,13 +45,11 @@ body = V1TransactionsCashRefundRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -85,13 +83,16 @@ body = V1TransactionsCashRefundRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     previous_transaction_id='11e95f8ec39de8fbdb0a4f1a',
     account_holder_name='smith'
 )
 
 result = transactions_cash_controller.cash_refund(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1145,7 +1146,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -1166,7 +1167,7 @@ def cash_sale(self,
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1180,13 +1181,11 @@ body = V1TransactionsCashSaleRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -1220,12 +1219,15 @@ body = V1TransactionsCashSaleRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     account_holder_name='smith'
 )
 
 result = transactions_cash_controller.cash_sale(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2279,6 +2281,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

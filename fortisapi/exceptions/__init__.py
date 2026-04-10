@@ -4,5 +4,5 @@ __all__ = [
     "api_exception",
     "response_401_token_exception",
     "response_412_exception",
-    "response_error_exception",
+    "v_1_merchant_threedsecure_authentication_400_error_exception",
 ]

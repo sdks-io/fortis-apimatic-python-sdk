@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.http.http_method_enum import (
     HttpMethodEnum,
@@ -40,8 +40,8 @@ class UserVerificationsController(BaseController):
         """Initialize UserVerificationsController object."""
         super(UserVerificationsController, self).__init__(config)
 
-    def get_user_verification(self,
-                              user_verification_id):
+    def getuserverification(self,
+                            user_verification_id):
         """Perform a GET request to
         /v1/user-verifications/{user_verification_id}.
 
@@ -51,10 +51,11 @@ class UserVerificationsController(BaseController):
             user_verification_id (str): The request template parameter.
 
         Returns:
-            ResponseUserVerification: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -66,6 +67,7 @@ class UserVerificationsController(BaseController):
             .template_param(Parameter()
                 .key("user_verification_id")
                 .value(user_verification_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -76,23 +78,24 @@ class UserVerificationsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseUserVerification.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def list_user_verifications(self,
-                                page=None,
-                                order=None,
-                                filter_by=None,
-                                expand=None,
-                                format=None,
-                                typeahead=None,
-                                fields=None):
+    def listuserverifications(self,
+                              page=None,
+                              order=None,
+                              filter_by=None,
+                              expand=None,
+                              format=None,
+                              typeahead=None,
+                              fields=None):
         """Perform a GET request to /v1/user-verifications.
 
         List user verifications
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -121,21 +124,22 @@ class UserVerificationsController(BaseController):
                 For example, if the API request is for the accountvaults endpoint,
                 and the end user also needs to know which contact the token belongs
                 to, this data can be returned in the accountvaults endpoint request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field59Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field59], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseUserVerificationsCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -174,5 +178,6 @@ class UserVerificationsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseUserVerificationsCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

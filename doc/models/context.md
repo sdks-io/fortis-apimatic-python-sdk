@@ -1,6 +1,8 @@
 
 # Context
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `Context`
@@ -11,13 +13,18 @@
 |  --- | --- | --- | --- |
 | `key` | `str` | Optional | - |
 | `label` | `str` | Optional | - |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
   "key": "fieldName",
-  "label": "fieldName"
+  "label": "fieldName",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

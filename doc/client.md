@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.SANDBOX`** |
+| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.PRODUCTION`** |
 | http_client_instance | `Union[Session, HttpClientProvider]` | The Http Client passed from the sdk user for making requests |
 | override_http_client_configuration | `bool` | The value which determines to override properties of the passed Http Client from the sdk user |
 | http_call_back | `HttpCallBack` | The callback value that is invoked before and after an HTTP call is made to an endpoint |
@@ -15,6 +15,7 @@ The following parameters are configurable for the API Client:
 | retry_statuses | `Array of int` | The http statuses on which retry is to be done. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
 | retry_methods | `Array of string` | The http methods on which retry is to be done. <br> **Default: ["GET", "PUT"]** |
 | proxy_settings | [`ProxySettings`](../doc/proxy-settings.md) | Optional proxy configuration to route HTTP requests through a proxy server. |
+| logging_configuration | [`LoggingConfiguration`](../doc/logging-configuration.md) | The SDK logging configuration for API calls |
 | user_id_credentials | [`UserIdCredentials`](auth/custom-header-signature.md) | The credential object for Custom Header Signature |
 | user_api_key_credentials | [`UserApiKeyCredentials`](auth/custom-header-signature-1.md) | The credential object for Custom Header Signature |
 | developer_id_credentials | [`DeveloperIdCredentials`](auth/custom-header-signature-2.md) | The credential object for Custom Header Signature |
@@ -25,12 +26,17 @@ The API client can be initialized as follows:
 ## Code-Based Client Initialization
 
 ```python
+import logging
+
 from fortisapi.configuration import Environment
 from fortisapi.fortisapi_client import FortisapiClient
 from fortisapi.http.auth.access_token import AccessTokenCredentials
 from fortisapi.http.auth.developer_id import DeveloperIdCredentials
 from fortisapi.http.auth.user_api_key import UserApiKeyCredentials
 from fortisapi.http.auth.user_id import UserIdCredentials
+from fortisapi.logging.configuration.api_logging_configuration import LoggingConfiguration
+from fortisapi.logging.configuration.api_logging_configuration import RequestLoggingConfiguration
+from fortisapi.logging.configuration.api_logging_configuration import ResponseLoggingConfiguration
 
 client = FortisapiClient(
     user_id_credentials=UserIdCredentials(
@@ -45,7 +51,16 @@ client = FortisapiClient(
     access_token_credentials=AccessTokenCredentials(
         access_token='access-token'
     ),
-    environment=Environment.SANDBOX
+    environment=Environment.PRODUCTION,
+    logging_configuration=LoggingConfiguration(
+        log_level=logging.INFO,
+        request_logging_config=RequestLoggingConfiguration(
+            log_body=True
+        ),
+        response_logging_config=ResponseLoggingConfiguration(
+            log_headers=True
+        )
+    )
 )
 ```
 
@@ -76,8 +91,8 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | elements | Gets ElementsController |
 | full_boarding | Gets FullBoardingController |
 | locations | Gets LocationsController |
-| m3_ds_authentication | Gets M3DSAuthenticationController |
-| m3_ds_transactions | Gets M3DSTransactionsController |
+| m_3_ds_authentication | Gets M3DsAuthenticationController |
+| m_3_ds_transactions | Gets M3DsTransactionsController |
 | merchant_deposits | Gets MerchantDepositsController |
 | on_boarding | Gets OnBoardingController |
 | paylinks | Gets PaylinksController |
@@ -89,11 +104,11 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | terminals | Gets TerminalsController |
 | tickets | Gets TicketsController |
 | tokens | Gets TokensController |
-| transaction_ach_retries | Gets TransactionACHRetriesController |
-| transactions_ach | Gets TransactionsACHController |
+| transaction_ach_retries | Gets TransactionAchRetriesController |
+| transactions_ach | Gets TransactionsAchController |
 | transactions_cash | Gets TransactionsCashController |
 | transactions_credit_card | Gets TransactionsCreditCardController |
-| transactions_ebt_card | Gets TransactionsEBTCardController |
+| transactions_ebt_card | Gets TransactionsEbtCardController |
 | transactions_read | Gets TransactionsReadController |
 | level_3_data | Gets Level3DataController |
 | transactions_updates | Gets TransactionsUpdatesController |

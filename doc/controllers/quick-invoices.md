@@ -10,23 +10,23 @@ quick_invoices_controller = client.quick_invoices
 
 ## Methods
 
-* [Create a New Quick Invoice](../../doc/controllers/quick-invoices.md#create-a-new-quick-invoice)
-* [List All Quick Invoices Related](../../doc/controllers/quick-invoices.md#list-all-quick-invoices-related)
+* [Createanewquickinvoice](../../doc/controllers/quick-invoices.md#createanewquickinvoice)
+* [Listallquickinvoicesrelated](../../doc/controllers/quick-invoices.md#listallquickinvoicesrelated)
 * [Resend](../../doc/controllers/quick-invoices.md#resend)
-* [Associate Transaction with Ouick Invoice](../../doc/controllers/quick-invoices.md#associate-transaction-with-ouick-invoice)
-* [Remove Transaction from Quick Invoice](../../doc/controllers/quick-invoices.md#remove-transaction-from-quick-invoice)
-* [Delete Quick Invoice](../../doc/controllers/quick-invoices.md#delete-quick-invoice)
-* [View Single Quick Invoice Record](../../doc/controllers/quick-invoices.md#view-single-quick-invoice-record)
-* [Update Quick Invoice](../../doc/controllers/quick-invoices.md#update-quick-invoice)
-* [Reopen Quick Invoice](../../doc/controllers/quick-invoices.md#reopen-quick-invoice)
+* [Associate Transactionwith Ouick Invoice](../../doc/controllers/quick-invoices.md#associate-transactionwith-ouick-invoice)
+* [Removetransactionfrom Quick Invoice](../../doc/controllers/quick-invoices.md#removetransactionfrom-quick-invoice)
+* [Deletequick Invoice](../../doc/controllers/quick-invoices.md#deletequick-invoice)
+* [Viewsinglequickinvoicerecord](../../doc/controllers/quick-invoices.md#viewsinglequickinvoicerecord)
+* [Updatequickinvoice](../../doc/controllers/quick-invoices.md#updatequickinvoice)
+* [Reopenquickinvoice](../../doc/controllers/quick-invoices.md#reopenquickinvoice)
 
 
-# Create a New Quick Invoice
+# Createanewquickinvoice
 
 ```python
-def create_a_new_quick_invoice(self,
-                              body,
-                              expand=None)
+def createanewquickinvoice(self,
+                          body,
+                          expand=None)
 ```
 
 ## Parameters
@@ -34,11 +34,11 @@ def create_a_new_quick_invoice(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1QuickInvoicesRequest`](../../doc/models/v1-quick-invoices-request.md) | Body, Required | - |
-| `expand` | [`List[Expand17Enum]`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand17]`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -88,8 +88,12 @@ body = V1QuickInvoicesRequest(
     auto_reopen=True
 )
 
-result = quick_invoices_controller.create_a_new_quick_invoice(body)
-print(result)
+result = quick_invoices_controller.createanewquickinvoice(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -844,43 +848,43 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Quick Invoices Related
+# Listallquickinvoicesrelated
 
 ```python
-def list_all_quick_invoices_related(self,
-                                   page=None,
-                                   order=None,
-                                   filter_by=None,
-                                   expand=None,
-                                   format=None,
-                                   typeahead=None,
-                                   fields=None)
+def listallquickinvoicesrelated(self,
+                               page=None,
+                               order=None,
+                               filter_by=None,
+                               expand=None,
+                               format=None,
+                               typeahead=None,
+                               fields=None)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`List[Order21]`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filter_by` | [`List[FilterBy]`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`List[Expand17Enum]`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`Format1Enum`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`List[Expand17]`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`Format1`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `str` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`List[Field41Enum]`](../../doc/models/field-41-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`List[Field41]`](../../doc/models/field-41.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseQuickInvoicesCollection`](../../doc/models/response-quick-invoices-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoicesCollection`](../../doc/models/response-quick-invoices-collection.md).
 
 ## Example Usage
 
 ```python
-page = Page(
+page = Page1(
     number=1,
     size=50
 )
@@ -888,24 +892,28 @@ page = Page(
 order = [
     Order21(
         key='first_name',
-        operator=OperatorEnum.ASC
+        operator=Operator.ASC
     )
 ]
 
 filter_by = [
     FilterBy(
         key='first_name',
-        operator=Operator1Enum.ENUM_1,
+        operator=Operator1.ENUM_1,
         value='Fred'
     )
 ]
 
-result = quick_invoices_controller.list_all_quick_invoices_related(
+result = quick_invoices_controller.listallquickinvoicesrelated(
     page=page,
     order=order,
     filter_by=filter_by
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1685,7 +1693,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Resend
@@ -1704,12 +1712,12 @@ def resend(self,
 |  --- | --- | --- | --- |
 | `quick_invoice_id` | `str` | Template, Required | Quick Invoice ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `expand` | `List[str]` | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `email` | [`EmailEnum`](../../doc/models/email-enum.md) | Query, Optional | Resend Email |
-| `sms` | [`SmsEnum`](../../doc/models/sms-enum.md) | Query, Optional | Resend SMS |
+| `email` | [`Email`](../../doc/models/email.md) | Query, Optional | Resend Email |
+| `sms` | [`Sms`](../../doc/models/sms.md) | Query, Optional | Resend SMS |
 
 ## Response Type
 
-[`ResponseQuickInvoiceResend`](../../doc/models/response-quick-invoice-resend.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoiceResend`](../../doc/models/response-quick-invoice-resend.md).
 
 ## Example Usage
 
@@ -1717,7 +1725,11 @@ def resend(self,
 quick_invoice_id = '11e95f8ec39de8fbdb0a4f1a'
 
 result = quick_invoices_controller.resend(quick_invoice_id)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1740,15 +1752,15 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Associate Transaction with Ouick Invoice
+# Associate Transactionwith Ouick Invoice
 
 ```python
-def associate_transaction_with_ouick_invoice(self,
-                                            quick_invoice_id,
-                                            body)
+def associate_transactionwith_ouick_invoice(self,
+                                           quick_invoice_id,
+                                           body)
 ```
 
 ## Parameters
@@ -1760,7 +1772,7 @@ def associate_transaction_with_ouick_invoice(self,
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -1771,11 +1783,15 @@ body = V1QuickInvoicesTransactionRequest(
     transaction_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
-result = quick_invoices_controller.associate_transaction_with_ouick_invoice(
+result = quick_invoices_controller.associate_transactionwith_ouick_invoice(
     quick_invoice_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2530,16 +2546,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Remove Transaction from Quick Invoice
+# Removetransactionfrom Quick Invoice
 
 ```python
-def remove_transaction_from_quick_invoice(self,
-                                         quick_invoice_id,
-                                         body)
+def removetransactionfrom_quick_invoice(self,
+                                       quick_invoice_id,
+                                       body)
 ```
 
 ## Parameters
@@ -2551,7 +2567,7 @@ def remove_transaction_from_quick_invoice(self,
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -2562,11 +2578,15 @@ body = V1QuickInvoicesTransactionRequest(
     transaction_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
-result = quick_invoices_controller.remove_transaction_from_quick_invoice(
+result = quick_invoices_controller.removetransactionfrom_quick_invoice(
     quick_invoice_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -3321,15 +3341,15 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Delete Quick Invoice
+# Deletequick Invoice
 
 ```python
-def delete_quick_invoice(self,
-                        quick_invoice_id)
+def deletequick_invoice(self,
+                       quick_invoice_id)
 ```
 
 ## Parameters
@@ -3340,15 +3360,19 @@ def delete_quick_invoice(self,
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
 ```python
 quick_invoice_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = quick_invoices_controller.delete_quick_invoice(quick_invoice_id)
-print(result)
+result = quick_invoices_controller.deletequick_invoice(quick_invoice_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4103,16 +4127,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Quick Invoice Record
+# Viewsinglequickinvoicerecord
 
 ```python
-def view_single_quick_invoice_record(self,
-                                    quick_invoice_id,
-                                    expand=None,
-                                    fields=None)
+def viewsinglequickinvoicerecord(self,
+                                quick_invoice_id,
+                                expand=None,
+                                fields=None)
 ```
 
 ## Parameters
@@ -4120,20 +4144,24 @@ def view_single_quick_invoice_record(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `quick_invoice_id` | `str` | Template, Required | Quick Invoice ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand17Enum]`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`List[Field41Enum]`](../../doc/models/field-41-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`List[Expand17]`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`List[Field41]`](../../doc/models/field-41.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
 ```python
 quick_invoice_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = quick_invoices_controller.view_single_quick_invoice_record(quick_invoice_id)
-print(result)
+result = quick_invoices_controller.viewsinglequickinvoicerecord(quick_invoice_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4888,19 +4916,19 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update Quick Invoice
+# Updatequickinvoice
 
 NOTE: A quick invoice can not be updated if it is already closed.
 Once a partial payment is made, the item list should not be editable.
 
 ```python
-def update_quick_invoice(self,
-                        quick_invoice_id,
-                        body,
-                        expand=None)
+def updatequickinvoice(self,
+                      quick_invoice_id,
+                      body,
+                      expand=None)
 ```
 
 ## Parameters
@@ -4909,11 +4937,11 @@ def update_quick_invoice(self,
 |  --- | --- | --- | --- |
 | `quick_invoice_id` | `str` | Template, Required | Quick Invoice ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1QuickInvoicesRequest1`](../../doc/models/v1-quick-invoices-request-1.md) | Body, Required | - |
-| `expand` | [`List[Expand17Enum]`](../../doc/models/expand-17-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand17]`](../../doc/models/expand-17.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
@@ -4959,11 +4987,15 @@ body = V1QuickInvoicesRequest1(
     auto_reopen=True
 )
 
-result = quick_invoices_controller.update_quick_invoice(
+result = quick_invoices_controller.updatequickinvoice(
     quick_invoice_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -5718,15 +5750,15 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Reopen Quick Invoice
+# Reopenquickinvoice
 
 ```python
-def reopen_quick_invoice(self,
-                        quick_invoice_id)
+def reopenquickinvoice(self,
+                      quick_invoice_id)
 ```
 
 ## Parameters
@@ -5737,15 +5769,19 @@ def reopen_quick_invoice(self,
 
 ## Response Type
 
-[`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseQuickInvoice`](../../doc/models/response-quick-invoice.md).
 
 ## Example Usage
 
 ```python
 quick_invoice_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = quick_invoices_controller.reopen_quick_invoice(quick_invoice_id)
-print(result)
+result = quick_invoices_controller.reopenquickinvoice(quick_invoice_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -6500,5 +6536,5 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

@@ -6,7 +6,7 @@ transactions_ebt_card_controller = client.transactions_ebt_card
 
 ## Class Name
 
-`TransactionsEBTCardController`
+`TransactionsEbtCardController`
 
 ## Methods
 
@@ -29,11 +29,11 @@ def ebt_voucher_clear_refund(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsEbtVoucherClearRefundKeyedRequest`](../../doc/models/v1-transactions-ebt-voucher-clear-refund-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -49,13 +49,11 @@ body = V1TransactionsEbtVoucherClearRefundKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -90,7 +88,6 @@ body = V1TransactionsEbtVoucherClearRefundKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -100,21 +97,23 @@ body = V1TransactionsEbtVoucherClearRefundKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234'
 )
 
 result = transactions_ebt_card_controller.ebt_voucher_clear_refund(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1168,7 +1167,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -1187,11 +1186,11 @@ def ebt_voucher_clear_sale(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsEbtVoucherClearSaleKeyedRequest`](../../doc/models/v1-transactions-ebt-voucher-clear-sale-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1207,13 +1206,11 @@ body = V1TransactionsEbtVoucherClearSaleKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -1248,7 +1245,6 @@ body = V1TransactionsEbtVoucherClearSaleKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -1258,21 +1254,23 @@ body = V1TransactionsEbtVoucherClearSaleKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234'
 )
 
 result = transactions_ebt_card_controller.ebt_voucher_clear_sale(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2326,6 +2324,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

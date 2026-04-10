@@ -3,6 +3,8 @@
 
 User
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `User`
@@ -15,6 +17,7 @@ User
 | `username` | `str` | Optional | Username |
 | `first_name` | `str` | Optional | First Name |
 | `last_name` | `str` | Optional | Last Name |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -23,7 +26,11 @@ User
   "id": "11e95f8ec39de8fbdb0a4f1a",
   "username": "email@domain.com",
   "first_name": "Bob",
-  "last_name": "Fairview"
+  "last_name": "Fairview",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

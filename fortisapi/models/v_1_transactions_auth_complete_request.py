@@ -8,20 +8,20 @@ from fortisapi.api_helper import APIHelper
 from fortisapi.models.additional_amount import (
     AdditionalAmount,
 )
-from fortisapi.models.billing_address_1 import (
-    BillingAddress1,
+from fortisapi.models.billing_address_2 import (
+    BillingAddress2,
 )
-from fortisapi.models.identity_verification import (
-    IdentityVerification,
+from fortisapi.models.identity_verification_1 import (
+    IdentityVerification1,
 )
 
 
 class V1TransactionsAuthCompleteRequest(object):
-    """Implementation of the 'V1 Transactions Auth Complete Request' model.
+    """Implementation of the 'V1TransactionsAuthCompleteRequest' model.
 
     Attributes:
         additional_amounts (List[AdditionalAmount]): Additional amounts
-        billing_address (BillingAddress1): Billing Address Object
+        billing_address (BillingAddress2): The model property of type BillingAddress2.
         checkin_date (str): Checkin Date - The time difference between checkin_date
             and checkout_date must be less than or equal to 99 days. NOTE: if
             checkin_date is in the future, set the advance_deposit to 1 >Required if
@@ -40,8 +40,9 @@ class V1TransactionsAuthCompleteRequest(object):
         customer_id (str): Can be used by Merchants to identify Contacts in our
             system by an ID from another system.
         description (str): Description
-        identity_verification (IdentityVerification): Identity Verification
-        iias_ind (IiasIndEnum): Possible values are '0', '1','2'
+        identity_verification (IdentityVerification1): The model property of type
+            IdentityVerification1.
+        iias_ind (Any): The model property of type Any.
         image_front (str): A base64 encoded string for the image.  Used with Check21
             ACH transactions.
         image_back (str): A base64 encoded string for the image.  Used with Check21
@@ -56,7 +57,7 @@ class V1TransactionsAuthCompleteRequest(object):
             field is being passed as 1, then this field must have a vlue of 1-999
             specifying the total number of installments on the plan. This number must
             be grater than or equal to installment_number.
-        recurring_flag (RecurringFlagEnum): Recurring Flag
+        recurring_flag (Any): The model property of type Any.
         installment_counter (int): Installment Counter
         installment_total (int): Installment Total
         subscription (bool): Subscription
@@ -119,10 +120,10 @@ class V1TransactionsAuthCompleteRequest(object):
         auto_decline_cvv_override (bool): Auto Decline CVV Override
         auto_decline_street_override (bool): Auto Decline Street Override
         auto_decline_zip_override (bool): Auto Decline Zip Override
-        ebt_type (EbtTypeEnum): EBT Type
+        ebt_type (Any): The model property of type Any.
         deferred_auth (bool): Deferred Auth
         mini_bar (bool): Mini Bar
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -254,12 +255,10 @@ class V1TransactionsAuthCompleteRequest(object):
         "contact_id",
         "customer_id",
         "description",
-        "iias_ind",
         "image_front",
         "image_back",
         "installment_number",
         "installment_count",
-        "recurring_flag",
         "installment_counter",
         "installment_total",
         "location_api_id",
@@ -284,7 +283,6 @@ class V1TransactionsAuthCompleteRequest(object):
         "transaction_c_1",
         "transaction_c_2",
         "transaction_c_3",
-        "ebt_type",
     ]
 
     def __init__(
@@ -494,7 +492,7 @@ class V1TransactionsAuthCompleteRequest(object):
         else:
             additional_amounts = APIHelper.SKIP
         billing_address =\
-            BillingAddress1.from_dictionary(
+            BillingAddress2.from_dictionary(
                 dictionary.get("billing_address"))\
                 if "billing_address" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -531,13 +529,13 @@ class V1TransactionsAuthCompleteRequest(object):
             if "description" in dictionary.keys()\
                 else APIHelper.SKIP
         identity_verification =\
-            IdentityVerification.from_dictionary(
+            IdentityVerification1.from_dictionary(
                 dictionary.get("identity_verification"))\
                 if "identity_verification" in dictionary.keys()\
                 else APIHelper.SKIP
         iias_ind =\
             dictionary.get("iias_ind")\
-            if "iias_ind" in dictionary.keys()\
+            if dictionary.get("iias_ind")\
                 else APIHelper.SKIP
         image_front =\
             dictionary.get("image_front")\
@@ -561,7 +559,7 @@ class V1TransactionsAuthCompleteRequest(object):
                 else APIHelper.SKIP
         recurring_flag =\
             dictionary.get("recurring_flag")\
-            if "recurring_flag" in dictionary.keys()\
+            if dictionary.get("recurring_flag")\
                 else APIHelper.SKIP
         installment_counter =\
             dictionary.get("installment_counter")\
@@ -705,7 +703,7 @@ class V1TransactionsAuthCompleteRequest(object):
                 else APIHelper.SKIP
         ebt_type =\
             dictionary.get("ebt_type")\
-            if "ebt_type" in dictionary.keys()\
+            if dictionary.get("ebt_type")\
                 else APIHelper.SKIP
         deferred_auth =\
             dictionary.get("deferred_auth")\
@@ -716,9 +714,10 @@ class V1TransactionsAuthCompleteRequest(object):
             if "mini_bar" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(additional_amounts,

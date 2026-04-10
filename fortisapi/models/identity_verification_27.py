@@ -24,7 +24,7 @@ class IdentityVerification27(object):
         dob_year (str): Required for certain ACH transactions where Identity
             Verification has been enabled for the terminal.  Either ssn4 or dob_year
             will need to be passed in this scenario but NOT BOTH.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -103,9 +103,10 @@ class IdentityVerification27(object):
             if "dob_year" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(dl_state,

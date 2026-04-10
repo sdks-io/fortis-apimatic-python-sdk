@@ -16,8 +16,8 @@ class List8(object):
         company_id (str): Company Id
         merchant_id (str): Merchant Id
         service (str): Service
-        deposit_types (List[DepositTypeEnum]): The model property of type
-            List[DepositTypeEnum].
+        deposit_types (List[DepositType]): The model property of type
+            List[DepositType].
         deposit_amount (float): Deposit Amount
         batch_amount (float): Batch Amount
         adjustment_amount (float): Adjustment Amount
@@ -32,7 +32,7 @@ class List8(object):
         transaction_date (str): Transaction Date
         deposit_account (str): Deposit Account
         details (List[Detail2]): The model property of type List[Detail2].
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -256,9 +256,10 @@ class List8(object):
         else:
             details = APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(id,

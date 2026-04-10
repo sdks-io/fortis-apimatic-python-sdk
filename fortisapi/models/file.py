@@ -13,7 +13,7 @@ class File(object):
     Attributes:
         file (Any): File Object
         resource_id (str): Resource Id
-        resource (Resource2Enum): Resource
+        resource (Resource2): The model property of type Resource2.
         product_file_id (str): Product File Id
         file_category_id (str): File Category Id
         visibility_group_id (str): Visibility Group Id
@@ -25,7 +25,7 @@ class File(object):
         created_ts (int): Created Time Stamp
         modified_ts (int): Modified Time Stamp
         created_user_id (str): User ID Created the register
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -204,9 +204,10 @@ class File(object):
             if "created_user_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(file,

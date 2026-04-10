@@ -11,12 +11,12 @@ class Method3(object):
     """Implementation of the 'Method3' model.
 
     Attributes:
-        mtype (Type29Enum): Payment type. Must be unique.
+        mtype (Type29): The model property of type Type29.
         product_transaction_id (str): The product_transaction_id of the cc or ach
             deposit account that the transaction is inteded for. Use only the cc or
             ach id to display their respective elements form only. The Product's
             method (cc/ach) has to match the type.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -76,35 +76,15 @@ class Method3(object):
             if dictionary.get("product_transaction_id")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,
                    product_transaction_id,
                    additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""

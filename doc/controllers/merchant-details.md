@@ -26,7 +26,7 @@ def merchant_details(self,
 
 ## Response Type
 
-[`ResponseMerchantDetails`](../../doc/models/response-merchant-details.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseMerchantDetails`](../../doc/models/response-merchant-details.md).
 
 ## Example Usage
 
@@ -36,7 +36,11 @@ body = V1WalletProviderMerchantDetailsRequest(
 )
 
 result = merchant_details_controller.merchant_details(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -62,6 +66,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

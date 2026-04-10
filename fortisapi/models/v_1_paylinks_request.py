@@ -8,7 +8,7 @@ from fortisapi.api_helper import APIHelper
 
 
 class V1PaylinksRequest(object):
-    """Implementation of the 'V1 Paylinks Request' model.
+    """Implementation of the 'V1PaylinksRequest' model.
 
     Attributes:
         location_id (str): Location ID
@@ -40,12 +40,7 @@ class V1PaylinksRequest(object):
             successful payment
         display_billing_fields (bool): Display Billing Fields to show the billing
             field inputs in the paylink form
-        delivery_method (DeliveryMethodEnum): Delivery Method >0 - Do not send, use
-            the expand parameter of payment_url in the create paylink request to
-            obtain the payment_url to embed into your messaging system. > >1 - Email.
-            Will send an email to the provided address in the email field. > >2 -
-            SMS. Text message the Paylink. Check with sales rep for cost. > >3 - Both
-            >
+        delivery_method (Any): The model property of type Any.
         cell_phone (str): Required if delivery_method is set to 2[SMS], 3[Both email
             and sms], this will be the recipient of the SMS
         description (str): Add a Description for reporting purposes
@@ -53,14 +48,13 @@ class V1PaylinksRequest(object):
             used for future payment types(CC Sale Tokenized, ACH Debit Tokenized)
         store_token_title (str): Store Token Title can be used to set the name of the
             token, sucha John Smith
-        paylink_action (PaylinkActionEnum): the action that will be used by the form
-            when making the payment possible values: sale, auth-only
+        paylink_action (Any): The model property of type Any.
         bank_funded_only_override (bool): Bank Funded Only Override
         tags (List[str]): Used to apply tags to a paylink.
         redirect_url_delay (float): Redirect URL Delay in seconds
         redirect_url_on_approve (str): Redirect URL On Approved transactions
         redirect_url_on_decline (str): Redirect URL On Declined transactions
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -128,11 +122,9 @@ class V1PaylinksRequest(object):
         "paylink_api_id",
         "ach_product_transaction_id",
         "expire_date",
-        "delivery_method",
         "cell_phone",
         "description",
         "store_token_title",
-        "paylink_action",
         "tags",
         "redirect_url_delay",
         "redirect_url_on_approve",
@@ -286,7 +278,7 @@ class V1PaylinksRequest(object):
                 else APIHelper.SKIP
         delivery_method =\
             dictionary.get("delivery_method")\
-            if "delivery_method" in dictionary.keys()\
+            if dictionary.get("delivery_method")\
                 else APIHelper.SKIP
         cell_phone =\
             dictionary.get("cell_phone")\
@@ -306,7 +298,7 @@ class V1PaylinksRequest(object):
                 else APIHelper.SKIP
         paylink_action =\
             dictionary.get("paylink_action")\
-            if "paylink_action" in dictionary.keys()\
+            if dictionary.get("paylink_action")\
                 else APIHelper.SKIP
         bank_funded_only_override =\
             dictionary.get("bank_funded_only_override")\
@@ -329,9 +321,10 @@ class V1PaylinksRequest(object):
             if "redirect_url_on_decline" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(amount_due,

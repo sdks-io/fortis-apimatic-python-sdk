@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.http.http_method_enum import (
     HttpMethodEnum,
@@ -57,27 +57,27 @@ class LocationsController(BaseController):
         """Perform a GET request to /v1/location-searches.
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
             keyword (str, optional): You can use any value to search on specific
                 fields of this endpoint results. You can not specify the fields that
                 are used.
-            expand (List[Expand10Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            relationship (RelationshipEnum, optional): Used to filter the type of
+            expand (List[Expand10], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            relationship (Relationship, optional): Used to filter the type of
                 locations that will be returned
 
         Returns:
-            ResponseLocationSearchsCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -107,21 +107,22 @@ class LocationsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseLocationSearchsCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def list_all_locations(self,
-                           page=None,
-                           order=None,
-                           filter_by=None,
-                           expand=None,
-                           format=None,
-                           typeahead=None,
-                           fields=None):
+    def listalllocations(self,
+                         page=None,
+                         order=None,
+                         filter_by=None,
+                         expand=None,
+                         format=None,
+                         typeahead=None,
+                         fields=None):
         """Perform a GET request to /v1/locations.
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -145,27 +146,27 @@ class LocationsController(BaseController):
                 "value": "946702799" }, { "key": "created_ts", "operator": "<=",
                 value: "1695061891" }] > >/endpoint?filter_by=[{ "key": "last_name",
                 "operator": "IN", "value": "Williams,Brown,Allman" }] >
-            expand (List[Expand11Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            expand (List[Expand11], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field33Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field33], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseLocationsCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -204,7 +205,8 @@ class LocationsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseLocationsCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
     def locations_detail(self,
@@ -223,7 +225,7 @@ class LocationsController(BaseController):
         """Perform a GET request to /v1/locations/info.
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -247,20 +249,19 @@ class LocationsController(BaseController):
                 "value": "946702799" }, { "key": "created_ts", "operator": "<=",
                 value: "1695061891" }] > >/endpoint?filter_by=[{ "key": "last_name",
                 "operator": "IN", "value": "Williams,Brown,Allman" }] >
-            expand (List[Expand11Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            expand (List[Expand11], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field34Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field34], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
             product_transaction_active (Any, optional): Product Transaction Active
             product_file_active (Any, optional): Product File Active
@@ -269,10 +270,11 @@ class LocationsController(BaseController):
             product_accountvault_active (Any, optional): Product Accountvault Active
 
         Returns:
-            ResponseLocationInfosCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -326,32 +328,33 @@ class LocationsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseLocationInfosCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def view_single_location_record(self,
-                                    location_id,
-                                    expand=None,
-                                    fields=None):
+    def viewsinglelocationrecord(self,
+                                 location_id,
+                                 expand=None,
+                                 fields=None):
         """Perform a GET request to /v1/locations/{location_id}.
 
         Args:
             location_id (str): Location ID
-            expand (List[Expand11Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            fields (List[Field35Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            expand (List[Expand11], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            fields (List[Field35], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseLocation: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -363,6 +366,7 @@ class LocationsController(BaseController):
             .template_param(Parameter()
                 .key("location_id")
                 .value(location_id)
+                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("expand")
@@ -379,7 +383,8 @@ class LocationsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseLocation.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
     def location_detail(self,
@@ -395,14 +400,13 @@ class LocationsController(BaseController):
 
         Args:
             location_id (str): Location ID
-            expand (List[Expand11Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            fields (List[Field36Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            expand (List[Expand11], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            fields (List[Field36], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
             product_transaction_active (Any, optional): Product Transaction Active
             product_file_active (Any, optional): Product File Active
@@ -411,10 +415,11 @@ class LocationsController(BaseController):
             product_accountvault_active (Any, optional): Product Accountvault Active
 
         Returns:
-            ResponseLocationInfo: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -426,6 +431,7 @@ class LocationsController(BaseController):
             .template_param(Parameter()
                 .key("location_id")
                 .value(location_id)
+                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("expand")
@@ -457,5 +463,6 @@ class LocationsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseLocationInfo.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

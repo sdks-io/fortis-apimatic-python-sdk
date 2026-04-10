@@ -3,6 +3,8 @@
 
 The Location.
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `Location20`
@@ -17,6 +19,7 @@ The Location.
 | `state_province` | `str` | Optional | Merchant's business two-digit state or province code.<br><br>**Constraints**: *Maximum Length*: `2` |
 | `postal_code` | `str` | Optional | Merchant's business postal code.<br><br>**Constraints**: *Maximum Length*: `10` |
 | `phone_number` | `str` | Required | Merchant's business phone number.<br><br>**Constraints**: *Maximum Length*: `20` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@ The Location.
   "city": "Dover",
   "state_province": "DE",
   "postal_code": "55022",
-  "phone_number": "555-555-1212"
+  "phone_number": "555-555-1212",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

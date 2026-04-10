@@ -17,23 +17,23 @@ recurring_controller = client.recurring
 
 ## Methods
 
-* [Create a New Recurring Record](../../doc/controllers/recurring.md#create-a-new-recurring-record)
-* [List All Recurring Record](../../doc/controllers/recurring.md#list-all-recurring-record)
-* [Delete Recurring Record](../../doc/controllers/recurring.md#delete-recurring-record)
-* [View Single Recurring Record](../../doc/controllers/recurring.md#view-single-recurring-record)
-* [Update Recurring Payment](../../doc/controllers/recurring.md#update-recurring-payment)
-* [Activate Recurring Payment](../../doc/controllers/recurring.md#activate-recurring-payment)
-* [Defer Recurring Payment](../../doc/controllers/recurring.md#defer-recurring-payment)
-* [Place on Hold Recurring Payment](../../doc/controllers/recurring.md#place-on-hold-recurring-payment)
-* [Skip Recurring Payment](../../doc/controllers/recurring.md#skip-recurring-payment)
+* [Createanewrecurringrecord](../../doc/controllers/recurring.md#createanewrecurringrecord)
+* [Listallrecurringrecord](../../doc/controllers/recurring.md#listallrecurringrecord)
+* [Deleterecurringrecord](../../doc/controllers/recurring.md#deleterecurringrecord)
+* [Viewsinglerecurringrecord](../../doc/controllers/recurring.md#viewsinglerecurringrecord)
+* [Updaterecurringpayment](../../doc/controllers/recurring.md#updaterecurringpayment)
+* [Activaterecurringpayment](../../doc/controllers/recurring.md#activaterecurringpayment)
+* [Deferrecurringpayment](../../doc/controllers/recurring.md#deferrecurringpayment)
+* [Placeonholdrecurringpayment](../../doc/controllers/recurring.md#placeonholdrecurringpayment)
+* [Skiprecurringpayment](../../doc/controllers/recurring.md#skiprecurringpayment)
 
 
-# Create a New Recurring Record
+# Createanewrecurringrecord
 
 ```python
-def create_a_new_recurring_record(self,
-                                 body,
-                                 expand=None)
+def createanewrecurringrecord(self,
+                             body,
+                             expand=None)
 ```
 
 ## Parameters
@@ -41,18 +41,18 @@ def create_a_new_recurring_record(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1RecurringsRequest`](../../doc/models/v1-recurrings-request.md) | Body, Required | - |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
 ```python
 body = V1RecurringsRequest(
     interval=1,
-    interval_type=IntervalTypeEnum.D,
+    interval_type=IntervalType.M,
     location_id='11e95f8ec39de8fbdb0a4f1a',
     start_date='2021-12-01',
     transaction_amount=300,
@@ -66,11 +66,9 @@ body = V1RecurringsRequest(
     end_date='2021-12-01',
     installment_total_count=20,
     notification_days=2,
-    payment_method=PaymentMethod1Enum.CC,
     product_transaction_id='11e95f8ec39de8fbdb0a4f1a',
     recurring_id='11e95f8ec39de8fbdb0a4f1a',
     recurring_api_id='recurring1234abcd',
-    status=StatusEnum.ACTIVE,
     terms_agree=True,
     terms_agree_ip='192.168.0.10',
     recurring_c_1='recurring custom data 1',
@@ -80,8 +78,12 @@ body = V1RecurringsRequest(
     secondary_amount=100
 )
 
-result = recurring_controller.create_a_new_recurring_record(body)
-print(result)
+result = recurring_controller.createanewrecurringrecord(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -546,43 +548,43 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Recurring Record
+# Listallrecurringrecord
 
 ```python
-def list_all_recurring_record(self,
-                             page=None,
-                             order=None,
-                             filter_by=None,
-                             expand=None,
-                             format=None,
-                             typeahead=None,
-                             fields=None)
+def listallrecurringrecord(self,
+                          page=None,
+                          order=None,
+                          filter_by=None,
+                          expand=None,
+                          format=None,
+                          typeahead=None,
+                          fields=None)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`List[Order21]`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filter_by` | [`List[FilterBy]`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`Format1Enum`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`Format1`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `str` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`List[Field43Enum]`](../../doc/models/field-43-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`List[Field43]`](../../doc/models/field-43.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseRecurringsCollection`](../../doc/models/response-recurrings-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurringsCollection`](../../doc/models/response-recurrings-collection.md).
 
 ## Example Usage
 
 ```python
-page = Page(
+page = Page1(
     number=1,
     size=50
 )
@@ -590,24 +592,28 @@ page = Page(
 order = [
     Order21(
         key='first_name',
-        operator=OperatorEnum.ASC
+        operator=Operator.ASC
     )
 ]
 
 filter_by = [
     FilterBy(
         key='first_name',
-        operator=Operator1Enum.ENUM_1,
+        operator=Operator1.ENUM_1,
         value='Fred'
     )
 ]
 
-result = recurring_controller.list_all_recurring_record(
+result = recurring_controller.listallrecurringrecord(
     page=page,
     order=order,
     filter_by=filter_by
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1097,14 +1103,14 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Delete Recurring Record
+# Deleterecurringrecord
 
 ```python
-def delete_recurring_record(self,
-                           recurring_id)
+def deleterecurringrecord(self,
+                         recurring_id)
 ```
 
 ## Parameters
@@ -1115,15 +1121,19 @@ def delete_recurring_record(self,
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
 ```python
 recurring_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = recurring_controller.delete_recurring_record(recurring_id)
-print(result)
+result = recurring_controller.deleterecurringrecord(recurring_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1588,16 +1598,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Recurring Record
+# Viewsinglerecurringrecord
 
 ```python
-def view_single_recurring_record(self,
-                                recurring_id,
-                                expand=None,
-                                fields=None)
+def viewsinglerecurringrecord(self,
+                             recurring_id,
+                             expand=None,
+                             fields=None)
 ```
 
 ## Parameters
@@ -1605,20 +1615,24 @@ def view_single_recurring_record(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `recurring_id` | `str` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`List[Field43Enum]`](../../doc/models/field-43-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`List[Field43]`](../../doc/models/field-43.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
 ```python
 recurring_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = recurring_controller.view_single_recurring_record(recurring_id)
-print(result)
+result = recurring_controller.viewsinglerecurringrecord(recurring_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2083,16 +2097,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update Recurring Payment
+# Updaterecurringpayment
 
 ```python
-def update_recurring_payment(self,
-                            recurring_id,
-                            body,
-                            expand=None)
+def updaterecurringpayment(self,
+                          recurring_id,
+                          body,
+                          expand=None)
 ```
 
 ## Parameters
@@ -2101,11 +2115,11 @@ def update_recurring_payment(self,
 |  --- | --- | --- | --- |
 | `recurring_id` | `str` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1RecurringsRequest1`](../../doc/models/v1-recurrings-request-1.md) | Body, Required | - |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -2121,15 +2135,12 @@ body = V1RecurringsRequest1(
     end_date='2021-12-01',
     installment_total_count=20,
     interval=1,
-    interval_type=IntervalTypeEnum.D,
     location_id='11e95f8ec39de8fbdb0a4f1a',
     notification_days=2,
-    payment_method=PaymentMethod1Enum.CC,
     product_transaction_id='11e95f8ec39de8fbdb0a4f1a',
     recurring_id='11e95f8ec39de8fbdb0a4f1a',
     recurring_api_id='recurring1234abcd',
     start_date='2021-12-01',
-    status=StatusEnum.ACTIVE,
     transaction_amount=300,
     terms_agree=True,
     terms_agree_ip='192.168.0.10',
@@ -2140,11 +2151,15 @@ body = V1RecurringsRequest1(
     contact_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
-result = recurring_controller.update_recurring_payment(
+result = recurring_controller.updaterecurringpayment(
     recurring_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2609,16 +2624,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Activate Recurring Payment
+# Activaterecurringpayment
 
 ```python
-def activate_recurring_payment(self,
-                              recurring_id,
-                              expand=None)
+def activaterecurringpayment(self,
+                            recurring_id,
+                            expand=None)
 ```
 
 ## Parameters
@@ -2626,19 +2641,23 @@ def activate_recurring_payment(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `recurring_id` | `str` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
 ```python
 recurring_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = recurring_controller.activate_recurring_payment(recurring_id)
-print(result)
+result = recurring_controller.activaterecurringpayment(recurring_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -3103,16 +3122,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Defer Recurring Payment
+# Deferrecurringpayment
 
 ```python
-def defer_recurring_payment(self,
-                           recurring_id,
-                           body,
-                           expand=None)
+def deferrecurringpayment(self,
+                         recurring_id,
+                         body,
+                         expand=None)
 ```
 
 ## Parameters
@@ -3121,11 +3140,11 @@ def defer_recurring_payment(self,
 |  --- | --- | --- | --- |
 | `recurring_id` | `str` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1RecurringsDeferPaymentRequest`](../../doc/models/v1-recurrings-defer-payment-request.md) | Body, Required | - |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -3136,11 +3155,15 @@ body = V1RecurringsDeferPaymentRequest(
     defer_count=5
 )
 
-result = recurring_controller.defer_recurring_payment(
+result = recurring_controller.deferrecurringpayment(
     recurring_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -3605,16 +3628,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Place on Hold Recurring Payment
+# Placeonholdrecurringpayment
 
 ```python
-def place_on_hold_recurring_payment(self,
-                                   recurring_id,
-                                   expand=None)
+def placeonholdrecurringpayment(self,
+                               recurring_id,
+                               expand=None)
 ```
 
 ## Parameters
@@ -3622,19 +3645,23 @@ def place_on_hold_recurring_payment(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `recurring_id` | `str` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
 ```python
 recurring_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = recurring_controller.place_on_hold_recurring_payment(recurring_id)
-print(result)
+result = recurring_controller.placeonholdrecurringpayment(recurring_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4099,16 +4126,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Skip Recurring Payment
+# Skiprecurringpayment
 
 ```python
-def skip_recurring_payment(self,
-                          recurring_id,
-                          body,
-                          expand=None)
+def skiprecurringpayment(self,
+                        recurring_id,
+                        body,
+                        expand=None)
 ```
 
 ## Parameters
@@ -4117,11 +4144,11 @@ def skip_recurring_payment(self,
 |  --- | --- | --- | --- |
 | `recurring_id` | `str` | Template, Required | Recurring ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1RecurringsSkipPaymentRequest`](../../doc/models/v1-recurrings-skip-payment-request.md) | Body, Required | - |
-| `expand` | [`List[Expand26Enum]`](../../doc/models/expand-26-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand26]`](../../doc/models/expand-26.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseRecurring`](../../doc/models/response-recurring.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseRecurring`](../../doc/models/response-recurring.md).
 
 ## Example Usage
 
@@ -4132,11 +4159,15 @@ body = V1RecurringsSkipPaymentRequest(
     skip_count=7
 )
 
-result = recurring_controller.skip_recurring_payment(
+result = recurring_controller.skiprecurringpayment(
     recurring_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4601,6 +4632,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

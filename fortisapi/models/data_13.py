@@ -41,7 +41,7 @@ class Data13(object):
             used to provide proof of authentication.
         eci (str): Payment System-specific value provided by the ACS to indicate the
             results of the attempt to authenticate the Cardholder.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -146,9 +146,10 @@ class Data13(object):
             if dictionary.get("eci")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(three_ds_server_trans_id,

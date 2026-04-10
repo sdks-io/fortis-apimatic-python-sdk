@@ -18,8 +18,8 @@ class ActiveNotificationAlert(object):
         user_location (bool): User Location
         user_contact (bool): User Contact
         include_children (bool): Include Children
-        alert_type (AlertTypeEnum): Alert Type
-        alert_type_id (AlertTypeIdEnum): Alert Type ID
+        alert_type (Any): The model property of type Any.
+        alert_type_id (Any): The model property of type Any.
         description (str): Description
         alert_message (str): Alert Message
         id (str): Notification Alert ID
@@ -27,7 +27,7 @@ class ActiveNotificationAlert(object):
         modified_ts (int): Modified Time Stamp
         created_user_id (str): User ID Created the register
         modified_user_id (str): Last User ID that updated the register
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -74,8 +74,6 @@ class ActiveNotificationAlert(object):
     _nullables = [
         "location_id",
         "location_api_id",
-        "alert_type",
-        "alert_type_id",
         "description",
         "alert_message",
         "created_user_id",
@@ -189,11 +187,11 @@ class ActiveNotificationAlert(object):
                 else APIHelper.SKIP
         alert_type =\
             dictionary.get("alert_type")\
-            if "alert_type" in dictionary.keys()\
+            if dictionary.get("alert_type")\
                 else APIHelper.SKIP
         alert_type_id =\
             dictionary.get("alert_type_id")\
-            if "alert_type_id" in dictionary.keys()\
+            if dictionary.get("alert_type_id")\
                 else APIHelper.SKIP
         description =\
             dictionary.get("description")\
@@ -224,9 +222,10 @@ class ActiveNotificationAlert(object):
             if "modified_user_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(location_id,

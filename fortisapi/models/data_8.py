@@ -12,44 +12,42 @@ class Data8(object):
     """Implementation of the 'Data8' model.
 
     Attributes:
-        action (ActionEnum): The transaction action to be performed with the
-            transaction intention. `sale`, `auth-only`, `avs-only`, `tokenization`.
+        action (Any): The model property of type Any.
         digital_wallets_only (bool): The model property of type bool.
         methods (List[Method3]): By default the system will try to offer all the
             availables payment methods from your account. However, if you need to
             display only cc or ach only use the corresponding product transaction id.
         amount (int): The total transaction amount to be charged with the transaction
             intention. Allowed on the actions: `sale`, `auth-only`, `refund`
-        tax_amount (int | None): Amount of Sales Tax. If supplied, this amount should
-            be already included in the transaction amount. Allowed on the actions:
+        tax_amount (int): Amount of Sales Tax. If supplied, this amount should be
+            already included in the transaction amount. Allowed on the actions:
             `sale`, `auth-only`, `refund`
-        secondary_amount (int | None): secondary_amount is used as a mechanism for
-            partners to collect platform or SaAs fees at a transaction level. This
-            field is intended for use with ISV integrations not standalone merchant
+        secondary_amount (int): secondary_amount is used as a mechanism for partners
+            to collect platform or SaAs fees at a transaction level. This field is
+            intended for use with ISV integrations not standalone merchant
             integrations. Allowed on the actions: `sale`, `auth-only`.
         location_id (str): Location ID
         contact_id (str): Contact ID
-        save_account (bool | None): Specifies to tokenize card/bank information
-            within the transaction. Allowed on the actions: `sale`, `auth-only`,
-            `avs-only`, `refund`. Do not include with `tokeniation` action.
-        save_account_title (str | None): Specifies to tokenize card/bank information
-            within the transaction. Allowed on the actions: `sale`, `auth-only`,
-            `avs-only`, `refund`. Do not include with `tokeniation` action.
-        title (str | None): A title for the token.
-        ach_sec_code (AchSecCodeEnum): SEC code for the transaction if it's an ACH
-            transaction.
-        bank_funded_only_override (bool | None): Bank Funded Only Override. Force the
-            use of a bank funded debit card on debit repayment type transactions.
-        allow_partial_authorization_override (bool | None): Allow partial
-            Authorization Override. Must have Fortis approval for production access.
-        auto_decline_cvv_override (bool | None): Auto Decline Cvv Override
-        auto_decline_street_override (bool | None): Auto Decline Street Override
-        auto_decline_zip_override (bool | None): Auto Decline Zip Override
+        save_account (bool): Specifies to tokenize card/bank information within the
+            transaction. Allowed on the actions: `sale`, `auth-only`, `avs-only`,
+            `refund`. Do not include with `tokeniation` action.
+        save_account_title (str): Specifies to tokenize card/bank information within
+            the transaction. Allowed on the actions: `sale`, `auth-only`, `avs-only`,
+            `refund`. Do not include with `tokeniation` action.
+        title (str): A title for the token.
+        ach_sec_code (Any): The model property of type Any.
+        bank_funded_only_override (bool): Bank Funded Only Override. Force the use of
+            a bank funded debit card on debit repayment type transactions.
+        allow_partial_authorization_override (bool): Allow partial Authorization
+            Override. Must have Fortis approval for production access.
+        auto_decline_cvv_override (bool): Auto Decline Cvv Override
+        auto_decline_street_override (bool): Auto Decline Street Override
+        auto_decline_zip_override (bool): Auto Decline Zip Override
         message (str): A custom text message that displays after the payment is
             processed.
         client_token (str): A JWT to be used to create the elements. > This is a
             one-time only use token. > Do not store for long term use.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -100,16 +98,14 @@ class Data8(object):
     ]
 
     _nullables = [
-        "action",
         "location_id",
         "contact_id",
-        "ach_sec_code",
         "message",
     ]
 
     def __init__(
         self,
-        action="sale",
+        action=APIHelper.SKIP,
         digital_wallets_only=False,
         methods=APIHelper.SKIP,
         amount=APIHelper.SKIP,
@@ -120,7 +116,7 @@ class Data8(object):
         save_account=APIHelper.SKIP,
         save_account_title=APIHelper.SKIP,
         title=APIHelper.SKIP,
-        ach_sec_code="WEB",
+        ach_sec_code=APIHelper.SKIP,
         bank_funded_only_override=APIHelper.SKIP,
         allow_partial_authorization_override=APIHelper.SKIP,
         auto_decline_cvv_override=APIHelper.SKIP,
@@ -131,7 +127,8 @@ class Data8(object):
         additional_properties=None):
         """Initialize a Data8 instance."""
         # Initialize members of the class
-        self.action = action
+        if action is not APIHelper.SKIP:
+            self.action = action
         self.digital_wallets_only = digital_wallets_only
         if methods is not APIHelper.SKIP:
             self.methods = methods
@@ -151,7 +148,8 @@ class Data8(object):
             self.save_account_title = save_account_title
         if title is not APIHelper.SKIP:
             self.title = title
-        self.ach_sec_code = ach_sec_code
+        if ach_sec_code is not APIHelper.SKIP:
+            self.ach_sec_code = ach_sec_code
         if bank_funded_only_override is not APIHelper.SKIP:
             self.bank_funded_only_override = bank_funded_only_override
         if allow_partial_authorization_override is not APIHelper.SKIP:
@@ -187,10 +185,6 @@ class Data8(object):
             object: An instance of this structure class.
 
         """
-        from fortisapi.utilities.union_type_lookup import (
-            UnionTypeLookUp,
-        )
-
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
@@ -198,7 +192,7 @@ class Data8(object):
         action =\
             dictionary.get("action")\
             if dictionary.get("action")\
-                else "sale"
+                else APIHelper.SKIP
         digital_wallets_only =\
             dictionary.get("digitalWalletsOnly")\
             if dictionary.get("digitalWalletsOnly")\
@@ -215,18 +209,14 @@ class Data8(object):
             dictionary.get("amount")\
             if dictionary.get("amount")\
                 else APIHelper.SKIP
-        tax_amount = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8TaxAmount"),
-            dictionary.get("tax_amount"),
-            False)\
-            if dictionary.get("tax_amount") is not None\
-            else APIHelper.SKIP
-        secondary_amount = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8SecondaryAmount"),
-            dictionary.get("secondary_amount"),
-            False)\
-            if dictionary.get("secondary_amount") is not None\
-            else APIHelper.SKIP
+        tax_amount =\
+            dictionary.get("tax_amount")\
+            if dictionary.get("tax_amount")\
+                else APIHelper.SKIP
+        secondary_amount =\
+            dictionary.get("secondary_amount")\
+            if dictionary.get("secondary_amount")\
+                else APIHelper.SKIP
         location_id =\
             dictionary.get("location_id")\
             if "location_id" in dictionary.keys()\
@@ -235,58 +225,42 @@ class Data8(object):
             dictionary.get("contact_id")\
             if "contact_id" in dictionary.keys()\
                 else APIHelper.SKIP
-        save_account = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8SaveAccount"),
-            dictionary.get("save_account"),
-            False)\
-            if dictionary.get("save_account") is not None\
-            else APIHelper.SKIP
-        save_account_title = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8SaveAccountTitle"),
-            dictionary.get("save_account_title"),
-            False)\
-            if dictionary.get("save_account_title") is not None\
-            else APIHelper.SKIP
-        title = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8Title"),
-            dictionary.get("title"),
-            False)\
-            if dictionary.get("title") is not None\
-            else APIHelper.SKIP
+        save_account =\
+            dictionary.get("save_account")\
+            if "save_account" in dictionary.keys()\
+                else APIHelper.SKIP
+        save_account_title =\
+            dictionary.get("save_account_title")\
+            if dictionary.get("save_account_title")\
+                else APIHelper.SKIP
+        title =\
+            dictionary.get("title")\
+            if dictionary.get("title")\
+                else APIHelper.SKIP
         ach_sec_code =\
             dictionary.get("ach_sec_code")\
             if dictionary.get("ach_sec_code")\
-                else "WEB"
-        bank_funded_only_override = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8BankFundedOnlyOverride"),
-            dictionary.get("bank_funded_only_override"),
-            False)\
-            if dictionary.get("bank_funded_only_override") is not None\
-            else APIHelper.SKIP
-        allow_partial_authorization_override = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8AllowPartialAuthorizationOverride"),
-            dictionary.get("allow_partial_authorization_override"),
-            False)\
-            if dictionary.get("allow_partial_authorization_override") is not None\
-            else APIHelper.SKIP
-        auto_decline_cvv_override = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8AutoDeclineCvvOverride"),
-            dictionary.get("auto_decline_cvv_override"),
-            False)\
-            if dictionary.get("auto_decline_cvv_override") is not None\
-            else APIHelper.SKIP
-        auto_decline_street_override = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8AutoDeclineStreetOverride"),
-            dictionary.get("auto_decline_street_override"),
-            False)\
-            if dictionary.get("auto_decline_street_override") is not None\
-            else APIHelper.SKIP
-        auto_decline_zip_override = APIHelper.deserialize_union_type(
-            UnionTypeLookUp.get("Data8AutoDeclineZipOverride"),
-            dictionary.get("auto_decline_zip_override"),
-            False)\
-            if dictionary.get("auto_decline_zip_override") is not None\
-            else APIHelper.SKIP
+                else APIHelper.SKIP
+        bank_funded_only_override =\
+            dictionary.get("bank_funded_only_override")\
+            if "bank_funded_only_override" in dictionary.keys()\
+                else APIHelper.SKIP
+        allow_partial_authorization_override =\
+            dictionary.get("allow_partial_authorization_override")\
+            if "allow_partial_authorization_override" in dictionary.keys()\
+                else APIHelper.SKIP
+        auto_decline_cvv_override =\
+            dictionary.get("auto_decline_cvv_override")\
+            if "auto_decline_cvv_override" in dictionary.keys()\
+                else APIHelper.SKIP
+        auto_decline_street_override =\
+            dictionary.get("auto_decline_street_override")\
+            if "auto_decline_street_override" in dictionary.keys()\
+                else APIHelper.SKIP
+        auto_decline_zip_override =\
+            dictionary.get("auto_decline_zip_override")\
+            if "auto_decline_zip_override" in dictionary.keys()\
+                else APIHelper.SKIP
         message =\
             dictionary.get("message")\
             if "message" in dictionary.keys()\
@@ -296,9 +270,10 @@ class Data8(object):
             if dictionary.get("client_token")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(action,

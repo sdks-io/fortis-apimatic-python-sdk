@@ -49,10 +49,10 @@ from fortisapi.controllers.locations_controller import (
     LocationsController,
 )
 from fortisapi.controllers.m_3_ds_authentication_controller import (
-    M3DSAuthenticationController,
+    M3DsAuthenticationController,
 )
 from fortisapi.controllers.m_3_ds_transactions_controller import (
-    M3DSTransactionsController,
+    M3DsTransactionsController,
 )
 from fortisapi.controllers.merchant_deposits_controller import (
     MerchantDepositsController,
@@ -91,10 +91,10 @@ from fortisapi.controllers.tokens_controller import (
     TokensController,
 )
 from fortisapi.controllers.transaction_ach_retries_controller import (
-    TransactionACHRetriesController,
+    TransactionAchRetriesController,
 )
 from fortisapi.controllers.transactions_ach_controller import (
-    TransactionsACHController,
+    TransactionsAchController,
 )
 from fortisapi.controllers.transactions_cash_controller import (
     TransactionsCashController,
@@ -103,7 +103,7 @@ from fortisapi.controllers.transactions_credit_card_controller import (
     TransactionsCreditCardController,
 )
 from fortisapi.controllers.transactions_ebt_card_controller import (
-    TransactionsEBTCardController,
+    TransactionsEbtCardController,
 )
 from fortisapi.controllers.transactions_read_controller import (
     TransactionsReadController,
@@ -176,14 +176,14 @@ class FortisapiClient(object):
         return LocationsController(self.global_configuration)
 
     @LazyProperty
-    def m3_ds_authentication(self):
-        """Provide access to the M3DSAuthenticationController endpoints."""
-        return M3DSAuthenticationController(self.global_configuration)
+    def m_3_ds_authentication(self):
+        """Provide access to the M3DsAuthenticationController endpoints."""
+        return M3DsAuthenticationController(self.global_configuration)
 
     @LazyProperty
-    def m3_ds_transactions(self):
-        """Provide access to the M3DSTransactionsController endpoints."""
-        return M3DSTransactionsController(self.global_configuration)
+    def m_3_ds_transactions(self):
+        """Provide access to the M3DsTransactionsController endpoints."""
+        return M3DsTransactionsController(self.global_configuration)
 
     @LazyProperty
     def merchant_deposits(self):
@@ -242,13 +242,13 @@ class FortisapiClient(object):
 
     @LazyProperty
     def transaction_ach_retries(self):
-        """Provide access to the TransactionACHRetriesController endpoints."""
-        return TransactionACHRetriesController(self.global_configuration)
+        """Provide access to the TransactionAchRetriesController endpoints."""
+        return TransactionAchRetriesController(self.global_configuration)
 
     @LazyProperty
     def transactions_ach(self):
-        """Provide access to the TransactionsACHController endpoints."""
-        return TransactionsACHController(self.global_configuration)
+        """Provide access to the TransactionsAchController endpoints."""
+        return TransactionsAchController(self.global_configuration)
 
     @LazyProperty
     def transactions_cash(self):
@@ -262,8 +262,8 @@ class FortisapiClient(object):
 
     @LazyProperty
     def transactions_ebt_card(self):
-        """Provide access to the TransactionsEBTCardController endpoints."""
-        return TransactionsEBTCardController(self.global_configuration)
+        """Provide access to the TransactionsEbtCardController endpoints."""
+        return TransactionsEbtCardController(self.global_configuration)
 
     @LazyProperty
     def transactions_read(self):
@@ -309,9 +309,10 @@ class FortisapiClient(object):
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None, proxy_settings=None,
-                 environment=Environment.SANDBOX, user_id_credentials=None,
-                 user_api_key_credentials=None, developer_id_credentials=None,
-                 access_token_credentials=None, config=None):
+                 logging_configuration=None, environment=Environment.PRODUCTION,
+                 user_id_credentials=None, user_api_key_credentials=None,
+                 developer_id_credentials=None, access_token_credentials=None,
+                 config=None):
         """Initialize a new instance of FortisapiClient."""
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
@@ -319,8 +320,9 @@ class FortisapiClient(object):
             http_call_back=http_call_back, timeout=timeout,
             max_retries=max_retries, backoff_factor=backoff_factor,
             retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings, environment=environment,
-            user_id_credentials=user_id_credentials,
+            proxy_settings=proxy_settings,
+            logging_configuration=logging_configuration,
+            environment=environment, user_id_credentials=user_id_credentials,
             user_api_key_credentials=user_api_key_credentials,
             developer_id_credentials=developer_id_credentials,
             access_token_credentials=access_token_credentials)

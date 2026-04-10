@@ -13,8 +13,7 @@ class LineItem19(object):
     Attributes:
         alternate_tax_id (str): Tax identification number of the merchant that
             reported the alternate tax amount.
-        debit_credit (DebitCreditEnum): Indicator used to reflect debit (D) or credit
-            (C) transaction. Allowed values: “D”, “C”.
+        debit_credit (Any): The model property of type Any.
         description (str): Description of the item.
         discount_amount (int): Total discount amount applied against the line item
             total ,Can accept Two (2) decimal places.
@@ -34,7 +33,7 @@ class LineItem19(object):
         unit_code (str): Units of measurement as used in international trade. (See
             Codes for Units of Measurement below for unit code abbreviations)
         unit_cost (int): Unit cost of the item ,Can accept Four (4) decimal places.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -70,7 +69,6 @@ class LineItem19(object):
 
     _nullables = [
         "alternate_tax_id",
-        "debit_credit",
         "discount_amount",
         "discount_rate",
         "quantity",
@@ -166,7 +164,7 @@ class LineItem19(object):
                 else APIHelper.SKIP
         debit_credit =\
             dictionary.get("debit_credit")\
-            if "debit_credit" in dictionary.keys()\
+            if dictionary.get("debit_credit")\
                 else APIHelper.SKIP
         discount_amount =\
             dictionary.get("discount_amount")\
@@ -197,9 +195,10 @@ class LineItem19(object):
             if "tax_type_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(description,

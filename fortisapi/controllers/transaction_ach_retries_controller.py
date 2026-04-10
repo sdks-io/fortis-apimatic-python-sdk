@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
@@ -36,32 +36,32 @@ from fortisapi.models.response_transaction_ach_retrys_collection import (
 )
 
 
-class TransactionACHRetriesController(BaseController):
+class TransactionAchRetriesController(BaseController):
     """A Controller to access Endpoints in the fortisapi API."""
 
     def __init__(self, config):
-        """Initialize TransactionACHRetriesController object."""
-        super(TransactionACHRetriesController, self).__init__(config)
+        """Initialize TransactionAchRetriesController object."""
+        super(TransactionAchRetriesController, self).__init__(config)
 
-    def create_a_transaction_ach_retry(self,
-                                       body,
-                                       expand=None):
+    def createa_transaction_ach_retry(self,
+                                      body,
+                                      expand=None):
         """Perform a POST request to /v1/transaction-ach-retries.
 
         Args:
             body (V1TransactionAchRetriesRequest): The request body parameter.
-            expand (List[Expand57Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand57], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransactionAchRetry: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -74,7 +74,8 @@ class TransactionACHRetriesController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -88,22 +89,23 @@ class TransactionACHRetriesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionAchRetry.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def list_all_transaction_ach_retries_related(self,
-                                                 page=None,
-                                                 order=None,
-                                                 filter_by=None,
-                                                 expand=None,
-                                                 format=None,
-                                                 typeahead=None,
-                                                 fields=None):
+    def listall_transaction_ach_retriesrelated(self,
+                                               page=None,
+                                               order=None,
+                                               filter_by=None,
+                                               expand=None,
+                                               format=None,
+                                               typeahead=None,
+                                               fields=None):
         """Perform a GET request to /v1/transaction-ach-retries.
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -127,27 +129,27 @@ class TransactionACHRetriesController(BaseController):
                 "value": "946702799" }, { "key": "created_ts", "operator": "<=",
                 value: "1695061891" }] > >/endpoint?filter_by=[{ "key": "last_name",
                 "operator": "IN", "value": "Williams,Brown,Allman" }] >
-            expand (List[Expand57Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            expand (List[Expand57], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field55Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field55], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseTransactionAchRetrysCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -186,33 +188,34 @@ class TransactionACHRetriesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionAchRetrysCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def view_single_transaction_ach_retry_record(self,
-                                                 transaction_ach_retry_id,
-                                                 expand=None,
-                                                 fields=None):
+    def viewsingle_transaction_ach_retryrecord(self,
+                                               transaction_ach_retry_id,
+                                               expand=None,
+                                               fields=None):
         """Perform a GET request to
         /v1/transaction-ach-retries/{transaction_ach_retry_id}.
 
         Args:
             transaction_ach_retry_id (str): Transaction ACH Retry ID.
-            expand (List[Expand57Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            fields (List[Field55Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            expand (List[Expand57], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            fields (List[Field55], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseTransactionAchRetry: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -224,6 +227,7 @@ class TransactionACHRetriesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_ach_retry_id")
                 .value(transaction_ach_retry_id)
+                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("expand")
@@ -240,5 +244,6 @@ class TransactionACHRetriesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionAchRetry.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

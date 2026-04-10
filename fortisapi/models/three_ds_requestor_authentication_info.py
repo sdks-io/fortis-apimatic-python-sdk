@@ -11,23 +11,8 @@ class ThreeDsRequestorAuthenticationInfo(object):
     """Implementation of the 'ThreeDsRequestorAuthenticationInfo' model.
 
     Attributes:
-        three_ds_req_auth_method (ThreeDsReqAuthMethodEnum): Mechanism used by the
-            Cardholder to authenticate to the 3DS Requestor. "07" and "08" are
-            accepted as well if 3DS Server initiates authentication with EMV 3DS
-            2.2.0 version or greater (required protocol version can be set in the
-            preferred_protocol_version field) >01 - No 3DS Requestor authentication
-            occurred (i.e. cardholder "logged in" as guest) > >02 - Login to the
-            cardholder account at the 3DS Requestor system using 3DS Requestor's own
-            credentials > >03 - Login to the cardholder account at the 3DS Requestor
-            system using federated ID > >04 - Login to the cardholder account at the
-            3DS Requestor system using issuer credentials > >05 - Login to the
-            cardholder account at the 3DS Requestor system using third-party
-            authentication > >06 - Login to the cardholder account at the 3DS
-            Requestor system using FIDO Authenticator > >07 - Login to the cardholder
-            account at the 3DS Requestor system using FIDO Authenticator (FIDO
-            assurance data signed) (EMV 3DS 2.2.0 version or greater) > >08 - SRC
-            Assurance Data (EMV 3DS 2.2.0 version or greater) > >80 through 99 - can
-            be used for PS-specific values, regardless of protocol version >
+        three_ds_req_auth_method (ThreeDsReqAuthMethod): The model property of type
+            ThreeDsReqAuthMethod.
         three_ds_req_auth_timestamp (str): Date and time converted into UTC of the
             cardholder authentication. Field is limited to 12 characters and accepted
             format is YYYYMMDDHHMM
@@ -45,7 +30,7 @@ class ThreeDsRequestorAuthenticationInfo(object):
             to 2.3.1, this array is limited to a single object. Starting from EMVCo
             version 2.3.1, the array may have 1-3 elements.  This field is optional,
             but recommended to include.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -114,9 +99,10 @@ class ThreeDsRequestorAuthenticationInfo(object):
             if dictionary.get("three_ds_req_auth_data")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(three_ds_req_auth_method,

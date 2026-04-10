@@ -37,7 +37,7 @@ class Data38(object):
             merchants processing Apple Pay.
         message (str): Message with information about the results.
         google_jwt (str): String needed in the Google Pay request.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -142,9 +142,10 @@ class Data38(object):
             if dictionary.get("googleJWT")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(result_code,

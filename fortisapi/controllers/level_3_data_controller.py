@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
@@ -46,9 +46,9 @@ class Level3DataController(BaseController):
         """Initialize Level3DataController object."""
         super(Level3DataController, self).__init__(config)
 
-    def create_a_new_level_3_entry_for_a_master_card(self,
-                                                     transaction_id,
-                                                     body):
+    def createanew_level_3_entryfora_master_card(self,
+                                                 transaction_id,
+                                                 body):
         """Perform a POST request to
         /v1/transactions/{transaction_id}/level3/master-card.
 
@@ -57,10 +57,11 @@ class Level3DataController(BaseController):
             body (V1TransactionsLevel3MasterCardRequest): The request body parameter.
 
         Returns:
-            ResponseTransactionLevel3Master: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -72,12 +73,14 @@ class Level3DataController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -88,13 +91,14 @@ class Level3DataController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionLevel3Master.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def create_a_new_level_3_entry_for_a_visa(self,
-                                              transaction_id,
-                                              body):
+    def createanew_level_3_entryfora_visa(self,
+                                          transaction_id,
+                                          body):
         """Perform a POST request to
         /v1/transactions/{transaction_id}/level3/visa.
 
@@ -103,10 +107,11 @@ class Level3DataController(BaseController):
             body (V1TransactionsLevel3VisaRequest): The request body parameter.
 
         Returns:
-            ResponseTransactionLevel3Visa: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -118,12 +123,14 @@ class Level3DataController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -134,13 +141,14 @@ class Level3DataController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionLevel3Visa.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def delete_a_single_level_3_record(self,
-                                       transaction_id,
-                                       level_3_id):
+    def deleteasinglelevel_3_record(self,
+                                    transaction_id,
+                                    level_3_id):
         """Perform a DELETE request to
         /v1/transactions/{transaction_id}/level3/{level3_id}.
 
@@ -149,10 +157,11 @@ class Level3DataController(BaseController):
             level_3_id (str): Level 3 ID
 
         Returns:
-            ResponseTransactionLevel3: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -164,10 +173,12 @@ class Level3DataController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("level3_id")
                 .value(level_3_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -178,12 +189,13 @@ class Level3DataController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionLevel3.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def view_single_level_3_record(self,
-                                   transaction_id,
-                                   level_3_id):
+    def viewsinglelevel_3_record(self,
+                                 transaction_id,
+                                 level_3_id):
         """Perform a GET request to
         /v1/transactions/{transaction_id}/level3/{level3_id}.
 
@@ -192,10 +204,11 @@ class Level3DataController(BaseController):
             level_3_id (str): Level 3 ID
 
         Returns:
-            ResponseTransactionLevel3: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -207,10 +220,12 @@ class Level3DataController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("level3_id")
                 .value(level_3_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -221,5 +236,6 @@ class Level3DataController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionLevel3.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

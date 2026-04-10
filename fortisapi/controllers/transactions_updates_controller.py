@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
@@ -49,18 +49,18 @@ class TransactionsUpdatesController(BaseController):
 
         Args:
             transaction_id (str): Transaction ID
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -72,6 +72,7 @@ class TransactionsUpdatesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("expand")
@@ -85,13 +86,14 @@ class TransactionsUpdatesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def void_1(self,
-               transaction_id,
-               body,
-               expand=None):
+    def patch_void(self,
+                   transaction_id,
+                   body,
+                   expand=None):
         """Perform a PATCH request to /v1/transactions/{transaction_id}/void.
 
         Void a transaction
@@ -99,18 +101,18 @@ class TransactionsUpdatesController(BaseController):
         Args:
             transaction_id (str): Transaction ID
             body (V1TransactionsVoidRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -122,12 +124,14 @@ class TransactionsUpdatesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -141,7 +145,8 @@ class TransactionsUpdatesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -157,18 +162,18 @@ class TransactionsUpdatesController(BaseController):
         Args:
             transaction_id (str): Transaction ID
             body (V1TransactionsAuthCompleteRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -180,12 +185,14 @@ class TransactionsUpdatesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -199,7 +206,8 @@ class TransactionsUpdatesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -215,18 +223,18 @@ class TransactionsUpdatesController(BaseController):
         Args:
             transaction_id (str): Transaction ID
             body (V1TransactionsAuthIncrementRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -238,12 +246,14 @@ class TransactionsUpdatesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -257,7 +267,8 @@ class TransactionsUpdatesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -273,18 +284,18 @@ class TransactionsUpdatesController(BaseController):
         Args:
             transaction_id (str): Transaction ID
             body (V1TransactionsPartialReversalRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -296,12 +307,14 @@ class TransactionsUpdatesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -315,7 +328,8 @@ class TransactionsUpdatesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -330,18 +344,18 @@ class TransactionsUpdatesController(BaseController):
         Args:
             transaction_id (str): Transaction ID
             body (V1TransactionsRefundRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -353,12 +367,14 @@ class TransactionsUpdatesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -372,7 +388,8 @@ class TransactionsUpdatesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -388,18 +405,18 @@ class TransactionsUpdatesController(BaseController):
         Args:
             transaction_id (str): Transaction ID
             body (V1TransactionsTipAdjustRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -411,12 +428,14 @@ class TransactionsUpdatesController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -430,6 +449,7 @@ class TransactionsUpdatesController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()

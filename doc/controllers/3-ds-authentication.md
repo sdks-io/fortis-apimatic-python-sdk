@@ -1,12 +1,12 @@
 # 3 DS Authentication
 
 ```python
-m_3_ds_authentication_controller = client.m3_ds_authentication
+m_3_ds_authentication_controller = client.m_3_ds_authentication
 ```
 
 ## Class Name
 
-`M3DSAuthenticationController`
+`M3DsAuthenticationController`
 
 
 # 3 DS Authentication Request
@@ -14,8 +14,8 @@ m_3_ds_authentication_controller = client.m3_ds_authentication
 Makes a 3DS Authentication request to authenticate a card or begin the challenge flow.  If a challenge is required, a POST should be made to acs_url using the value of base64_encoded_challenge_request for the value of "creq" using x-www-form-urlencoded for the challenge request to the ACS.
 
 ```python
-def m3_ds_authentication_request(self,
-                                body)
+def m_3_ds_authentication_request(self,
+                                 body)
 ```
 
 ## Parameters
@@ -26,33 +26,36 @@ def m3_ds_authentication_request(self,
 
 ## Response Type
 
-[`ResponseThreeDSAuthentication`](../../doc/models/response-three-ds-authentication.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseThreeDsAuthentication`](../../doc/models/response-three-ds-authentication.md).
 
 ## Example Usage
 
 ```python
 body = V1MerchantThreedsecureAuthenticationRequest(
     product_transaction_id='11ee3860e2fc7f5ea67d36b3',
-    device_channel=DeviceChannelEnum.ENUM_02,
-    message_category=MessageCategoryEnum.ENUM_01,
-    three_ds_requestor=ThreeDsRequestor(
-        three_ds_requestor_authentication_ind=ThreeDsRequestorAuthenticationIndEnum.ENUM_01,
+    device_channel=DeviceChannel.ENUM_02,
+    message_category=MessageCategory.ENUM_82,
+    three_ds_requestor=ThreeDsRequestor1(
+        three_ds_requestor_authentication_ind=ThreeDsRequestorAuthenticationInd.ENUM_90,
         three_ds_requestor_challenge_ind=[
-            ThreeDsRequestorChallengeIndEnum.ENUM_03
+            ThreeDsRequestorChallengeInd.ENUM_03
         ]
     ),
-    cardholder_account=CardholderAccount(
+    cardholder_account=CardholderAccount1(
         account_number='5454545454545454',
-        scheme_id=SchemeIdEnum.VISA,
+        scheme_id=SchemeId.VISA,
         expire_date='2508'
     ),
-    preferred_protocol_version=PreferredProtocolVersionEnum.ENUM_220,
     enforce_preferred_protocol_version=True,
     three_ds_comp_ind='Y'
 )
 
-result = m_3_ds_authentication_controller.m3_ds_authentication_request(body)
-print(result)
+result = m_3_ds_authentication_controller.m_3_ds_authentication_request(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -78,7 +81,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request | [`ResponseErrorException`](../../doc/models/response-error-exception.md) |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 400 | Bad Request | [`V1MerchantThreedsecureAuthentication400ErrorException`](../../doc/models/v1-merchant-threedsecure-authentication-400-error-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

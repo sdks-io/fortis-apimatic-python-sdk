@@ -33,7 +33,7 @@ def ticket_intention(self,
 
 ## Response Type
 
-[`ResponseTicketIntention`](../../doc/models/response-ticket-intention.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTicketIntention`](../../doc/models/response-ticket-intention.md).
 
 ## Example Usage
 
@@ -45,7 +45,11 @@ body = V1ElementsTicketIntentionRequest(
 )
 
 result = elements_controller.ticket_intention(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -66,7 +70,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -87,22 +91,24 @@ def transaction_intention(self,
 
 ## Response Type
 
-[`ResponseTransactionIntention`](../../doc/models/response-transaction-intention.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionIntention`](../../doc/models/response-transaction-intention.md).
 
 ## Example Usage
 
 ```python
 body = V1ElementsTransactionIntentionRequest(
-    action=ActionEnum.SALE,
     digital_wallets_only=False,
     amount=1099,
     location_id='11e95f8ec39de8fbdb0a4f1a',
-    contact_id='11e95f8ec39de8fbdb0a4f1a',
-    ach_sec_code=AchSecCodeEnum.WEB
+    contact_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
 result = elements_controller.transaction_intention(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -131,6 +137,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

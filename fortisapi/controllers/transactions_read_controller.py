@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.http.http_method_enum import (
     HttpMethodEnum,
@@ -53,10 +53,11 @@ class TransactionsReadController(BaseController):
             transaction_id (str): Transaction ID
 
         Returns:
-            ResponseTransactionBinInfo: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -68,6 +69,7 @@ class TransactionsReadController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -78,7 +80,8 @@ class TransactionsReadController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionBinInfo.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
     def get_transaction(self,
@@ -91,21 +94,21 @@ class TransactionsReadController(BaseController):
 
         Args:
             transaction_id (str): Transaction ID
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            fields (List[Field57Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            fields (List[Field57], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -117,6 +120,7 @@ class TransactionsReadController(BaseController):
             .template_param(Parameter()
                 .key("transaction_id")
                 .value(transaction_id)
+                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("expand")
@@ -133,7 +137,8 @@ class TransactionsReadController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
     def list_transactions(self,
@@ -149,7 +154,7 @@ class TransactionsReadController(BaseController):
         List transactions
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -173,27 +178,27 @@ class TransactionsReadController(BaseController):
                 "value": "946702799" }, { "key": "created_ts", "operator": "<=",
                 value: "1695061891" }] > >/endpoint?filter_by=[{ "key": "last_name",
                 "operator": "IN", "value": "Williams,Brown,Allman" }] >
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field57Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field57], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
 
         Returns:
-            ResponseTransactionsCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -232,5 +237,6 @@ class TransactionsReadController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionsCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

@@ -26,7 +26,7 @@ class ProductRecurring(object):
         modified_ts (int): Modified Time Stamp
         created_user_id (str): Created User Id
         modified_user_id (str): Modified User Id
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -192,9 +192,10 @@ class ProductRecurring(object):
             if "modified_user_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(title,

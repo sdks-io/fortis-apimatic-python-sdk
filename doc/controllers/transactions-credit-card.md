@@ -11,49 +11,49 @@ transactions_credit_card_controller = client.transactions_credit_card
 ## Methods
 
 * [CC Auth Only](../../doc/controllers/transactions-credit-card.md#cc-auth-only)
-* [CC Auth Only - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-auth-only---previous-transaction)
-* [CC Auth Only - Swiped](../../doc/controllers/transactions-credit-card.md#cc-auth-only---swiped)
-* [CC Auth Only - Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-auth-only---tap-to-pay)
-* [CC Auth Only - Terminal](../../doc/controllers/transactions-credit-card.md#cc-auth-only---terminal)
-* [CC Auth Only - Ticket](../../doc/controllers/transactions-credit-card.md#cc-auth-only---ticket)
-* [CC Auth Only - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-auth-only---tokenized)
-* [CC Auth Only - Wallet](../../doc/controllers/transactions-credit-card.md#cc-auth-only---wallet)
-* [CC AVS](../../doc/controllers/transactions-credit-card.md#cc-avs)
-* [CC AVS - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-avs---previous-transaction)
-* [CC AVS - Swiped](../../doc/controllers/transactions-credit-card.md#cc-avs---swiped)
-* [CC AVS - Terminal](../../doc/controllers/transactions-credit-card.md#cc-avs---terminal)
-* [CC AVS - Ticket](../../doc/controllers/transactions-credit-card.md#cc-avs---ticket)
-* [CC AVS - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-avs---tokenized)
-* [CC AVS - Wallet](../../doc/controllers/transactions-credit-card.md#cc-avs---wallet)
+* [CC Auth Only-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-auth-only-previous-transaction)
+* [CC Auth Only-Swiped](../../doc/controllers/transactions-credit-card.md#cc-auth-only-swiped)
+* [CC Auth Only-Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-auth-only-tap-to-pay)
+* [CC Auth Only-Terminal](../../doc/controllers/transactions-credit-card.md#cc-auth-only-terminal)
+* [CC Auth Only-Ticket](../../doc/controllers/transactions-credit-card.md#cc-auth-only-ticket)
+* [CC Auth Only-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-auth-only-tokenized)
+* [CC Auth Only-Wallet](../../doc/controllers/transactions-credit-card.md#cc-auth-only-wallet)
+* [CCAVS](../../doc/controllers/transactions-credit-card.md#ccavs)
+* [CCAVS-Previous Transaction](../../doc/controllers/transactions-credit-card.md#ccavs-previous-transaction)
+* [CCAVS-Swiped](../../doc/controllers/transactions-credit-card.md#ccavs-swiped)
+* [CCAVS-Terminal](../../doc/controllers/transactions-credit-card.md#ccavs-terminal)
+* [CCAVS-Ticket](../../doc/controllers/transactions-credit-card.md#ccavs-ticket)
+* [CCAVS-Tokenized](../../doc/controllers/transactions-credit-card.md#ccavs-tokenized)
+* [CCAVS-Wallet](../../doc/controllers/transactions-credit-card.md#ccavs-wallet)
 * [CC Balance Inquiry](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry)
-* [CC Balance Inquiry - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---previous-transaction)
-* [CC Balance Inquiry - Swiped](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---swiped)
-* [CC Balance Inquiry - Terminal](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---terminal)
-* [CC Balance Inquiry - Ticket](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---ticket)
-* [CC Balance Inquiry - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---tokenized)
-* [CC Balance Inquiry - Wallet](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry---wallet)
+* [CC Balance Inquiry-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-previous-transaction)
+* [CC Balance Inquiry-Swiped](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-swiped)
+* [CC Balance Inquiry-Terminal](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-terminal)
+* [CC Balance Inquiry-Ticket](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-ticket)
+* [CC Balance Inquiry-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-tokenized)
+* [CC Balance Inquiry-Wallet](../../doc/controllers/transactions-credit-card.md#cc-balance-inquiry-wallet)
 * [CC Force](../../doc/controllers/transactions-credit-card.md#cc-force)
-* [CC Force - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-force---previous-transaction)
-* [CC Force - Swiped](../../doc/controllers/transactions-credit-card.md#cc-force---swiped)
-* [CC Force - Ticket](../../doc/controllers/transactions-credit-card.md#cc-force---ticket)
-* [CC Force - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-force---tokenized)
-* [CC Force - Wallet](../../doc/controllers/transactions-credit-card.md#cc-force---wallet)
+* [CC Force-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-force-previous-transaction)
+* [CC Force-Swiped](../../doc/controllers/transactions-credit-card.md#cc-force-swiped)
+* [CC Force-Ticket](../../doc/controllers/transactions-credit-card.md#cc-force-ticket)
+* [CC Force-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-force-tokenized)
+* [CC Force-Wallet](../../doc/controllers/transactions-credit-card.md#cc-force-wallet)
 * [CC Refund](../../doc/controllers/transactions-credit-card.md#cc-refund)
-* [CC Refund - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-refund---previous-transaction)
-* [CC Refund - Swiped](../../doc/controllers/transactions-credit-card.md#cc-refund---swiped)
-* [CC Refund - Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-refund---tap-to-pay)
-* [CC Refund - Terminal](../../doc/controllers/transactions-credit-card.md#cc-refund---terminal)
-* [CC Refund - Ticket](../../doc/controllers/transactions-credit-card.md#cc-refund---ticket)
-* [CC Refund - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-refund---tokenized)
-* [CC Refund - Wallet](../../doc/controllers/transactions-credit-card.md#cc-refund---wallet)
+* [CC Refund-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-refund-previous-transaction)
+* [CC Refund-Swiped](../../doc/controllers/transactions-credit-card.md#cc-refund-swiped)
+* [CC Refund-Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-refund-tap-to-pay)
+* [CC Refund-Terminal](../../doc/controllers/transactions-credit-card.md#cc-refund-terminal)
+* [CC Refund-Ticket](../../doc/controllers/transactions-credit-card.md#cc-refund-ticket)
+* [CC Refund-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-refund-tokenized)
+* [CC Refund-Wallet](../../doc/controllers/transactions-credit-card.md#cc-refund-wallet)
 * [CC Sale](../../doc/controllers/transactions-credit-card.md#cc-sale)
-* [CC Sale - Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-sale---previous-transaction)
-* [CC Sale - Swiped](../../doc/controllers/transactions-credit-card.md#cc-sale---swiped)
-* [CC Sale - Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-sale---tap-to-pay)
-* [CC Sale - Terminal](../../doc/controllers/transactions-credit-card.md#cc-sale---terminal)
-* [CC Sale - Ticket](../../doc/controllers/transactions-credit-card.md#cc-sale---ticket)
-* [CC Sale - Tokenized](../../doc/controllers/transactions-credit-card.md#cc-sale---tokenized)
-* [CC Sale - Wallet](../../doc/controllers/transactions-credit-card.md#cc-sale---wallet)
+* [CC Sale-Previous Transaction](../../doc/controllers/transactions-credit-card.md#cc-sale-previous-transaction)
+* [CC Sale-Swiped](../../doc/controllers/transactions-credit-card.md#cc-sale-swiped)
+* [CC Sale-Tap to Pay](../../doc/controllers/transactions-credit-card.md#cc-sale-tap-to-pay)
+* [CC Sale-Terminal](../../doc/controllers/transactions-credit-card.md#cc-sale-terminal)
+* [CC Sale-Ticket](../../doc/controllers/transactions-credit-card.md#cc-sale-ticket)
+* [CC Sale-Tokenized](../../doc/controllers/transactions-credit-card.md#cc-sale-tokenized)
+* [CC Sale-Wallet](../../doc/controllers/transactions-credit-card.md#cc-sale-wallet)
 
 
 # CC Auth Only
@@ -71,11 +71,11 @@ def cc_auth_only(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyKeyedRequest`](../../doc/models/v1-transactions-cc-auth-only-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -91,13 +91,11 @@ body = V1TransactionsCcAuthOnlyKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -131,7 +129,6 @@ body = V1TransactionsCcAuthOnlyKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -141,21 +138,23 @@ body = V1TransactionsCcAuthOnlyKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234'
 )
 
 result = transactions_credit_card_controller.cc_auth_only(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1209,11 +1208,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Previous Transaction
+# CC Auth Only-Previous Transaction
 
 Create a new Credit Card authorization only transaction using previous transaction id
 
@@ -1228,11 +1227,11 @@ def cc_auth_only_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyPrevTrxnRequest`](../../doc/models/v1-transactions-cc-auth-only-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -1245,13 +1244,11 @@ body = V1TransactionsCcAuthOnlyPrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -1286,7 +1283,6 @@ body = V1TransactionsCcAuthOnlyPrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -1296,7 +1292,6 @@ body = V1TransactionsCcAuthOnlyPrevTrxnRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -1307,7 +1302,11 @@ body = V1TransactionsCcAuthOnlyPrevTrxnRequest(
 )
 
 result = transactions_credit_card_controller.cc_auth_only_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2361,11 +2360,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Swiped
+# CC Auth Only-Swiped
 
 Create a new swiped Credit Card authorization only transaction
 
@@ -2380,11 +2379,11 @@ def cc_auth_only_swiped(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlySwipedRequest`](../../doc/models/v1-transactions-cc-auth-only-swiped-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -2399,13 +2398,11 @@ body = V1TransactionsCcAuthOnlySwipedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -2439,7 +2436,6 @@ body = V1TransactionsCcAuthOnlySwipedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -2449,18 +2445,20 @@ body = V1TransactionsCcAuthOnlySwipedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
-    entry_mode_id=EntryModeIdEnum.K,
     account_holder_name='smith'
 )
 
 result = transactions_credit_card_controller.cc_auth_only_swiped(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -3514,11 +3512,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Tap to Pay
+# CC Auth Only-Tap to Pay
 
 Create a new Tap To Pay Credit Card authorization only transaction
 
@@ -3533,11 +3531,11 @@ def cc_auth_only_tap_to_pay(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyTaptopayRequest`](../../doc/models/v1-transactions-cc-auth-only-taptopay-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -3552,13 +3550,11 @@ body = V1TransactionsCcAuthOnlyTaptopayRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -3593,13 +3589,11 @@ body = V1TransactionsCcAuthOnlyTaptopayRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
     secure_directory_server_transaction_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     terminal_serial_number='1234567890',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -3608,7 +3602,11 @@ body = V1TransactionsCcAuthOnlyTaptopayRequest(
 )
 
 result = transactions_credit_card_controller.cc_auth_only_tap_to_pay(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4662,11 +4660,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Terminal
+# CC Auth Only-Terminal
 
 Create a new terminal Credit Card authorization only transaction
 
@@ -4683,7 +4681,7 @@ def cc_auth_only_terminal(self,
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -4699,13 +4697,11 @@ body = V1TransactionsCcAuthOnlyTerminalRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -4737,7 +4733,6 @@ body = V1TransactionsCcAuthOnlyTerminalRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -4747,17 +4742,19 @@ body = V1TransactionsCcAuthOnlyTerminalRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
-    ebt_cash_eligible_amount=0,
-    e_format=EFormatEnum.MAGNESAFE
+    ebt_cash_eligible_amount=0
 )
 
 result = transactions_credit_card_controller.cc_auth_only_terminal(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4778,11 +4775,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Ticket
+# CC Auth Only-Ticket
 
 Create a new ticket Credit Card authorization only transaction
 
@@ -4797,11 +4794,11 @@ def cc_auth_only_ticket(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyTicketRequest`](../../doc/models/v1-transactions-cc-auth-only-ticket-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -4816,13 +4813,11 @@ body = V1TransactionsCcAuthOnlyTicketRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -4856,7 +4851,6 @@ body = V1TransactionsCcAuthOnlyTicketRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -4866,7 +4860,6 @@ body = V1TransactionsCcAuthOnlyTicketRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -4876,7 +4869,11 @@ body = V1TransactionsCcAuthOnlyTicketRequest(
 )
 
 result = transactions_credit_card_controller.cc_auth_only_ticket(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -5930,11 +5927,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Tokenized
+# CC Auth Only-Tokenized
 
 Create a new tokenized Credit Card authorization only transaction
 
@@ -5949,11 +5946,11 @@ def cc_auth_only_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyTokenRequest`](../../doc/models/v1-transactions-cc-auth-only-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -5967,13 +5964,11 @@ body = V1TransactionsCcAuthOnlyTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -6007,7 +6002,6 @@ body = V1TransactionsCcAuthOnlyTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -6017,7 +6011,6 @@ body = V1TransactionsCcAuthOnlyTokenRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -6028,7 +6021,11 @@ body = V1TransactionsCcAuthOnlyTokenRequest(
 )
 
 result = transactions_credit_card_controller.cc_auth_only_tokenized(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -7082,11 +7079,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Auth Only - Wallet
+# CC Auth Only-Wallet
 
 Create a new Wallet Credit Card authorization only transaction
 
@@ -7101,11 +7098,11 @@ def cc_auth_only_wallet(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAuthOnlyWalletRequest`](../../doc/models/v1-transactions-cc-auth-only-wallet-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -7113,7 +7110,7 @@ def cc_auth_only_wallet(self,
 body = V1TransactionsCcAuthOnlyWalletRequest(
     transaction_amount=1,
     wallet_data='wallet_data2',
-    wallet_provider=WalletProviderEnum.GOOGLEPAY,
+    wallet_provider=WalletProvider.GOOGLEPAY,
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
     clerk_number='AE1234',
@@ -7121,13 +7118,11 @@ body = V1TransactionsCcAuthOnlyWalletRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -7161,7 +7156,6 @@ body = V1TransactionsCcAuthOnlyWalletRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -7171,7 +7165,6 @@ body = V1TransactionsCcAuthOnlyWalletRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -7182,7 +7175,11 @@ body = V1TransactionsCcAuthOnlyWalletRequest(
 )
 
 result = transactions_credit_card_controller.cc_auth_only_wallet(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -8236,18 +8233,18 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS
+# CCAVS
 
 Create a new keyed Credit Card AVS only transaction
 
 ```python
-def cc_avs(self,
-          body,
-          expand=None)
+def ccavs(self,
+         body,
+         expand=None)
 ```
 
 ## Parameters
@@ -8255,11 +8252,11 @@ def cc_avs(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyKeyedRequest`](../../doc/models/v1-transactions-cc-avs-only-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -8274,13 +8271,11 @@ body = V1TransactionsCcAvsOnlyKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -8315,7 +8310,6 @@ body = V1TransactionsCcAvsOnlyKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -8325,21 +8319,23 @@ body = V1TransactionsCcAvsOnlyKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234'
 )
 
-result = transactions_credit_card_controller.cc_avs(body)
-print(result)
+result = transactions_credit_card_controller.ccavs(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -9393,18 +9389,18 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Previous Transaction
+# CCAVS-Previous Transaction
 
 Create a new Credit Card AVS only transaction using previous transaction id
 
 ```python
-def cc_avs_previous_transaction(self,
-                               body,
-                               expand=None)
+def ccavs_previous_transaction(self,
+                              body,
+                              expand=None)
 ```
 
 ## Parameters
@@ -9412,11 +9408,11 @@ def cc_avs_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyPrevTrxnRequest`](../../doc/models/v1-transactions-cc-avs-only-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -9429,13 +9425,11 @@ body = V1TransactionsCcAvsOnlyPrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -9470,7 +9464,6 @@ body = V1TransactionsCcAvsOnlyPrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -9480,7 +9473,6 @@ body = V1TransactionsCcAvsOnlyPrevTrxnRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -9490,8 +9482,12 @@ body = V1TransactionsCcAvsOnlyPrevTrxnRequest(
     account_holder_name='smith'
 )
 
-result = transactions_credit_card_controller.cc_avs_previous_transaction(body)
-print(result)
+result = transactions_credit_card_controller.ccavs_previous_transaction(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -10545,18 +10541,18 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Swiped
+# CCAVS-Swiped
 
 Create a new swiped Credit Card AVS only transaction
 
 ```python
-def cc_avs_swiped(self,
-                 body,
-                 expand=None)
+def ccavs_swiped(self,
+                body,
+                expand=None)
 ```
 
 ## Parameters
@@ -10564,11 +10560,11 @@ def cc_avs_swiped(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlySwipedRequest`](../../doc/models/v1-transactions-cc-avs-only-swiped-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -10582,13 +10578,11 @@ body = V1TransactionsCcAvsOnlySwipedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -10623,7 +10617,6 @@ body = V1TransactionsCcAvsOnlySwipedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -10633,18 +10626,20 @@ body = V1TransactionsCcAvsOnlySwipedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
-    entry_mode_id=EntryModeIdEnum.K,
     account_holder_name='smith'
 )
 
-result = transactions_credit_card_controller.cc_avs_swiped(body)
-print(result)
+result = transactions_credit_card_controller.ccavs_swiped(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -11698,17 +11693,17 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Terminal
+# CCAVS-Terminal
 
 Create a new terminal Credit Card AVS only transaction
 
 ```python
-def cc_avs_terminal(self,
-                   body)
+def ccavs_terminal(self,
+                  body)
 ```
 
 ## Parameters
@@ -11719,7 +11714,7 @@ def cc_avs_terminal(self,
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -11734,13 +11729,11 @@ body = V1TransactionsCcAvsOnlyTerminalRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -11773,7 +11766,6 @@ body = V1TransactionsCcAvsOnlyTerminalRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -11783,17 +11775,19 @@ body = V1TransactionsCcAvsOnlyTerminalRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
-    ebt_cash_eligible_amount=0,
-    e_format=EFormatEnum.MAGNESAFE
+    ebt_cash_eligible_amount=0
 )
 
-result = transactions_credit_card_controller.cc_avs_terminal(body)
-print(result)
+result = transactions_credit_card_controller.ccavs_terminal(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -11814,18 +11808,18 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Ticket
+# CCAVS-Ticket
 
 Create a new ticket Credit Card AVS only transaction
 
 ```python
-def cc_avs_ticket(self,
-                 body,
-                 expand=None)
+def ccavs_ticket(self,
+                body,
+                expand=None)
 ```
 
 ## Parameters
@@ -11833,11 +11827,11 @@ def cc_avs_ticket(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyTicketRequest`](../../doc/models/v1-transactions-cc-avs-only-ticket-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -11851,13 +11845,11 @@ body = V1TransactionsCcAvsOnlyTicketRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -11892,7 +11884,6 @@ body = V1TransactionsCcAvsOnlyTicketRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -11902,7 +11893,6 @@ body = V1TransactionsCcAvsOnlyTicketRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -11911,8 +11901,12 @@ body = V1TransactionsCcAvsOnlyTicketRequest(
     account_holder_name='smith'
 )
 
-result = transactions_credit_card_controller.cc_avs_ticket(body)
-print(result)
+result = transactions_credit_card_controller.ccavs_ticket(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -12966,18 +12960,18 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Tokenized
+# CCAVS-Tokenized
 
 Create a new tokenized Credit Card AVS only transaction
 
 ```python
-def cc_avs_tokenized(self,
-                    body,
-                    expand=None)
+def ccavs_tokenized(self,
+                   body,
+                   expand=None)
 ```
 
 ## Parameters
@@ -12985,11 +12979,11 @@ def cc_avs_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyTokenRequest`](../../doc/models/v1-transactions-cc-avs-only-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -13002,13 +12996,11 @@ body = V1TransactionsCcAvsOnlyTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -13043,7 +13035,6 @@ body = V1TransactionsCcAvsOnlyTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -13053,7 +13044,6 @@ body = V1TransactionsCcAvsOnlyTokenRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -13063,8 +13053,12 @@ body = V1TransactionsCcAvsOnlyTokenRequest(
     token_id='11e95f8ec39de8fbdb0a4f1a'
 )
 
-result = transactions_credit_card_controller.cc_avs_tokenized(body)
-print(result)
+result = transactions_credit_card_controller.ccavs_tokenized(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -14118,18 +14112,18 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC AVS - Wallet
+# CCAVS-Wallet
 
 Create a new Wallet Credit Card AVS only transaction
 
 ```python
-def cc_avs_wallet(self,
-                 body,
-                 expand=None)
+def ccavs_wallet(self,
+                body,
+                expand=None)
 ```
 
 ## Parameters
@@ -14137,18 +14131,18 @@ def cc_avs_wallet(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcAvsOnlyWalletRequest`](../../doc/models/v1-transactions-cc-avs-only-wallet-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
 ```python
 body = V1TransactionsCcAvsOnlyWalletRequest(
     wallet_data='wallet_data2',
-    wallet_provider=WalletProviderEnum.GOOGLEPAY,
+    wallet_provider=WalletProvider.GOOGLEPAY,
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
     clerk_number='AE1234',
@@ -14156,13 +14150,11 @@ body = V1TransactionsCcAvsOnlyWalletRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -14197,7 +14189,6 @@ body = V1TransactionsCcAvsOnlyWalletRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -14207,7 +14198,6 @@ body = V1TransactionsCcAvsOnlyWalletRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -14217,8 +14207,12 @@ body = V1TransactionsCcAvsOnlyWalletRequest(
     wallet_key_id='11ee2bd392f32cb8aefd5bb5'
 )
 
-result = transactions_credit_card_controller.cc_avs_wallet(body)
-print(result)
+result = transactions_credit_card_controller.ccavs_wallet(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -15272,7 +15266,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -15291,11 +15285,11 @@ def cc_balance_inquiry(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryKeyedRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -15310,13 +15304,11 @@ body = V1TransactionsCcBalanceInquiryKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -15351,7 +15343,6 @@ body = V1TransactionsCcBalanceInquiryKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -15361,21 +15352,23 @@ body = V1TransactionsCcBalanceInquiryKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234'
 )
 
 result = transactions_credit_card_controller.cc_balance_inquiry(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -16429,11 +16422,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Previous Transaction
+# CC Balance Inquiry-Previous Transaction
 
 Create a new Credit Card balance inquiry transaction using previous transaction id
 
@@ -16448,11 +16441,11 @@ def cc_balance_inquiry_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryPrevTrxnRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -16465,13 +16458,11 @@ body = V1TransactionsCcBalanceInquiryPrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -16506,7 +16497,6 @@ body = V1TransactionsCcBalanceInquiryPrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -16516,7 +16506,6 @@ body = V1TransactionsCcBalanceInquiryPrevTrxnRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -16527,7 +16516,11 @@ body = V1TransactionsCcBalanceInquiryPrevTrxnRequest(
 )
 
 result = transactions_credit_card_controller.cc_balance_inquiry_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -17581,11 +17574,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Swiped
+# CC Balance Inquiry-Swiped
 
 Create a new swiped Credit Card balance inquiry transaction
 
@@ -17600,11 +17593,11 @@ def cc_balance_inquiry_swiped(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquirySwipedRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-swiped-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -17618,13 +17611,11 @@ body = V1TransactionsCcBalanceInquirySwipedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -17659,7 +17650,6 @@ body = V1TransactionsCcBalanceInquirySwipedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -17669,18 +17659,20 @@ body = V1TransactionsCcBalanceInquirySwipedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
-    entry_mode_id=EntryModeIdEnum.K,
     account_holder_name='smith'
 )
 
 result = transactions_credit_card_controller.cc_balance_inquiry_swiped(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -18734,11 +18726,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Terminal
+# CC Balance Inquiry-Terminal
 
 Create a new terminal Credit Card balance inquiry transaction
 
@@ -18755,7 +18747,7 @@ def cc_balance_inquiry_terminal(self,
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -18770,13 +18762,11 @@ body = V1TransactionsCcBalanceInquiryTerminalRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -18809,7 +18799,6 @@ body = V1TransactionsCcBalanceInquiryTerminalRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -18819,17 +18808,19 @@ body = V1TransactionsCcBalanceInquiryTerminalRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
-    ebt_cash_eligible_amount=0,
-    e_format=EFormatEnum.MAGNESAFE
+    ebt_cash_eligible_amount=0
 )
 
 result = transactions_credit_card_controller.cc_balance_inquiry_terminal(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -18850,11 +18841,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Ticket
+# CC Balance Inquiry-Ticket
 
 Create a new Ticket Credit Card balance inquiry transaction
 
@@ -18869,11 +18860,11 @@ def cc_balance_inquiry_ticket(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryTicketRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-ticket-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -18887,13 +18878,11 @@ body = V1TransactionsCcBalanceInquiryTicketRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -18928,7 +18917,6 @@ body = V1TransactionsCcBalanceInquiryTicketRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -18938,7 +18926,6 @@ body = V1TransactionsCcBalanceInquiryTicketRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -18948,7 +18935,11 @@ body = V1TransactionsCcBalanceInquiryTicketRequest(
 )
 
 result = transactions_credit_card_controller.cc_balance_inquiry_ticket(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -20002,11 +19993,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Tokenized
+# CC Balance Inquiry-Tokenized
 
 Create a new tokenized Credit Card balance inquiry transaction
 
@@ -20021,11 +20012,11 @@ def cc_balance_inquiry_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryTokenRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -20038,13 +20029,11 @@ body = V1TransactionsCcBalanceInquiryTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -20079,7 +20068,6 @@ body = V1TransactionsCcBalanceInquiryTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -20089,7 +20077,6 @@ body = V1TransactionsCcBalanceInquiryTokenRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -20100,7 +20087,11 @@ body = V1TransactionsCcBalanceInquiryTokenRequest(
 )
 
 result = transactions_credit_card_controller.cc_balance_inquiry_tokenized(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -21154,11 +21145,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Balance Inquiry - Wallet
+# CC Balance Inquiry-Wallet
 
 Create a new Wallet Credit Card balance inquiry transaction
 
@@ -21173,18 +21164,18 @@ def cc_balance_inquiry_wallet(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcBalanceInquiryWalletRequest`](../../doc/models/v1-transactions-cc-balance-inquiry-wallet-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
 ```python
 body = V1TransactionsCcBalanceInquiryWalletRequest(
     wallet_data='wallet_data2',
-    wallet_provider=WalletProviderEnum.GOOGLEPAY,
+    wallet_provider=WalletProvider.GOOGLEPAY,
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
     clerk_number='AE1234',
@@ -21192,13 +21183,11 @@ body = V1TransactionsCcBalanceInquiryWalletRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -21233,7 +21222,6 @@ body = V1TransactionsCcBalanceInquiryWalletRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -21243,7 +21231,6 @@ body = V1TransactionsCcBalanceInquiryWalletRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -21254,7 +21241,11 @@ body = V1TransactionsCcBalanceInquiryWalletRequest(
 )
 
 result = transactions_credit_card_controller.cc_balance_inquiry_wallet(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -22308,7 +22299,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -22327,11 +22318,11 @@ def cc_force(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceKeyedRequest`](../../doc/models/v1-transactions-cc-force-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -22347,13 +22338,11 @@ body = V1TransactionsCcForceKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -22388,7 +22377,6 @@ body = V1TransactionsCcForceKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -22398,14 +22386,12 @@ body = V1TransactionsCcForceKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234',
@@ -22413,7 +22399,11 @@ body = V1TransactionsCcForceKeyedRequest(
 )
 
 result = transactions_credit_card_controller.cc_force(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -23467,11 +23457,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Previous Transaction
+# CC Force-Previous Transaction
 
 Create a new Credit Card force transaction using previous transaction id
 
@@ -23486,11 +23476,11 @@ def cc_force_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForcePrevTrxnRequest`](../../doc/models/v1-transactions-cc-force-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -23504,13 +23494,11 @@ body = V1TransactionsCcForcePrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -23545,7 +23533,6 @@ body = V1TransactionsCcForcePrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -23555,7 +23542,6 @@ body = V1TransactionsCcForcePrevTrxnRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -23567,7 +23553,11 @@ body = V1TransactionsCcForcePrevTrxnRequest(
 )
 
 result = transactions_credit_card_controller.cc_force_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -24621,11 +24611,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Swiped
+# CC Force-Swiped
 
 Create a new swiped Credit Card force transaction
 
@@ -24640,11 +24630,11 @@ def cc_force_swiped(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceSwipedRequest`](../../doc/models/v1-transactions-cc-force-swiped-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -24659,13 +24649,11 @@ body = V1TransactionsCcForceSwipedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -24700,7 +24688,6 @@ body = V1TransactionsCcForceSwipedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -24710,18 +24697,20 @@ body = V1TransactionsCcForceSwipedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
-    entry_mode_id=EntryModeIdEnum.K,
     account_holder_name='smith'
 )
 
 result = transactions_credit_card_controller.cc_force_swiped(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -25775,11 +25764,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Ticket
+# CC Force-Ticket
 
 Create a new ticket Credit Card force transaction
 
@@ -25794,11 +25783,11 @@ def cc_force_ticket(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceTicketRequest`](../../doc/models/v1-transactions-cc-force-ticket-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -25813,13 +25802,11 @@ body = V1TransactionsCcForceTicketRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -25854,7 +25841,6 @@ body = V1TransactionsCcForceTicketRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -25864,7 +25850,6 @@ body = V1TransactionsCcForceTicketRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -25875,7 +25860,11 @@ body = V1TransactionsCcForceTicketRequest(
 )
 
 result = transactions_credit_card_controller.cc_force_ticket(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -26929,11 +26918,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Tokenized
+# CC Force-Tokenized
 
 Create a new tokenized Credit Card force transaction
 
@@ -26948,11 +26937,11 @@ def cc_force_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceTokenRequest`](../../doc/models/v1-transactions-cc-force-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -26966,13 +26955,11 @@ body = V1TransactionsCcForceTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -27007,7 +26994,6 @@ body = V1TransactionsCcForceTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -27017,7 +27003,6 @@ body = V1TransactionsCcForceTokenRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -27029,7 +27014,11 @@ body = V1TransactionsCcForceTokenRequest(
 )
 
 result = transactions_credit_card_controller.cc_force_tokenized(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -28083,11 +28072,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Force - Wallet
+# CC Force-Wallet
 
 Create a new Wallet Credit Card force transaction
 
@@ -28102,18 +28091,18 @@ def cc_force_wallet(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcForceWalletRequest`](../../doc/models/v1-transactions-cc-force-wallet-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
 ```python
 body = V1TransactionsCcForceWalletRequest(
     wallet_data='wallet_data2',
-    wallet_provider=WalletProviderEnum.GOOGLEPAY,
+    wallet_provider=WalletProvider.GOOGLEPAY,
     auth_code='abc123',
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
@@ -28122,13 +28111,11 @@ body = V1TransactionsCcForceWalletRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -28163,7 +28150,6 @@ body = V1TransactionsCcForceWalletRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -28173,7 +28159,6 @@ body = V1TransactionsCcForceWalletRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -28185,7 +28170,11 @@ body = V1TransactionsCcForceWalletRequest(
 )
 
 result = transactions_credit_card_controller.cc_force_wallet(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -29239,7 +29228,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -29258,11 +29247,11 @@ def cc_refund(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundKeyedRequest`](../../doc/models/v1-transactions-cc-refund-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -29276,13 +29265,11 @@ body = V1TransactionsCcRefundKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -29316,7 +29303,6 @@ body = V1TransactionsCcRefundKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -29326,14 +29312,12 @@ body = V1TransactionsCcRefundKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234',
@@ -29341,7 +29325,11 @@ body = V1TransactionsCcRefundKeyedRequest(
 )
 
 result = transactions_credit_card_controller.cc_refund(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -30395,11 +30383,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Previous Transaction
+# CC Refund-Previous Transaction
 
 Create a new Credit Card refund transaction using previous transaction id
 
@@ -30414,11 +30402,11 @@ def cc_refund_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundPrevTrxnRequest`](../../doc/models/v1-transactions-cc-refund-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -30431,13 +30419,11 @@ body = V1TransactionsCcRefundPrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -30472,7 +30458,6 @@ body = V1TransactionsCcRefundPrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -30482,7 +30467,6 @@ body = V1TransactionsCcRefundPrevTrxnRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -30493,7 +30477,11 @@ body = V1TransactionsCcRefundPrevTrxnRequest(
 )
 
 result = transactions_credit_card_controller.cc_refund_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -31547,11 +31535,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Swiped
+# CC Refund-Swiped
 
 Create a new swiped Credit Card refund transaction
 
@@ -31566,11 +31554,11 @@ def cc_refund_swiped(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundSwipedRequest`](../../doc/models/v1-transactions-cc-refund-swiped-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -31585,13 +31573,11 @@ body = V1TransactionsCcRefundSwipedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -31625,7 +31611,6 @@ body = V1TransactionsCcRefundSwipedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -31635,18 +31620,20 @@ body = V1TransactionsCcRefundSwipedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
-    entry_mode_id=EntryModeIdEnum.K,
     account_holder_name='smith'
 )
 
 result = transactions_credit_card_controller.cc_refund_swiped(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -32700,11 +32687,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Tap to Pay
+# CC Refund-Tap to Pay
 
 Create a new Tap To Pay Credit Card refund transaction
 
@@ -32719,11 +32706,11 @@ def cc_refund_tap_to_pay(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundTaptopayRequest`](../../doc/models/v1-transactions-cc-refund-taptopay-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -32738,13 +32725,11 @@ body = V1TransactionsCcRefundTaptopayRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -32779,13 +32764,11 @@ body = V1TransactionsCcRefundTaptopayRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
     secure_directory_server_transaction_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     terminal_serial_number='1234567890',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -32795,7 +32778,11 @@ body = V1TransactionsCcRefundTaptopayRequest(
 )
 
 result = transactions_credit_card_controller.cc_refund_tap_to_pay(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -33849,11 +33836,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Terminal
+# CC Refund-Terminal
 
 Create a new terminal Credit Card refund transaction
 
@@ -33870,7 +33857,7 @@ def cc_refund_terminal(self,
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -33886,13 +33873,11 @@ body = V1TransactionsCcRefundTerminalRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -33924,7 +33909,6 @@ body = V1TransactionsCcRefundTerminalRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -33934,17 +33918,19 @@ body = V1TransactionsCcRefundTerminalRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
-    ebt_cash_eligible_amount=0,
-    e_format=EFormatEnum.MAGNESAFE
+    ebt_cash_eligible_amount=0
 )
 
 result = transactions_credit_card_controller.cc_refund_terminal(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -33965,11 +33951,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Ticket
+# CC Refund-Ticket
 
 Create a new ticket Credit Card refund transaction
 
@@ -33984,11 +33970,11 @@ def cc_refund_ticket(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundTicketRequest`](../../doc/models/v1-transactions-cc-refund-ticket-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -34003,13 +33989,11 @@ body = V1TransactionsCcRefundTicketRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -34043,7 +34027,6 @@ body = V1TransactionsCcRefundTicketRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -34053,7 +34036,6 @@ body = V1TransactionsCcRefundTicketRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -34063,7 +34045,11 @@ body = V1TransactionsCcRefundTicketRequest(
 )
 
 result = transactions_credit_card_controller.cc_refund_ticket(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -35117,11 +35103,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Tokenized
+# CC Refund-Tokenized
 
 Create a new tokenized Credit Card refund transaction
 
@@ -35136,11 +35122,11 @@ def cc_refund_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundTokenRequest`](../../doc/models/v1-transactions-cc-refund-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -35154,13 +35140,11 @@ body = V1TransactionsCcRefundTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -35194,7 +35178,6 @@ body = V1TransactionsCcRefundTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -35204,7 +35187,6 @@ body = V1TransactionsCcRefundTokenRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -35215,7 +35197,11 @@ body = V1TransactionsCcRefundTokenRequest(
 )
 
 result = transactions_credit_card_controller.cc_refund_tokenized(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -36269,11 +36255,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Refund - Wallet
+# CC Refund-Wallet
 
 Create a new Wallet Credit Card refund transaction
 
@@ -36288,11 +36274,11 @@ def cc_refund_wallet(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcRefundWalletRequest`](../../doc/models/v1-transactions-cc-refund-wallet-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -36300,7 +36286,7 @@ def cc_refund_wallet(self,
 body = V1TransactionsCcRefundWalletRequest(
     transaction_amount=1,
     wallet_data='wallet_data2',
-    wallet_provider=WalletProviderEnum.GOOGLEPAY,
+    wallet_provider=WalletProvider.GOOGLEPAY,
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
     clerk_number='AE1234',
@@ -36308,13 +36294,11 @@ body = V1TransactionsCcRefundWalletRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -36348,7 +36332,6 @@ body = V1TransactionsCcRefundWalletRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -36358,7 +36341,6 @@ body = V1TransactionsCcRefundWalletRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -36369,7 +36351,11 @@ body = V1TransactionsCcRefundWalletRequest(
 )
 
 result = transactions_credit_card_controller.cc_refund_wallet(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -37423,7 +37409,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -37442,11 +37428,11 @@ def cc_sale(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleKeyedRequest`](../../doc/models/v1-transactions-cc-sale-keyed-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -37462,13 +37448,11 @@ body = V1TransactionsCcSaleKeyedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -37502,7 +37486,6 @@ body = V1TransactionsCcSaleKeyedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -37512,21 +37495,23 @@ body = V1TransactionsCcSaleKeyedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
     account_holder_name='smith',
-    entry_mode_id=EntryModeIdEnum.K,
     track_data='T051904524T 741025349520O 8520748520963',
     pin='1234',
     ksn='1234'
 )
 
 result = transactions_credit_card_controller.cc_sale(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -38580,11 +38565,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Previous Transaction
+# CC Sale-Previous Transaction
 
 Create a new Credit Card sale transaction using previous transaction id
 
@@ -38599,11 +38584,11 @@ def cc_sale_previous_transaction(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSalePrevTrxnRequest`](../../doc/models/v1-transactions-cc-sale-prev-trxn-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -38616,13 +38601,11 @@ body = V1TransactionsCcSalePrevTrxnRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -38657,7 +38640,6 @@ body = V1TransactionsCcSalePrevTrxnRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -38667,7 +38649,6 @@ body = V1TransactionsCcSalePrevTrxnRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -38678,7 +38659,11 @@ body = V1TransactionsCcSalePrevTrxnRequest(
 )
 
 result = transactions_credit_card_controller.cc_sale_previous_transaction(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -39732,11 +39717,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Swiped
+# CC Sale-Swiped
 
 Create a new swiped Credit Card sale transaction
 
@@ -39751,11 +39736,11 @@ def cc_sale_swiped(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleSwipedRequest`](../../doc/models/v1-transactions-cc-sale-swiped-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -39770,13 +39755,11 @@ body = V1TransactionsCcSaleSwipedRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -39810,7 +39793,6 @@ body = V1TransactionsCcSaleSwipedRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -39820,18 +39802,20 @@ body = V1TransactionsCcSaleSwipedRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
     ebt_cash_eligible_amount=0,
-    entry_mode_id=EntryModeIdEnum.K,
     account_holder_name='smith'
 )
 
 result = transactions_credit_card_controller.cc_sale_swiped(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -40885,11 +40869,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Tap to Pay
+# CC Sale-Tap to Pay
 
 Create a new Tap To Pay Credit card sale transaction. Only supported on native iOS integrations.
 
@@ -40904,11 +40888,11 @@ def cc_sale_tap_to_pay(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleTaptopayRequest`](../../doc/models/v1-transactions-cc-sale-taptopay-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -40923,13 +40907,11 @@ body = V1TransactionsCcSaleTaptopayRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -40964,13 +40946,11 @@ body = V1TransactionsCcSaleTaptopayRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
     secure_directory_server_transaction_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     terminal_serial_number='1234567890',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -40979,7 +40959,11 @@ body = V1TransactionsCcSaleTaptopayRequest(
 )
 
 result = transactions_credit_card_controller.cc_sale_tap_to_pay(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -42033,11 +42017,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Terminal
+# CC Sale-Terminal
 
 Create a new Credit Card Sale for card present EMV transactions using any of the Certified terminals.
 
@@ -42054,7 +42038,7 @@ def cc_sale_terminal(self,
 
 ## Response Type
 
-[`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransactionProcessing`](../../doc/models/response-transaction-processing.md).
 
 ## Example Usage
 
@@ -42070,13 +42054,11 @@ body = V1TransactionsCcSaleTerminalRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -42108,7 +42090,6 @@ body = V1TransactionsCcSaleTerminalRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -42118,17 +42099,19 @@ body = V1TransactionsCcSaleTerminalRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
     ebt_food_eligible_amount=0,
-    ebt_cash_eligible_amount=0,
-    e_format=EFormatEnum.MAGNESAFE
+    ebt_cash_eligible_amount=0
 )
 
 result = transactions_credit_card_controller.cc_sale_terminal(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -42149,11 +42132,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Ticket
+# CC Sale-Ticket
 
 Create a new Credit Card Sale using the Ticket_id obtained from the Elements form submission done event.
 
@@ -42168,11 +42151,11 @@ def cc_sale_ticket(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleTicketRequest`](../../doc/models/v1-transactions-cc-sale-ticket-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -42187,13 +42170,11 @@ body = V1TransactionsCcSaleTicketRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -42227,7 +42208,6 @@ body = V1TransactionsCcSaleTicketRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -42237,7 +42217,6 @@ body = V1TransactionsCcSaleTicketRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -42247,7 +42226,11 @@ body = V1TransactionsCcSaleTicketRequest(
 )
 
 result = transactions_credit_card_controller.cc_sale_ticket(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -43301,11 +43284,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Tokenized
+# CC Sale-Tokenized
 
 Create a new Credit Card Sale with a previously created token_id.
 
@@ -43320,11 +43303,11 @@ def cc_sale_tokenized(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleTokenRequest`](../../doc/models/v1-transactions-cc-sale-token-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -43338,13 +43321,11 @@ body = V1TransactionsCcSaleTokenRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -43378,7 +43359,6 @@ body = V1TransactionsCcSaleTokenRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -43388,7 +43368,6 @@ body = V1TransactionsCcSaleTokenRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -43399,7 +43378,11 @@ body = V1TransactionsCcSaleTokenRequest(
 )
 
 result = transactions_credit_card_controller.cc_sale_tokenized(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -44453,11 +44436,11 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# CC Sale - Wallet
+# CC Sale-Wallet
 
 Create a new Wallet Credit Card sale transaction
 
@@ -44472,11 +44455,11 @@ def cc_sale_wallet(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TransactionsCcSaleWalletRequest`](../../doc/models/v1-transactions-cc-sale-wallet-request.md) | Body, Required | - |
-| `expand` | [`List[Expand60Enum]`](../../doc/models/expand-60-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand60]`](../../doc/models/expand-60.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTransaction`](../../doc/models/response-transaction.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTransaction`](../../doc/models/response-transaction.md).
 
 ## Example Usage
 
@@ -44484,7 +44467,7 @@ def cc_sale_wallet(self,
 body = V1TransactionsCcSaleWalletRequest(
     transaction_amount=1,
     wallet_data='wallet_data2',
-    wallet_provider=WalletProviderEnum.GOOGLEPAY,
+    wallet_provider=WalletProvider.GOOGLEPAY,
     checkin_date='2021-12-01',
     checkout_date='2021-12-01',
     clerk_number='AE1234',
@@ -44492,13 +44475,11 @@ body = V1TransactionsCcSaleWalletRequest(
     custom_data=jsonpickle.decode('{"data1":"custom1","data2":"custom2"}'),
     customer_id='customerid',
     description='some description',
-    iias_ind=IiasIndEnum.ENUM_1,
     image_front='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     image_back='U29tZVN0cmluZ09idmlvdXNseU5vdEJhc2U2NEVuY29kZWQ=',
     installment=True,
     installment_number=1,
     installment_count=1,
-    recurring_flag=RecurringFlagEnum.YES,
     installment_counter=1,
     installment_total=1,
     subscription=False,
@@ -44532,7 +44513,6 @@ body = V1TransactionsCcSaleWalletRequest(
     auto_decline_cvv_override=False,
     auto_decline_street_override=False,
     auto_decline_zip_override=False,
-    ebt_type=EbtTypeEnum.FOOD_STAMP,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     secure_protocol_version=2,
     secure_cryptogram='ZVVEVDJITHpTNE9yNlNHMUh0R0E=',
@@ -44542,7 +44522,6 @@ body = V1TransactionsCcSaleWalletRequest(
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     clerk_id='1234',
     voucher_number='1234',
-    initiation_type=InitiationTypeEnum.M103,
     bill_payment=True,
     delay_charge=True,
     deferred_auth=True,
@@ -44553,7 +44532,11 @@ body = V1TransactionsCcSaleWalletRequest(
 )
 
 result = transactions_credit_card_controller.cc_sale_wallet(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -45607,6 +45590,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

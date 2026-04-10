@@ -1,6 +1,8 @@
 
 # Data 4
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `Data4`
@@ -15,17 +17,18 @@
 | `exp_date` | `str` | Optional | Exp Date<br><br>**Constraints**: *Maximum Length*: `4` |
 | `transaction_amount` | `int` | Optional | Transaction Amount<br><br>**Constraints**: `>= 0`, `<= 999999999` |
 | `description` | `str` | Optional | Description<br><br>**Constraints**: *Maximum Length*: `255` |
-| `billing_address` | [`BillingAddress`](../../doc/models/billing-address.md) | Optional | Billing Address Object |
+| `billing_address` | [`BillingAddress7`](../../doc/models/billing-address-7.md) | Optional | - |
 | `tags` | `List[str]` | Optional | Tags |
 | `id` | `str` | Optional | Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `first_six` | `str` | Optional | First Six<br><br>**Constraints**: *Maximum Length*: `6` |
 | `last_four` | `str` | Optional | Last Four<br><br>**Constraints**: *Maximum Length*: `4` |
 | `routing` | `str` | Optional | Routing |
 | `status_id` | `float` | Optional | Status Id |
-| `reason_code_id` | [`ReasonCodeIdEnum`](../../doc/models/reason-code-id-enum.md) | Optional | Reason Code Id |
+| `reason_code_id` | `Any` | Optional | - |
 | `type_id` | `float` | Optional | Type Id |
 | `created_ts` | `int` | Optional | Created Time Stamp |
 | `created_user_id` | `str` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -40,9 +43,12 @@
   "id": "11e95f8ec39de8fbdb0a4f1a",
   "first_six": "700953",
   "last_four": "3657",
-  "reason_code_id": 1000,
   "created_ts": 1422040992,
-  "created_user_id": "11e95f8ec39de8fbdb0a4f1a"
+  "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

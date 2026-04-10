@@ -23,10 +23,10 @@ class BankAccount1(object):
             account. Only one account can be marked as primary. >Indicates that the
             account should be the primary account for the merchant. One and only one
             account may be set to true. >
-        account_type (AccountType12Enum): Account type. Either "checking" or "savings"
+        account_type (AccountType12): The model property of type AccountType12.
         alt_deposit_types (List[str]): Array of deposit types. ('fees',
             'adjustments', 'returns')
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -114,9 +114,10 @@ class BankAccount1(object):
             if dictionary.get("alt_deposit_types")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(account_holder_name,

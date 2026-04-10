@@ -10,7 +10,7 @@ from fortisapi.models.item_list_4 import ItemList4
 
 
 class V1QuickInvoicesRequest(object):
-    """Implementation of the 'V1 Quick Invoices Request' model.
+    """Implementation of the 'V1QuickInvoicesRequest' model.
 
     Attributes:
         location_id (str): Location ID
@@ -54,7 +54,7 @@ class V1QuickInvoicesRequest(object):
         quick_invoice_c_3 (str): Custom field 1 for api users to store custom data
         auto_reopen (bool): Auto Reopen. If set to true, a void, refund or detachment
             of a Transaction Payment will cause the QuickInvoice to be opened again
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -478,9 +478,10 @@ class V1QuickInvoicesRequest(object):
             if "auto_reopen" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(title,

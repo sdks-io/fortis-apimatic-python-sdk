@@ -12,14 +12,13 @@ class Data21(object):
 
     Attributes:
         signature (str): Signature
-        resource (ResourceEnum): Resource >Recurring, Transaction, AccountVault,
-            DeviceTerm >
+        resource (Resource): The model property of type Resource.
         resource_id (str): Resource ID
         id (str): Signature ID
         created_ts (int): Created Time Stamp
         modified_ts (int): Modified Time Stamp
         raw_signature (str): Raw Signature Information on `expand`
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -128,9 +127,10 @@ class Data21(object):
             if "raw_signature" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(signature,

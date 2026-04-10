@@ -1,6 +1,8 @@
 
 # V1 Contacts Request
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `V1ContactsRequest`
@@ -16,7 +18,7 @@
 | `last_name` | `str` | Required | Last Name<br><br>**Constraints**: *Maximum Length*: `64` |
 | `cell_phone` | `str` | Optional | Cell phone of contact<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `10`, *Pattern*: `^\d{10}$` |
 | `balance` | `float` | Optional | Balance<br><br>**Constraints**: `>= -99999999.99`, `<= 99999999.99` |
-| `address` | [`Address`](../../doc/models/address.md) | Optional | Address of contact |
+| `address` | [`Address4`](../../doc/models/address-4.md) | Optional | - |
 | `company_name` | `str` | Optional | Company Name<br><br>**Constraints**: *Maximum Length*: `64` |
 | `header_message` | `str` | Optional | Header Message<br><br>**Constraints**: *Maximum Length*: `250` |
 | `date_of_birth` | `str` | Optional | Contacts DOB, Format: yyyy-MM-dd<br><br>**Constraints**: *Maximum Length*: `10`, *Pattern*: `^[\d]{4}-[\d]{2}-[\d]{2}$` |
@@ -28,13 +30,14 @@
 | `office_phone_country_code` | `str` | Optional | Office phone country code<br><br>**Constraints**: *Maximum Length*: `6`, *Pattern*: `^\+([\d]+)$` |
 | `cell_phone_country_code` | `str` | Optional | Cell phone country code<br><br>**Constraints**: *Maximum Length*: `6`, *Pattern*: `^\+([\d]+)$` |
 | `header_message_type` | `int` | Optional | Header Message Type<br><br>**Constraints**: `>= 0`, `<= 4` |
-| `update_if_exists` | [`UpdateIfExistsEnum`](../../doc/models/update-if-exists-enum.md) | Optional | Update If Exists |
+| `update_if_exists` | `Any` | Optional | - |
 | `contact_c_1` | `str` | Optional | Custom field 1 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` |
 | `contact_c_2` | `str` | Optional | Custom field 2 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` |
 | `contact_c_3` | `str` | Optional | Custom field 3 for api users to store custom data<br><br>**Constraints**: *Maximum Length*: `128` |
 | `parent_id` | `str` | Optional | Parent Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `email` | `str` | Optional | Email of contact<br><br>**Constraints**: *Maximum Length*: `64` |
 | `token_import_id` | `str` | Optional | Token Import Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -58,13 +61,16 @@
   "office_phone_country_code": "+1",
   "cell_phone_country_code": "+1",
   "header_message_type": 0,
-  "update_if_exists": 1,
   "contact_c1": "any",
   "contact_c2": "anything",
   "contact_c3": "something",
   "parent_id": "11e95f8ec39de8fbdb0a4f1a",
   "email": "email@domain.com",
-  "token_import_id": "11e95f8ec39de8fbdb0a4f1a"
+  "token_import_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

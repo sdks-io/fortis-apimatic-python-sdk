@@ -1,6 +1,8 @@
 
 # Response Declined Recurring Transaction Payment
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `ResponseDeclinedRecurringTransactionPayment`
@@ -9,8 +11,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type20Enum`](../../doc/models/type-20-enum.md) | Optional | Resource Type<br><br>**Default**: `"DeclinedRecurringTransactionPayment"` |
+| `mtype` | [`Type20`](../../doc/models/type-20.md) | Optional | - |
 | `data` | [`Data4`](../../doc/models/data-4.md) | Optional | - |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -22,7 +25,15 @@
     "account_number": "account_number0",
     "account_holder_name": "account_holder_name0",
     "exp_date": "exp_date8",
-    "transaction_amount": 88
+    "transaction_amount": 88,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

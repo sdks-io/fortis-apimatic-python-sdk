@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
@@ -55,10 +55,11 @@ class ElementsController(BaseController):
             body (V1ElementsTicketIntentionRequest): The request body parameter.
 
         Returns:
-            ResponseTicketIntention: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -71,7 +72,8 @@ class ElementsController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -82,7 +84,8 @@ class ElementsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTicketIntention.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -98,10 +101,11 @@ class ElementsController(BaseController):
             body (V1ElementsTransactionIntentionRequest): The request body parameter.
 
         Returns:
-            ResponseTransactionIntention: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -114,7 +118,8 @@ class ElementsController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -125,6 +130,7 @@ class ElementsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionIntention.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()

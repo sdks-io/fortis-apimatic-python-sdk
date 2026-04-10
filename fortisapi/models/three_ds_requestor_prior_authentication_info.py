@@ -16,12 +16,8 @@ class ThreeDsRequestorPriorAuthenticationInfo(object):
             request. The field is limited to 36 characters containing ACS Transaction
             ID for a prior authenticated transaction (for example, the first
             recurring transaction that was authenticated with the cardholder).
-        three_ds_req_prior_auth_method (ThreeDsReqPriorAuthMethodEnum): Mechanism
-            used by the Cardholder to previously authenticate to the 3DS Requestor.
-            >01 - Frictionless authentication occurred by ACS > >02 - Cardholder
-            challenge occurred by ACS > >03 - AVS verified > >04 - Other issuer
-            methods > >80 through 99 - PS-specific value (dependent on the payment
-            scheme type). >
+        three_ds_req_prior_auth_method (ThreeDsReqPriorAuthMethod): The model
+            property of type ThreeDsReqPriorAuthMethod.
         three_ds_req_prior_auth_timestamp (str): Date and time converted into UTC of
             the prior authentication. Accepted date format is YYYYMMDDHHMM.
         three_ds_req_prior_auth_data (str): Data that documents and supports a
@@ -31,7 +27,7 @@ class ThreeDsRequestorPriorAuthenticationInfo(object):
             field carry data that the ACS can use to verify the authentication
             process. In future versions of the application, these details are
             expected to be included.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -110,9 +106,10 @@ class ThreeDsRequestorPriorAuthenticationInfo(object):
             if dictionary.get("three_ds_req_prior_auth_data")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(three_ds_req_prior_ref,

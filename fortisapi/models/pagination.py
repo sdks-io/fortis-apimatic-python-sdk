@@ -13,12 +13,12 @@ class Pagination(object):
     Pagination info
 
     Attributes:
-        mtype (Type3Enum): Object type
+        mtype (Type3): The model property of type Type3.
         total_count (int): Total records count
         page_count (int): Total page count
         page_number (int): Current page
         page_size (int): Page size
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -105,9 +105,10 @@ class Pagination(object):
             if dictionary.get("page_size")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,

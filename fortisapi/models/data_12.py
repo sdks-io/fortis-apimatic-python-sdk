@@ -19,22 +19,8 @@ class Data12(object):
             response message indicates that further Cardholder interaction is
             required to complete the authentication.  This field is only present in
             Browser flow.
-        transaction_status (TransactionStatusEnum): Indicates whether a transaction
-            qualifies as an authenticated transaction. >Y - Authentication / Account
-            verification successful > >N - Not authenticated / Account not verified;
-            Transaction denied > >U - Authentication / Account verification could not
-            be performed; technical or other problem > >C - In order to complete the
-            authentication, a challenge is required > >R - Authentication / Account
-            verification Rejected. Issuer is rejecting authentication/verification
-            and request that authorization not be attempted > >A - Attempts
-            processing performed; Not authenticated / verified, but a proof of
-            attempt authentication / verification is provided > >D - In order to
-            complete the authentication, a challenge is required. Decoupled
-            Authentication confirmed. (Only if the 3DS Server has initiated
-            authentication with EMV 3DS 2.2.0 version or greater) > >I -
-            Informational Only; 3DS Requestor challenge preference acknowledged.
-            (Only if the 3DS Server has initiated authentication with EMV 3DS 2.2.0
-            version or greater) >
+        transaction_status (TransactionStatus): The model property of type
+            TransactionStatus.
         authentication_value (str): Payment System-specific value provided as part of
             the ACS registration for each supported DS. Authentication Value may be
             used to provide proof of authentication.
@@ -49,16 +35,14 @@ class Data12(object):
             message. The Message Version Number is set by the 3DS Server which
             originates the protocol with the AReq message. The Message Version Number
             does not change during a 3DS transaction.
-        acs_challenge_mandated (AcsChallengeMandatedEnum): Indication of whether a
-            challenge is required for the transaction to be authorised due to
-            local/regional mandates or other variable. >Y - Challenge is mandated >
-            >N - Challenge is not mandated >
+        acs_challenge_mandated (AcsChallengeMandated): The model property of type
+            AcsChallengeMandated.
         purchase_date (str): Date and time of the purchase, converted into UTC. The
             field is limited to 14 characters, formatted as YYYYMMDDHHMMSS.
         base_64_encoded_challenge_request (str): Base64-encoded Challenge Request
             object in case the authentication response message indicates that further
             Cardholder interaction is required to complete the authentication.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -200,9 +184,10 @@ class Data12(object):
             if dictionary.get("base64_encoded_challenge_request")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(three_ds_server_trans_id,

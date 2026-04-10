@@ -71,16 +71,8 @@ class BrowserInformation(object):
             User-Agent sent by the browser exceeds 2048 characters, the 3DS Server
             truncates the excess portion.  This field is required for requests where
             device_channel = 02 (BRW).
-        challenge_window_size (ChallengeWindowSizeEnum): Dimensions of the challenge
-            window that has been displayed to the Cardholder. The ACS shall reply
-            with content that is formatted to appropriately render in this window to
-            provide the best possible user experience.  Preconfigured sizes are width
-            X height in pixels of the window displayed in the Cardholder browser
-            window. This is used only to prepare the CReq request and it is not part
-            of the AReq flow. If not present it will be omitted.  However, when
-            sending the Challenge Request, this field is required when device_channel
-            = 02 (BRW). >01 - 250 x 400 > >02 - 390 x 400 > >03 - 500 x 600 > >04 -
-            600 x 400 > >05 - Full screen >
+        challenge_window_size (ChallengeWindowSize): The model property of type
+            ChallengeWindowSize.
         browser_javascript_enabled (bool): Boolean that represents the ability of the
             cardholder browser to execute JavaScript.  This field is required for
             requests where device_channel = 02 (BRW). Available for supporting EMV
@@ -91,7 +83,7 @@ class BrowserInformation(object):
             of 100 characters.  This field is required for requests where
             device_channel = 02 (BRW). Available for supporting EMV 3DS 2.3.1 and
             later versions.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -232,9 +224,10 @@ class BrowserInformation(object):
             if dictionary.get("accept_language")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(browser_accept_header,

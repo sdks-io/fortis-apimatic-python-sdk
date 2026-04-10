@@ -8,18 +8,22 @@ from fortisapi.api_helper import APIHelper
 from fortisapi.models.additional_access import (
     AdditionalAccess,
 )
-from fortisapi.models.address_1 import Address1
-from fortisapi.models.branding_domain import (
-    BrandingDomain,
+from fortisapi.models.address_6 import Address6
+from fortisapi.models.branding_domain_2 import (
+    BrandingDomain2,
 )
-from fortisapi.models.product_accountvault import (
-    ProductAccountvault,
+from fortisapi.models.product_accountvault_1 import (
+    ProductAccountvault1,
 )
-from fortisapi.models.product_file import ProductFile
-from fortisapi.models.product_recurring import (
-    ProductRecurring,
+from fortisapi.models.product_file_1 import (
+    ProductFile1,
 )
-from fortisapi.models.product_token import ProductToken
+from fortisapi.models.product_recurring_1 import (
+    ProductRecurring1,
+)
+from fortisapi.models.product_token_1 import (
+    ProductToken1,
+)
 from fortisapi.models.product_transaction_1 import (
     ProductTransaction1,
 )
@@ -35,7 +39,7 @@ class List5(object):
         created_ts (int): Created Time Stamp
         modified_ts (int): Modified Time Stamp
         account_number (str): Account number
-        address (Address1): Address
+        address (Address6): The model property of type Address6.
         branding_domain_id (str): GUID for Branding Domain
         contact_email_trx_receipt_default (bool): If true, will email contact receipt
             for any transaction
@@ -57,19 +61,21 @@ class List5(object):
         show_contact_notes (bool): If set to true will show 'Notes' tab on Contact
         show_contact_files (bool): If set to true will show 'Files' tab on Contact
         created_user_id (str): User ID Created the register
-        location_type (LocationTypeEnum): Location Type
+        location_type (Any): The model property of type Any.
         branding_domain_url (str): Branding domain URL
-        branding_domain (BrandingDomain): Branding domain array
+        branding_domain (BrandingDomain2): The model property of type BrandingDomain2.
         product_transactions (List[ProductTransaction1]): Product Transactions array
-        product_file (ProductFile): Product file array
-        product_accountvault (ProductAccountvault): Product Token array (legacy)
-        product_token (ProductToken): Product Token array
-        product_recurring (ProductRecurring): Product recurring array
+        product_file (ProductFile1): The model property of type ProductFile1.
+        product_accountvault (ProductAccountvault1): The model property of type
+            ProductAccountvault1.
+        product_token (ProductToken1): The model property of type ProductToken1.
+        product_recurring (ProductRecurring1): The model property of type
+            ProductRecurring1.
         tags (List[Tag]): Tags array
         terminals (List[Terminal2]): Terminals array
         additional_access (AdditionalAccess): The model property of type
             AdditionalAccess.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -168,7 +174,6 @@ class List5(object):
         "tz",
         "parent_id",
         "created_user_id",
-        "location_type",
         "branding_domain_url",
     ]
 
@@ -324,7 +329,7 @@ class List5(object):
             if "account_number" in dictionary.keys()\
                 else APIHelper.SKIP
         address =\
-            Address1.from_dictionary(
+            Address6.from_dictionary(
                 dictionary.get("address"))\
                 if "address" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -406,14 +411,14 @@ class List5(object):
                 else APIHelper.SKIP
         location_type =\
             dictionary.get("location_type")\
-            if "location_type" in dictionary.keys()\
+            if dictionary.get("location_type")\
                 else APIHelper.SKIP
         branding_domain_url =\
             dictionary.get("branding_domain_url")\
             if "branding_domain_url" in dictionary.keys()\
                 else APIHelper.SKIP
         branding_domain =\
-            BrandingDomain.from_dictionary(
+            BrandingDomain2.from_dictionary(
                 dictionary.get("branding_domain"))\
                 if "branding_domain" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -426,22 +431,22 @@ class List5(object):
         else:
             product_transactions = APIHelper.SKIP
         product_file =\
-            ProductFile.from_dictionary(
+            ProductFile1.from_dictionary(
                 dictionary.get("product_file"))\
                 if "product_file" in dictionary.keys()\
                 else APIHelper.SKIP
         product_accountvault =\
-            ProductAccountvault.from_dictionary(
+            ProductAccountvault1.from_dictionary(
                 dictionary.get("product_accountvault"))\
                 if "product_accountvault" in dictionary.keys()\
                 else APIHelper.SKIP
         product_token =\
-            ProductToken.from_dictionary(
+            ProductToken1.from_dictionary(
                 dictionary.get("product_token"))\
                 if "product_token" in dictionary.keys()\
                 else APIHelper.SKIP
         product_recurring =\
-            ProductRecurring.from_dictionary(
+            ProductRecurring1.from_dictionary(
                 dictionary.get("product_recurring"))\
                 if "product_recurring" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -467,9 +472,10 @@ class List5(object):
                 if "additional_access" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(id,

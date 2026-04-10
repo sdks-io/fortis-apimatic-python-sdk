@@ -8,7 +8,7 @@ from fortisapi.api_helper import APIHelper
 
 
 class V1WebhooksBatchRequest1(object):
-    """Implementation of the 'V1 Webhooks Batch Request1' model.
+    """Implementation of the 'V1WebhooksBatchRequest1' model.
 
     Attributes:
         attempt_interval (int): Number of seconds before another retry is submitted
@@ -21,7 +21,7 @@ class V1WebhooksBatchRequest1(object):
         expands (str): An option list of expanded data to send with base data. (i.e.
             set this field to “contact,account_vault” to get the contact an
             accountvault used to run a transaction.)
-        format (FormatEnum): Options include: api-default
+        format (Any): The model property of type Any.
         is_active (bool): Flag to indicate whether configuration is active (in
             effect).
         location_id (str): The location identifier of the resource you want to
@@ -34,12 +34,10 @@ class V1WebhooksBatchRequest1(object):
         postback_config_id (str): Postback Config ID
         product_transaction_id (str): Required when using 'transaction' or
             'transactionbatch' resource
-        resource (Resource12Enum): The resource you want to subscribe the postbacks
-            to. >Possible values include: 'contact', 'transaction',
-            'transactionbatch' >
+        resource (Any): The model property of type Any.
         number_of_attempts (int): Maximum number of attempts on failure
         url (str): The URL where the postback will be submitted
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -90,12 +88,10 @@ class V1WebhooksBatchRequest1(object):
         "basic_auth_username",
         "basic_auth_password",
         "expands",
-        "format",
         "location_id",
         "location_api_id",
         "postback_config_id",
         "product_transaction_id",
-        "resource",
         "number_of_attempts",
         "url",
     ]
@@ -196,7 +192,7 @@ class V1WebhooksBatchRequest1(object):
                 else APIHelper.SKIP
         format =\
             dictionary.get("format")\
-            if "format" in dictionary.keys()\
+            if dictionary.get("format")\
                 else APIHelper.SKIP
         is_active =\
             dictionary.get("is_active")\
@@ -236,7 +232,7 @@ class V1WebhooksBatchRequest1(object):
                 else APIHelper.SKIP
         resource =\
             dictionary.get("resource")\
-            if "resource" in dictionary.keys()\
+            if dictionary.get("resource")\
                 else APIHelper.SKIP
         number_of_attempts =\
             dictionary.get("number_of_attempts")\
@@ -247,9 +243,10 @@ class V1WebhooksBatchRequest1(object):
             if "url" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(attempt_interval,

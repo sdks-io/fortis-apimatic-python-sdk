@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
@@ -52,18 +52,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcAuthOnlyKeyedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -76,7 +76,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -90,7 +91,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -105,18 +107,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcAuthOnlyPrevTrxnRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -129,7 +131,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -143,7 +146,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -156,18 +160,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcAuthOnlySwipedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -180,7 +184,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -194,7 +199,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -208,18 +214,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcAuthOnlyTaptopayRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -232,7 +238,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -246,7 +253,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -261,10 +269,11 @@ class TransactionsCreditCardController(BaseController):
                 parameter.
 
         Returns:
-            ResponseTransactionProcessing: Response from the API. Accepted
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Accepted
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -277,7 +286,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -288,7 +298,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionProcessing.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -301,18 +312,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcAuthOnlyTicketRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -325,7 +336,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -339,7 +351,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -352,18 +365,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcAuthOnlyTokenRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -376,7 +389,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -390,7 +404,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -403,18 +418,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcAuthOnlyWalletRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -427,7 +442,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -441,31 +457,32 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def cc_avs(self,
-               body,
-               expand=None):
+    def ccavs(self,
+              body,
+              expand=None):
         """Perform a POST request to /v1/transactions/cc/avs-only/keyed.
 
         Create a new keyed Credit Card AVS only transaction
 
         Args:
             body (V1TransactionsCcAvsOnlyKeyedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -478,7 +495,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -492,31 +510,32 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def cc_avs_previous_transaction(self,
-                                    body,
-                                    expand=None):
+    def ccavs_previous_transaction(self,
+                                   body,
+                                   expand=None):
         """Perform a POST request to /v1/transactions/cc/avs-only/prev-trxn.
 
         Create a new Credit Card AVS only transaction using previous transaction id
 
         Args:
             body (V1TransactionsCcAvsOnlyPrevTrxnRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -529,7 +548,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -543,31 +563,32 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def cc_avs_swiped(self,
-                      body,
-                      expand=None):
+    def ccavs_swiped(self,
+                     body,
+                     expand=None):
         """Perform a POST request to /v1/transactions/cc/avs-only/swiped.
 
         Create a new swiped Credit Card AVS only transaction
 
         Args:
             body (V1TransactionsCcAvsOnlySwipedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -580,7 +601,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -594,12 +616,13 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def cc_avs_terminal(self,
-                        body):
+    def ccavs_terminal(self,
+                       body):
         """Perform a POST request to /v1/transactions/cc/avs-only/terminal.
 
         Create a new terminal Credit Card AVS only transaction
@@ -608,10 +631,11 @@ class TransactionsCreditCardController(BaseController):
             body (V1TransactionsCcAvsOnlyTerminalRequest): The request body parameter.
 
         Returns:
-            ResponseTransactionProcessing: Response from the API. Accepted
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Accepted
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -624,7 +648,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -635,31 +660,32 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionProcessing.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def cc_avs_ticket(self,
-                      body,
-                      expand=None):
+    def ccavs_ticket(self,
+                     body,
+                     expand=None):
         """Perform a POST request to /v1/transactions/cc/avs-only/ticket.
 
         Create a new ticket Credit Card AVS only transaction
 
         Args:
             body (V1TransactionsCcAvsOnlyTicketRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -672,7 +698,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -686,31 +713,32 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def cc_avs_tokenized(self,
-                         body,
-                         expand=None):
+    def ccavs_tokenized(self,
+                        body,
+                        expand=None):
         """Perform a POST request to /v1/transactions/cc/avs-only/token.
 
         Create a new tokenized Credit Card AVS only transaction
 
         Args:
             body (V1TransactionsCcAvsOnlyTokenRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -723,7 +751,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -737,31 +766,32 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def cc_avs_wallet(self,
-                      body,
-                      expand=None):
+    def ccavs_wallet(self,
+                     body,
+                     expand=None):
         """Perform a POST request to /v1/transactions/cc/avs-only/wallet.
 
         Create a new Wallet Credit Card AVS only transaction
 
         Args:
             body (V1TransactionsCcAvsOnlyWalletRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -774,7 +804,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -788,7 +819,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -802,18 +834,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcBalanceInquiryKeyedRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -826,7 +858,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -840,7 +873,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -856,18 +890,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcBalanceInquiryPrevTrxnRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -880,7 +914,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -894,7 +929,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -909,18 +945,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcBalanceInquirySwipedRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -933,7 +969,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -947,7 +984,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -963,10 +1001,11 @@ class TransactionsCreditCardController(BaseController):
                 parameter.
 
         Returns:
-            ResponseTransactionProcessing: Response from the API. Accepted
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Accepted
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -979,7 +1018,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -990,7 +1030,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionProcessing.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1005,18 +1046,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcBalanceInquiryTicketRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1029,7 +1070,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1043,7 +1085,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1057,18 +1100,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcBalanceInquiryTokenRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1081,7 +1124,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1095,7 +1139,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1110,18 +1155,18 @@ class TransactionsCreditCardController(BaseController):
         Args:
             body (V1TransactionsCcBalanceInquiryWalletRequest): The request body
                 parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1134,7 +1179,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1148,7 +1194,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1161,18 +1208,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcForceKeyedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1185,7 +1232,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1199,7 +1247,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1212,18 +1261,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcForcePrevTrxnRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1236,7 +1285,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1250,7 +1300,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1263,18 +1314,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcForceSwipedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1287,7 +1338,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1301,7 +1353,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1314,18 +1367,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcForceTicketRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1338,7 +1391,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1352,7 +1406,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1365,18 +1420,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcForceTokenRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1389,7 +1444,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1403,7 +1459,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1416,18 +1473,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcForceWalletRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1440,7 +1497,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1454,7 +1512,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1467,18 +1526,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcRefundKeyedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1491,7 +1550,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1505,7 +1565,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1518,18 +1579,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcRefundPrevTrxnRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1542,7 +1603,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1556,7 +1618,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1569,18 +1632,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcRefundSwipedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1593,7 +1656,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1607,7 +1671,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1620,18 +1685,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcRefundTaptopayRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1644,7 +1709,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1658,7 +1724,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1672,10 +1739,11 @@ class TransactionsCreditCardController(BaseController):
             body (V1TransactionsCcRefundTerminalRequest): The request body parameter.
 
         Returns:
-            ResponseTransactionProcessing: Response from the API. Accepted
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Accepted
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1688,7 +1756,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -1699,7 +1768,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionProcessing.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1712,18 +1782,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcRefundTicketRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1736,7 +1806,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1750,7 +1821,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1763,18 +1835,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcRefundTokenRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1787,7 +1859,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1801,7 +1874,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1814,18 +1888,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcRefundWalletRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1838,7 +1912,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1852,7 +1927,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1866,18 +1942,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcSaleKeyedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1890,7 +1966,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1904,7 +1981,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1917,18 +1995,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcSalePrevTrxnRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1941,7 +2019,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -1955,7 +2034,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -1968,18 +2048,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcSaleSwipedRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -1992,7 +2072,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -2006,7 +2087,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -2020,18 +2102,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcSaleTaptopayRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -2044,7 +2126,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -2058,7 +2141,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -2073,10 +2157,11 @@ class TransactionsCreditCardController(BaseController):
             body (V1TransactionsCcSaleTerminalRequest): The request body parameter.
 
         Returns:
-            ResponseTransactionProcessing: Response from the API. Accepted
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Accepted
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -2089,7 +2174,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -2100,7 +2186,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransactionProcessing.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -2114,18 +2201,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcSaleTicketRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -2138,7 +2225,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -2152,7 +2240,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -2165,18 +2254,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcSaleTokenRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -2189,7 +2278,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -2203,7 +2293,8 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
@@ -2216,18 +2307,18 @@ class TransactionsCreditCardController(BaseController):
 
         Args:
             body (V1TransactionsCcSaleWalletRequest): The request body parameter.
-            expand (List[Expand60Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand60], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseTransaction: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -2240,7 +2331,8 @@ class TransactionsCreditCardController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -2254,6 +2346,7 @@ class TransactionsCreditCardController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseTransaction.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()

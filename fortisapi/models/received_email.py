@@ -18,12 +18,12 @@ class ReceivedEmail(object):
         provider_id (str): Provider
         domain_id (str): Domain
         reason_sent (str): Reason Sent
-        reason_model (ReasonModelEnum): Reason Model
+        reason_model (Any): The model property of type Any.
         reason_model_id (str): Reason Model
         reply_to (str): Reply To
         id (str): Log Email Id
         created_ts (int): Created Time Stamp
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -63,7 +63,6 @@ class ReceivedEmail(object):
         "provider_id",
         "domain_id",
         "reason_sent",
-        "reason_model",
         "reason_model_id",
         "reply_to",
     ]
@@ -163,7 +162,7 @@ class ReceivedEmail(object):
                 else APIHelper.SKIP
         reason_model =\
             dictionary.get("reason_model")\
-            if "reason_model" in dictionary.keys()\
+            if dictionary.get("reason_model")\
                 else APIHelper.SKIP
         reason_model_id =\
             dictionary.get("reason_model_id")\
@@ -182,9 +181,10 @@ class ReceivedEmail(object):
             if dictionary.get("created_ts")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(subject,

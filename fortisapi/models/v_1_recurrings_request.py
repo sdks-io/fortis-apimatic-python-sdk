@@ -9,7 +9,7 @@ from fortisapi.models.joi import Joi
 
 
 class V1RecurringsRequest(object):
-    """Implementation of the 'V1 Recurrings Request' model.
+    """Implementation of the 'V1RecurringsRequest' model.
 
     Attributes:
         account_vault_id (str): Token ID
@@ -23,15 +23,15 @@ class V1RecurringsRequest(object):
         end_date (str): End date
         installment_total_count (int): Installment Total Count
         interval (int): Interval
-        interval_type (IntervalTypeEnum): Interval Type
+        interval_type (IntervalType): The model property of type IntervalType.
         location_id (str): Location ID
         notification_days (int): Notification Days
-        payment_method (PaymentMethod1Enum): Payment Method
+        payment_method (Any): The model property of type Any.
         product_transaction_id (str): Product Transaction ID
         recurring_id (str): Recurring ID
         recurring_api_id (str): Recurring Api ID
         start_date (str): Start date
-        status (StatusEnum): Status
+        status (Any): The model property of type Any.
         transaction_amount (int): Transaction amount
         terms_agree (bool): Terms Agree
         terms_agree_ip (str): Terms Agree Ip
@@ -41,7 +41,7 @@ class V1RecurringsRequest(object):
         send_to_proc_as_recur (bool): Send To Proc As Recur
         tags (List[str]): Tags
         secondary_amount (int): Retained Amount
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -114,11 +114,9 @@ class V1RecurringsRequest(object):
         "end_date",
         "installment_total_count",
         "notification_days",
-        "payment_method",
         "product_transaction_id",
         "recurring_id",
         "recurring_api_id",
-        "status",
         "terms_agree_ip",
         "recurring_c_1",
         "recurring_c_2",
@@ -305,7 +303,7 @@ class V1RecurringsRequest(object):
                 else APIHelper.SKIP
         payment_method =\
             dictionary.get("payment_method")\
-            if "payment_method" in dictionary.keys()\
+            if dictionary.get("payment_method")\
                 else APIHelper.SKIP
         product_transaction_id =\
             dictionary.get("product_transaction_id")\
@@ -321,7 +319,7 @@ class V1RecurringsRequest(object):
                 else APIHelper.SKIP
         status =\
             dictionary.get("status")\
-            if "status" in dictionary.keys()\
+            if dictionary.get("status")\
                 else APIHelper.SKIP
         terms_agree =\
             dictionary.get("terms_agree")\
@@ -356,9 +354,10 @@ class V1RecurringsRequest(object):
             if "secondary_amount" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(interval,

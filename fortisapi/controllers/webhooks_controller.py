@@ -20,7 +20,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
@@ -40,25 +40,25 @@ class WebhooksController(BaseController):
         """Initialize WebhooksController object."""
         super(WebhooksController, self).__init__(config)
 
-    def create_a_new_transaction_batch_postback_config(self,
-                                                       body,
-                                                       expand=None):
+    def createanewtransactionbatchpostbackconfig(self,
+                                                 body,
+                                                 expand=None):
         """Perform a POST request to /v1/webhooks/batch.
 
         Args:
             body (V1WebhooksBatchRequest): The request body parameter.
-            expand (List[Expand123Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand123], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseWebhook: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -71,7 +71,8 @@ class WebhooksController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -85,29 +86,30 @@ class WebhooksController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseWebhook.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def create_a_new_contact_postback_config(self,
-                                             body,
-                                             expand=None):
+    def createanewcontactpostbackconfig(self,
+                                        body,
+                                        expand=None):
         """Perform a POST request to /v1/webhooks/contact.
 
         Args:
             body (V1WebhooksContactRequest): The request body parameter.
-            expand (List[Expand123Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand123], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseWebhook: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -120,7 +122,8 @@ class WebhooksController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -134,29 +137,30 @@ class WebhooksController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseWebhook.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def create_a_new_transaction_postback_config(self,
-                                                 body,
-                                                 expand=None):
+    def createanewtransactionpostbackconfig(self,
+                                            body,
+                                            expand=None):
         """Perform a POST request to /v1/webhooks/transaction.
 
         Args:
             body (V1WebhooksTransactionRequest): The request body parameter.
-            expand (List[Expand123Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand123], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseWebhook: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -169,7 +173,8 @@ class WebhooksController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -183,22 +188,24 @@ class WebhooksController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseWebhook.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def delete_a_postback_config(self,
-                                 webhook_id):
+    def deleteapostbackconfig(self,
+                              webhook_id):
         """Perform a DELETE request to /v1/webhooks/{webhook_id}.
 
         Args:
             webhook_id (str): Postback Config ID
 
         Returns:
-            ResponseWebhook: Response from the API. No Content
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. No Content
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -210,6 +217,7 @@ class WebhooksController(BaseController):
             .template_param(Parameter()
                 .key("webhook_id")
                 .value(webhook_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -220,30 +228,31 @@ class WebhooksController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseWebhook.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def update_transaction_batch_postback_config(self,
-                                                 webhook_id,
-                                                 body,
-                                                 expand=None):
+    def updatetransactionbatchpostbackconfig(self,
+                                             webhook_id,
+                                             body,
+                                             expand=None):
         """Perform a PATCH request to /v1/webhooks/{webhook_id}/batch.
 
         Args:
             webhook_id (str): Postback Config ID
             body (V1WebhooksBatchRequest1): The request body parameter.
-            expand (List[Expand123Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand123], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseWebhook: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -255,12 +264,14 @@ class WebhooksController(BaseController):
             .template_param(Parameter()
                 .key("webhook_id")
                 .value(webhook_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -274,31 +285,32 @@ class WebhooksController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseWebhook.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def update_contact_postback_config(self,
-                                       webhook_id,
-                                       body,
-                                       expand=None):
+    def updatecontactpostbackconfig(self,
+                                    webhook_id,
+                                    body,
+                                    expand=None):
         """Perform a PATCH request to /v1/webhooks/{webhook_id}/contact.
 
         Args:
             webhook_id (str): Postback Config ID
             body (V1WebhooksContactRequest1): The request body parameter.
-            expand (List[Expand123Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand123], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseWebhook: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -310,12 +322,14 @@ class WebhooksController(BaseController):
             .template_param(Parameter()
                 .key("webhook_id")
                 .value(webhook_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -329,31 +343,32 @@ class WebhooksController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseWebhook.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()
 
-    def update_transaction_postback_config(self,
-                                           webhook_id,
-                                           body,
-                                           expand=None):
+    def updatetransactionpostbackconfig(self,
+                                        webhook_id,
+                                        body,
+                                        expand=None):
         """Perform a PATCH request to /v1/webhooks/{webhook_id}/transaction.
 
         Args:
             webhook_id (str): Postback Config ID
             body (V1WebhooksTransactionRequest1): The request body parameter.
-            expand (List[Expand123Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
+            expand (List[Expand123], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
 
         Returns:
-            ResponseWebhook: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -365,12 +380,14 @@ class WebhooksController(BaseController):
             .template_param(Parameter()
                 .key("webhook_id")
                 .value(webhook_id)
+                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .query_param(Parameter()
                 .key("expand")
                 .value(expand))
@@ -384,6 +401,7 @@ class WebhooksController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseWebhook.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()

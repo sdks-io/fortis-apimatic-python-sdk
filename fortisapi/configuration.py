@@ -16,13 +16,16 @@ from apimatic_requests_client_adapter.requests_client import (
 from dotenv import load_dotenv
 
 from fortisapi.http.proxy_settings import ProxySettings
+from fortisapi.logging.configuration.api_logging_configuration import (
+    LoggingConfiguration,
+)
 
 
 class Environment(Enum):
     """An enum for SDK environments."""
 
-    SANDBOX = 0
-    PRODUCTION = 1
+    PRODUCTION = 0
+    ENVIRONMENT2 = 1
 
     @classmethod
     def from_value(cls, value, default=None):
@@ -118,8 +121,8 @@ class Configuration(HttpClientConfiguration):
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=60, max_retries=0, backoff_factor=2, retry_statuses=None,
-                 retry_methods=None, proxy_settings=None,
-                 environment=Environment.SANDBOX, user_id_credentials=None,
+                 retry_methods=None, proxy_settings=None, logging_configuration=None,
+                 environment=Environment.PRODUCTION, user_id_credentials=None,
                  user_api_key_credentials=None, developer_id_credentials=None,
                  access_token_credentials=None):
         """Initialize Configuration object."""
@@ -137,6 +140,7 @@ class Configuration(HttpClientConfiguration):
             max_retries=max_retries, backoff_factor=backoff_factor,
             retry_statuses=retry_statuses, retry_methods=retry_methods,
             proxy_settings=proxy_settings,
+            logging_configuration=logging_configuration,
         )
 
         # Current API environment
@@ -161,9 +165,9 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
-                   environment=None, user_id_credentials=None,
-                   user_api_key_credentials=None, developer_id_credentials=None,
-                   access_token_credentials=None):
+                   logging_configuration=None, environment=None,
+                   user_id_credentials=None, user_api_key_credentials=None,
+                   developer_id_credentials=None, access_token_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
         override_http_client_configuration =\
@@ -176,6 +180,7 @@ class Configuration(HttpClientConfiguration):
         retry_statuses = retry_statuses or self.retry_statuses
         retry_methods = retry_methods or self.retry_methods
         proxy_settings = proxy_settings or self.proxy_settings
+        logging_configuration = logging_configuration or self.logging_configuration
         environment = environment or self.environment
         user_id_credentials = user_id_credentials or self.user_id_credentials
         user_api_key_credentials =\
@@ -193,7 +198,8 @@ class Configuration(HttpClientConfiguration):
             http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
             backoff_factor=backoff_factor, retry_statuses=retry_statuses,
             retry_methods=retry_methods, proxy_settings=proxy_settings,
-            environment=environment, user_id_credentials=user_id_credentials,
+            logging_configuration=logging_configuration, environment=environment,
+            user_id_credentials=user_id_credentials,
             user_api_key_credentials=user_api_key_credentials,
             developer_id_credentials=developer_id_credentials,
             access_token_credentials=access_token_credentials,
@@ -213,10 +219,10 @@ class Configuration(HttpClientConfiguration):
 
     # All the environments the SDK can run in
     environments = {
-        Environment.SANDBOX: {
+        Environment.PRODUCTION: {
             Server.DEFAULT: "https://api.sandbox.fortis.tech",
         },
-        Environment.PRODUCTION: {
+        Environment.ENVIRONMENT2: {
             Server.DEFAULT: "https://api.fortis.tech",
         },
     }
@@ -262,7 +268,7 @@ class Configuration(HttpClientConfiguration):
         retry_methods = [v.strip() for v in methods.split(",") if v.strip()]\
             if methods else None
         environment = Environment.from_value(
-            os.getenv("ENVIRONMENT"), Environment.SANDBOX)
+            os.getenv("ENVIRONMENT"), Environment.PRODUCTION)
 
         from fortisapi.http.auth.access_token import (
             AccessTokenCredentials,
@@ -285,6 +291,7 @@ class Configuration(HttpClientConfiguration):
             retry_methods=retry_methods,
             environment=environment,
             proxy_settings=ProxySettings.from_environment(),
+            logging_configuration=LoggingConfiguration.from_environment(),
             user_id_credentials=UserIdCredentials.from_environment(),
             user_api_key_credentials=UserApiKeyCredentials.from_environment(),
             developer_id_credentials=DeveloperIdCredentials.from_environment(),

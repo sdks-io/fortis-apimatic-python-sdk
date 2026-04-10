@@ -20,7 +20,7 @@ class Domain(object):
         allow_contact_signup (bool): Allow Contact Signup.
         allow_contact_registration (bool): Allow Contact Registration.
         allow_contact_login (bool): Allow Contact Login.
-        registration_fields (List[RegistrationFieldEnum]): Registration Fields
+        registration_fields (List[RegistrationField]): Registration Fields
         company_name (str): Company Name.
         nav_color (str): Nav Color.
         button_primary_color (str): Button Primary Color.
@@ -40,14 +40,13 @@ class Domain(object):
         custom_javascript (str): Custom Javascript.
         custom_theme (str): Custom Theme
         custom_css (str): Custom CSS
-        contact_user_default_entry_page (ContactUserDefaultEntryPageEnum): Contact
-            User Default Entry Page
+        contact_user_default_entry_page (Any): The model property of type Any.
         contact_user_default_auth_roles (List[Any]): Contact User Default Auth Role
         custom_stylesheet_url (str): Custom Stylesheet URL
         id (str): Id
         created_ts (int): Created Time Stamp
         modified_ts (int): Modified Time Stamp
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -147,7 +146,6 @@ class Domain(object):
         "custom_javascript",
         "custom_theme",
         "custom_css",
-        "contact_user_default_entry_page",
         "custom_stylesheet_url",
     ]
 
@@ -389,7 +387,7 @@ class Domain(object):
                 else APIHelper.SKIP
         contact_user_default_entry_page =\
             dictionary.get("contact_user_default_entry_page")\
-            if "contact_user_default_entry_page" in dictionary.keys()\
+            if dictionary.get("contact_user_default_entry_page")\
                 else APIHelper.SKIP
         contact_user_default_auth_roles =\
             dictionary.get("contact_user_default_auth_roles")\
@@ -412,9 +410,10 @@ class Domain(object):
             if dictionary.get("modified_ts")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(url,

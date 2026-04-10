@@ -8,7 +8,7 @@ from fortisapi.api_helper import APIHelper
 from fortisapi.models.changelog_detail import (
     ChangelogDetail,
 )
-from fortisapi.models.user import User
+from fortisapi.models.user_4 import User4
 
 
 class Changelog(object):
@@ -22,8 +22,8 @@ class Changelog(object):
         model_id (str): Model ID
         user_id (str): User ID
         changelog_details (List[ChangelogDetail]): Change Log Details
-        user (User): User
-        additional_properties (Dict[str, object]): The additional properties for the
+        user (User4): The model property of type User4.
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -145,14 +145,15 @@ class Changelog(object):
         else:
             changelog_details = APIHelper.SKIP
         user =\
-            User.from_dictionary(
+            User4.from_dictionary(
                 dictionary.get("user"))\
                 if "user" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(id,

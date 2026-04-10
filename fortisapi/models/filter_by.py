@@ -12,12 +12,12 @@ class FilterBy(object):
 
     Attributes:
         key (str): Resource key to filter by
-        operator (Operator1Enum): Filter operand.  Please note `=` does not imply a
+        operator (Operator1): Filter operand.  Please note `=` does not imply a
             strict equality check.   Only time fields support the `<=` and `>=`
             operators.
         value (float | str | bool): Filter value.   For time fields, `value` must be
             sent in Unix format: `946702799`
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -85,9 +85,10 @@ class FilterBy(object):
             if dictionary.get("value") is not None\
             else None
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(key,

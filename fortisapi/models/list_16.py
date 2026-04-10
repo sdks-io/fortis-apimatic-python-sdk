@@ -14,19 +14,19 @@ from fortisapi.models.account_vault_cau_product_transaction import (
 from fortisapi.models.active_recurring import (
     ActiveRecurring,
 )
-from fortisapi.models.billing_address import (
-    BillingAddress,
+from fortisapi.models.billing_address_7 import (
+    BillingAddress7,
 )
 from fortisapi.models.changelog import Changelog
-from fortisapi.models.contact_1 import Contact1
-from fortisapi.models.created_user import CreatedUser
-from fortisapi.models.identity_verification_2 import (
-    IdentityVerification2,
+from fortisapi.models.contact_3 import Contact3
+from fortisapi.models.identity_verification_5 import (
+    IdentityVerification5,
 )
 from fortisapi.models.joi_4 import Joi4
-from fortisapi.models.location import Location
-from fortisapi.models.signature import Signature
+from fortisapi.models.location_18 import Location18
+from fortisapi.models.signature_1 import Signature1
 from fortisapi.models.transaction import Transaction
+from fortisapi.models.user_9 import User9
 
 
 class List16(object):
@@ -49,11 +49,12 @@ class List16(object):
         token_c_1 (str): Custom field 1 for API users to store custom data
         token_c_2 (str): Custom field 2 for API users to store custom data
         token_c_3 (str): Custom field 3 for API users to store custom data
-        ach_sec_code (AchSecCode3Enum): SEC code for the account
-        billing_address (BillingAddress): Billing Address Object
+        ach_sec_code (Any): The model property of type Any.
+        billing_address (BillingAddress7): The model property of type BillingAddress7.
         contact_id (str): Used to associate the Token with a Contact.
         customer_id (str): Used to store a customer identification number.
-        identity_verification (IdentityVerification2): Identity verification
+        identity_verification (IdentityVerification5): The model property of type
+            IdentityVerification5.
         location_id (str): A valid Location Id associated with the Contact for this
             Token
         previous_account_vault_api_id (str): Can be used to pull payment info from a
@@ -93,7 +94,8 @@ class List16(object):
             card_type and generate a value for this field automatically. i.e. visa,
             mc, disc, amex, jcb, diners. >
         active (bool): Register is Active
-        cau_summary_status_id (CauSummaryStatusIdEnum): CAU Summary Status ID.
+        cau_summary_status_id (CauSummaryStatusId): The model property of type
+            CauSummaryStatusId.
         created_ts (int): Created Time Stamp
         e_serial_number (str): E Serial Number
         e_track_data (str): E Track Data
@@ -109,8 +111,7 @@ class List16(object):
         last_four (str): The last four numbers of an account number.  System will
             generate a value for this field automatically.
         modified_ts (int): Modified Time Stamp
-        payment_method (PaymentMethod16Enum): Must be provided as either 'cc' or
-            'ach'.
+        payment_method (PaymentMethod16): The model property of type PaymentMethod16.
         ticket (str): A valid ticket that was created to store the token.
         track_data (str): Track Data from a magnetic card swipe.
         created_user_id (str): User ID Created the register
@@ -118,21 +119,21 @@ class List16(object):
         card_bin (str): Card bin
         routing_number (str): Required for ACH. The Routing Number for the bank
             account being used.
-        location (Location): Location Information on `expand`
-        contact (Contact1): Contact Information on `expand`
+        location (Location18): The model property of type Location18.
+        contact (Contact3): The model property of type Contact3.
         transactions (List[Transaction]): Transaction Information on `expand`
         active_recurrings (List[ActiveRecurring]): ActiveRecurring Information on
             `expand`
         is_deletable (bool): Is Deletable Information on `expand`
-        signature (Signature): Signature Information on `expand`
-        created_user (CreatedUser): User Information on `expand`
+        signature (Signature1): The model property of type Signature1.
+        created_user (User9): The model property of type User9.
         changelogs (List[Changelog]): Changelog Information on `expand`
         account_vault_cau_logs (List[AccountVaultCauLog]): Token Cau Log Information
             on `expand`
         account_vault_cau_product_transactions
             (List[AccountVaultCauProductTransaction]): Token Cau Product Transaction
             Information on `expand`
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -284,7 +285,6 @@ class List16(object):
         "token_c_1",
         "token_c_2",
         "token_c_3",
-        "ach_sec_code",
         "contact_id",
         "customer_id",
         "previous_account_vault_api_id",
@@ -577,10 +577,10 @@ class List16(object):
                 else APIHelper.SKIP
         ach_sec_code =\
             dictionary.get("ach_sec_code")\
-            if "ach_sec_code" in dictionary.keys()\
+            if dictionary.get("ach_sec_code")\
                 else APIHelper.SKIP
         billing_address =\
-            BillingAddress.from_dictionary(
+            BillingAddress7.from_dictionary(
                 dictionary.get("billing_address"))\
                 if "billing_address" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -593,7 +593,7 @@ class List16(object):
             if "customer_id" in dictionary.keys()\
                 else APIHelper.SKIP
         identity_verification =\
-            IdentityVerification2.from_dictionary(
+            IdentityVerification5.from_dictionary(
                 dictionary.get("identity_verification"))\
                 if "identity_verification" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -759,12 +759,12 @@ class List16(object):
             if "routing_number" in dictionary.keys()\
                 else APIHelper.SKIP
         location =\
-            Location.from_dictionary(
+            Location18.from_dictionary(
                 dictionary.get("location"))\
                 if "location" in dictionary.keys()\
                 else APIHelper.SKIP
         contact =\
-            Contact1.from_dictionary(
+            Contact3.from_dictionary(
                 dictionary.get("contact"))\
                 if "contact" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -789,12 +789,12 @@ class List16(object):
             if "is_deletable" in dictionary.keys()\
                 else APIHelper.SKIP
         signature =\
-            Signature.from_dictionary(
+            Signature1.from_dictionary(
                 dictionary.get("signature"))\
                 if "signature" in dictionary.keys()\
                 else APIHelper.SKIP
         created_user =\
-            CreatedUser.from_dictionary(
+            User9.from_dictionary(
                 dictionary.get("created_user"))\
                 if "created_user" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -823,9 +823,10 @@ class List16(object):
         else:
             account_vault_cau_product_transactions = APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(account_holder_name,

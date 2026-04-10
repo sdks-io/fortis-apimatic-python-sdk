@@ -3,6 +3,8 @@
 
 Resource Information on `expand`
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `Resources`
@@ -18,6 +20,7 @@ Resource Information on `expand`
 | `last_used_date` | `int` | Optional | Last Used Date |
 | `created_ts` | `int` | Optional | Created Time Stamp |
 | `modified_ts` | `int` | Optional | Modified Time Stamp |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -29,7 +32,11 @@ Resource Information on `expand`
   "last_used_date": 1422040992,
   "created_ts": 1422040992,
   "modified_ts": 1422040992,
-  "priv": "priv0"
+  "priv": "priv0",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

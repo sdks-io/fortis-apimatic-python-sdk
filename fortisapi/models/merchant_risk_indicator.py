@@ -13,34 +13,15 @@ class MerchantRiskIndicator(object):
     Contains purchase information
 
     Attributes:
-        ship_indicator (ShipIndicatorEnum): Indicates shipping method chosen for the
-            transaction. Merchants must choose the Shipping Indicator code that most
-            accurately describes the cardholder's specific transaction. If one or
-            more items are included in the sale, use the Shipping Indicator code for
-            the physical goods, or if all digital goods, use the code that describes
-            the most expensive item. >01 - Ship to cardholder's billing address > >02
-            - Ship to another verified address on file with merchant > >03 - Ship to
-            address that is different than the cardholder's billing address > >04 -
-            "Ship to Store" / Pick-up at local store (Store address shall be
-            populated in shipping address fields) > >05 - Digital goods (includes
-            online services, electronic gift cards and redemption codes) > >06 -
-            Travel and Event tickets, not shipped > >07 - Other (for example, Gaming,
-            digital services not shipped, e-media subscriptions, etc.) > >08 -
-            Pick-up and go delivery. Availble in EMV 3DS 2.3.1 and later > >09 -
-            Locker delivery (or other automated pick-up). Availble in EMV 3DS 2.3.1
-            and later > >80 - PS-specific value (dependent on the payment scheme
-            type) > >81 - PS-specific value (dependent on the payment scheme type) >
-        delivery_timeframe (DeliveryTimeframeEnum): Indicates the merchandise
-            delivery timeframe. >01 - Electronic Delivery > >02 - Same day shipping >
-            >03 - Overnight shipping > >04 - Two-day or more shipping >
+        ship_indicator (ShipIndicator): The model property of type ShipIndicator.
+        delivery_timeframe (DeliveryTimeframe): The model property of type
+            DeliveryTimeframe.
         delivery_email_address (str): For electronic delivery, the email address to
             which the merchandise was delivered.
-        reorder_items_ind (ReorderItemsIndEnum): Indicates whether the cardholder is
-            reordering previously purchased merchandise. >01 - First time ordered >
-            >02 - Reordered >
-        pre_order_purchase_ind (PreOrderPurchaseIndEnum): Indicates whether
-            Cardholder is placing an order for merchandise with a future availability
-            or release date. >01 - Merchandise available > >02 - Future availability >
+        reorder_items_ind (ReorderItemsInd): The model property of type
+            ReorderItemsInd.
+        pre_order_purchase_ind (PreOrderPurchaseInd): The model property of type
+            PreOrderPurchaseInd.
         pre_order_date (str): For a pre-ordered purchase, the expected date that the
             merchandise will be available. Date format must be YYYYMMDD.
         gift_card_amount (int): For prepaid or gift card purchase, the purchase
@@ -50,10 +31,10 @@ class MerchantRiskIndicator(object):
             the card as defined in ISO 4217 except 955 - 964 and 999.
         gift_card_count (int): For prepaid or gift card purchase, total count of
             individual prepaid or gift cards/codes purchased.
-        trans_char (List[TransCharEnum]): Available starting in EMV 3DS 2.3.1.1.
+        trans_char (List[TransChar]): Available starting in EMV 3DS 2.3.1.1.
             Indicates to the ACS specific transactions identified by the Merchant.
             >01 - Cryptocurrency transaction > >02 - NFT transaction >
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -185,9 +166,10 @@ class MerchantRiskIndicator(object):
             if dictionary.get("trans_char")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(ship_indicator,

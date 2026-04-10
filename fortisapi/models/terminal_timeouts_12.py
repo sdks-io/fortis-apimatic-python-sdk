@@ -36,7 +36,7 @@ class TerminalTimeouts12(object):
             screen. >Message on timeout: Tip/Cashback Timeout >
         transaction_timeout (int): How long to wait for response from the processor.
             >Message on timeout: Transaction Timeout >
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -171,9 +171,10 @@ class TerminalTimeouts12(object):
             if "transaction_timeout" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(card_entry_timeout,

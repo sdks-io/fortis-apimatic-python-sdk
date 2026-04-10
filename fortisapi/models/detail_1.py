@@ -57,7 +57,7 @@ class Detail1(object):
             - Results response > >Erro - Error > >3dsMethodReq - 3DS method request >
             >OReq - Operation request. Since 2.3.1 > >ORes - Operation response.
             Since 2.3.1 >
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -180,9 +180,10 @@ class Detail1(object):
             if dictionary.get("error_message_type")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(three_ds_server_trans_id,

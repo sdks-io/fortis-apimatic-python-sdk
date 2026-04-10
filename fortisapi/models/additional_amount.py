@@ -11,13 +11,11 @@ class AdditionalAmount(object):
     """Implementation of the 'AdditionalAmount' model.
 
     Attributes:
-        mtype (Type60Enum): type of the amount [4S-Healthcare(Visa and MC Only),
-            4U-Prescription/Rx(Visa and MC Only), 4V-Vision/Optical(Visa Only),
-            4W-clinic/other qualified medical(Visa Only) ,4X-Dental(Visa Only)].
+        mtype (Any): The model property of type Any.
         amount (int): The amount of additional amount.
-        account_type (AccountTypeEnum): Account Type
+        account_type (Any): The model property of type Any.
         currency (float): Currency Code
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -38,9 +36,7 @@ class AdditionalAmount(object):
     ]
 
     _nullables = [
-        "mtype",
         "amount",
-        "account_type",
         "currency",
     ]
 
@@ -87,7 +83,7 @@ class AdditionalAmount(object):
         # Extract variables from the dictionary
         mtype =\
             dictionary.get("type")\
-            if "type" in dictionary.keys()\
+            if dictionary.get("type")\
                 else APIHelper.SKIP
         amount =\
             dictionary.get("amount")\
@@ -95,16 +91,17 @@ class AdditionalAmount(object):
                 else APIHelper.SKIP
         account_type =\
             dictionary.get("account_type")\
-            if "account_type" in dictionary.keys()\
+            if dictionary.get("account_type")\
                 else APIHelper.SKIP
         currency =\
             dictionary.get("currency")\
             if "currency" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,

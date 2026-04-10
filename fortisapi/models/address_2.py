@@ -16,9 +16,9 @@ class Address2(object):
         city (str): City name
         state (str): State name
         postal_code (str): Postal code
-        country (CountryEnum): An alpha 2 format country code of US or CA.
+        country (Any): The model property of type Any.
         street (str): Street
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -44,7 +44,6 @@ class Address2(object):
         "city",
         "state",
         "postal_code",
-        "country",
         "street",
     ]
 
@@ -106,16 +105,17 @@ class Address2(object):
                 else APIHelper.SKIP
         country =\
             dictionary.get("country")\
-            if "country" in dictionary.keys()\
+            if dictionary.get("country")\
                 else APIHelper.SKIP
         street =\
             dictionary.get("street")\
             if "street" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(city,

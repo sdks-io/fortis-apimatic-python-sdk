@@ -3,6 +3,8 @@
 
 Billing Address Object
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `BillingAddress5`
@@ -13,13 +15,18 @@ Billing Address Object
 |  --- | --- | --- | --- |
 | `postal_code` | `str` | Optional | The Zip or 'Postal Code' portion of the address associated with the Credit Card.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `10`, *Pattern*: `^[a-zA-Z0-9\-\s]+$` |
 | `street` | `str` | Optional | The Street portion of the address associated with the Credit Card.<br><br>**Constraints**: *Maximum Length*: `32`, *Pattern*: `^[\w\#\,\.\-\'\&\s\/]+$` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
   "postal_code": "48375",
-  "street": "street4"
+  "street": "street4",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

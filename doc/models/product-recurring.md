@@ -3,6 +3,8 @@
 
 Product recurring array
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `ProductRecurring`
@@ -24,6 +26,7 @@ Product recurring array
 | `modified_ts` | `int` | Optional | Modified Time Stamp |
 | `created_user_id` | `str` | Optional | Created User Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `modified_user_id` | `str` | Optional | Modified User Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -41,7 +44,11 @@ Product recurring array
   "created_ts": 1422040992,
   "modified_ts": 1422040992,
   "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
-  "modified_user_id": "11e95f8ec39de8fbdb0a4f1a"
+  "modified_user_id": "11e95f8ec39de8fbdb0a4f1a",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

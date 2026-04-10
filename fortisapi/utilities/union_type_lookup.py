@@ -38,9 +38,7 @@ from fortisapi.models.conditions_181 import (
 from fortisapi.models.conditions_191 import (
     Conditions191,
 )
-from fortisapi.models.operator_1_enum import (
-    Operator1Enum,
-)
+from fortisapi.models.operator_1 import Operator1
 
 
 class UnionTypeLookUp:
@@ -67,108 +65,10 @@ class UnionTypeLookUp:
                is_optional=True,
             ),
         ),
-        "ListAllMerchantDepositsKeyword": lambda: AnyOf(
+        "ListallMerchantDepositsKeyword": lambda: AnyOf(
             [
                 LeafType(str),
                 LeafType(float),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8TaxAmountCase0": lambda: AnyOf(
-            [
-                LeafType(int),
-            ],
-        ),
-        "Data8TaxAmount": lambda: AnyOf(
-            [
-                AnyOf(
-                    [
-                        LeafType(int),
-                    ],
-                ),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8SecondaryAmountCase0": lambda: AnyOf(
-            [
-                LeafType(int),
-            ],
-        ),
-        "Data8SecondaryAmount": lambda: AnyOf(
-            [
-                AnyOf(
-                    [
-                        LeafType(int),
-                    ],
-                ),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8SaveAccount": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8SaveAccountTitle": lambda: AnyOf(
-            [
-                LeafType(str),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8Title": lambda: AnyOf(
-            [
-                LeafType(str),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8BankFundedOnlyOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8AllowPartialAuthorizationOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8AutoDeclineCvvOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8AutoDeclineStreetOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "Data8AutoDeclineZipOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
             ],
             Context.create(
                is_optional=True,
@@ -184,12 +84,7 @@ class UnionTypeLookUp:
         ),
         "FilterByOperator": lambda: OneOf(
             [
-                LeafType(Operator1Enum),
-            ],
-        ),
-        "FilterByValueCase0": lambda: AnyOf(
-            [
-                LeafType(float),
+                LeafType(Operator1),
             ],
         ),
         "FilterByValueCase1": lambda: AnyOf(
@@ -201,11 +96,7 @@ class UnionTypeLookUp:
         ),
         "FilterByValue": lambda: OneOf(
             [
-                AnyOf(
-                    [
-                        LeafType(float),
-                    ],
-                ),
+                LeafType(float),
                 AnyOf(
                     [
                         LeafType(float),
@@ -263,104 +154,6 @@ class UnionTypeLookUp:
         "V1TicketsRequestLocationId": lambda: AnyOf(
             [
                 LeafType(str),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestTaxAmountCase0": lambda: AnyOf(
-            [
-                LeafType(int),
-            ],
-        ),
-        "V1ElementsTransactionIntentionRequestTaxAmount": lambda: AnyOf(
-            [
-                AnyOf(
-                    [
-                        LeafType(int),
-                    ],
-                ),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestSecondaryAmountCase0": lambda: AnyOf(
-            [
-                LeafType(int),
-            ],
-        ),
-        "V1ElementsTransactionIntentionRequestSecondaryAmount": lambda: AnyOf(
-            [
-                AnyOf(
-                    [
-                        LeafType(int),
-                    ],
-                ),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestSaveAccount": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestSaveAccountTitle": lambda: AnyOf(
-            [
-                LeafType(str),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestTitle": lambda: AnyOf(
-            [
-                LeafType(str),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestBankFundedOnlyOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestAllowPartialAuthorizationOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestAutoDeclineCvvOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestAutoDeclineStreetOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "V1ElementsTransactionIntentionRequestAutoDeclineZipOverride": lambda: AnyOf(
-            [
-                LeafType(bool),
             ],
             Context.create(
                is_optional=True,

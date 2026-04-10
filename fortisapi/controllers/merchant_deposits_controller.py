@@ -23,7 +23,7 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.http.http_method_enum import (
     HttpMethodEnum,
@@ -60,7 +60,7 @@ class MerchantDepositsController(BaseController):
 
         Args:
             deposit_id (str): Deposit Id
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -84,30 +84,30 @@ class MerchantDepositsController(BaseController):
                 "value": "946702799" }, { "key": "created_ts", "operator": "<=",
                 value: "1695061891" }] > >/endpoint?filter_by=[{ "key": "last_name",
                 "operator": "IN", "value": "Williams,Brown,Allman" }] >
-            expand (List[Expand15Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            expand (List[Expand15], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field37Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field37], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
             keyword (str | float | None, optional): You can use any value to search
                 on specific fields of this endpoint results. You can not specify the
                 fields that are used.
 
         Returns:
-            ResponseMerchantDeposit: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -119,6 +119,7 @@ class MerchantDepositsController(BaseController):
             .template_param(Parameter()
                 .key("deposit_id")
                 .value(deposit_id)
+                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("page")
@@ -156,22 +157,23 @@ class MerchantDepositsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseMerchantDeposit.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()
 
-    def list_all_merchant_deposits(self,
-                                   page=None,
-                                   order=None,
-                                   filter_by=None,
-                                   expand=None,
-                                   format=None,
-                                   typeahead=None,
-                                   fields=None,
-                                   keyword=None):
+    def listall_merchant_deposits(self,
+                                  page=None,
+                                  order=None,
+                                  filter_by=None,
+                                  expand=None,
+                                  format=None,
+                                  typeahead=None,
+                                  fields=None,
+                                  keyword=None):
         """Perform a GET request to /v1/merchants/deposits.
 
         Args:
-            page (Page, optional): Use this field to specify paginate your results,
+            page (Page1, optional): Use this field to specify paginate your results,
                 by using page size and number. You can use one of the following
                 methods: >/endpoint?page={ "number": 1, "size": 50 } >
                 >/endpoint?page[number]=1&page[size]=50 >
@@ -195,30 +197,30 @@ class MerchantDepositsController(BaseController):
                 "value": "946702799" }, { "key": "created_ts", "operator": "<=",
                 value: "1695061891" }] > >/endpoint?filter_by=[{ "key": "last_name",
                 "operator": "IN", "value": "Williams,Brown,Allman" }] >
-            expand (List[Expand15Enum], optional): Most endpoints in the API have a
-                way to retrieve extra data related to the current record being
-                retrieved. For example, if the API request is for the accountvaults
-                endpoint, and the end user also needs to know which contact the token
-                belongs to, this data can be returned in the accountvaults endpoint
-                request.
-            format (Format1Enum, optional): Reporting format, valid values: csv, tsv
+            expand (List[Expand15], optional): Most endpoints in the API have a way
+                to retrieve extra data related to the current record being retrieved.
+                For example, if the API request is for the accountvaults endpoint,
+                and the end user also needs to know which contact the token belongs
+                to, this data can be returned in the accountvaults endpoint request.
+            format (Format1, optional): Reporting format, valid values: csv, tsv
             typeahead (str, optional): You can use any `field_name` from this
                 endpoint results to order the list using the value provided as filter
                 for the same `field_name`. It will be ordered using the following
                 rules: 1) Exact match, 2) Starts with, 3) Contains.
                 >/endpoint?filter={ "field_name": "Value" }&_typeahead=field_name >
-            fields (List[Field38Enum], optional): You can use any `field_name` from
-                this endpoint results to filter the list of fields returned on the
+            fields (List[Field38], optional): You can use any `field_name` from this
+                endpoint results to filter the list of fields returned on the
                 response.
             keyword (str | float | None, optional): You can use any value to search
                 on specific fields of this endpoint results. You can not specify the
                 fields that are used.
 
         Returns:
-            ResponseMerchantDepositsCollection: Response from the API. OK
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. OK
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -252,7 +254,7 @@ class MerchantDepositsController(BaseController):
                 .key("keyword")
                 .value(keyword)
                 .validator(lambda value: UnionTypeLookUp
-                    .get("ListAllMerchantDepositsKeyword").validate(value)))
+                    .get("ListallMerchantDepositsKeyword").validate(value)))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -263,5 +265,6 @@ class MerchantDepositsController(BaseController):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ResponseMerchantDepositsCollection.from_dictionary)
-            .local_error("401", "Unauthorized", Response401tokenException),
+            .is_api_response(True)
+            .local_error("401", "Unauthorized", Response401TokenException),
         ).execute()

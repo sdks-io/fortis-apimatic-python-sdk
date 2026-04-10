@@ -25,7 +25,7 @@ class MerchantList(object):
             values 955-964 and 999.
         merchant_exponent (str): Minor units of Merchant Currency as specified in the
             ISO 4217 currency exponent.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -110,9 +110,10 @@ class MerchantList(object):
             if dictionary.get("merchant_exponent")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(merchant_name_listed,

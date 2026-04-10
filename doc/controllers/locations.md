@@ -11,9 +11,9 @@ locations_controller = client.locations
 ## Methods
 
 * [Locations Search](../../doc/controllers/locations.md#locations-search)
-* [List All Locations](../../doc/controllers/locations.md#list-all-locations)
+* [Listalllocations](../../doc/controllers/locations.md#listalllocations)
 * [Locations Detail](../../doc/controllers/locations.md#locations-detail)
-* [View Single Location Record](../../doc/controllers/locations.md#view-single-location-record)
+* [Viewsinglelocationrecord](../../doc/controllers/locations.md#viewsinglelocationrecord)
 * [Location Detail](../../doc/controllers/locations.md#location-detail)
 
 
@@ -31,30 +31,31 @@ def locations_search(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `keyword` | `str` | Query, Optional | You can use any value to search on specific fields of this endpoint results. You can not specify the fields that are used. |
-| `expand` | [`List[Expand10Enum]`](../../doc/models/expand-10-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `relationship` | [`RelationshipEnum`](../../doc/models/relationship-enum.md) | Query, Optional | Used to filter the type of locations that will be returned |
+| `expand` | [`List[Expand10]`](../../doc/models/expand-10.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `relationship` | [`Relationship`](../../doc/models/relationship.md) | Query, Optional | Used to filter the type of locations that will be returned |
 
 ## Response Type
 
-[`ResponseLocationSearchsCollection`](../../doc/models/response-location-searchs-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseLocationSearchsCollection`](../../doc/models/response-location-searchs-collection.md).
 
 ## Example Usage
 
 ```python
-page = Page(
+page = Page1(
     number=1,
     size=50
 )
 
-relationship = RelationshipEnum.CHILD
-
 result = locations_controller.locations_search(
-    page=page,
-    relationship=relationship
+    page=page
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -415,42 +416,42 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# List All Locations
+# Listalllocations
 
 ```python
-def list_all_locations(self,
-                      page=None,
-                      order=None,
-                      filter_by=None,
-                      expand=None,
-                      format=None,
-                      typeahead=None,
-                      fields=None)
+def listalllocations(self,
+                    page=None,
+                    order=None,
+                    filter_by=None,
+                    expand=None,
+                    format=None,
+                    typeahead=None,
+                    fields=None)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`List[Order21]`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filter_by` | [`List[FilterBy]`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`List[Expand11Enum]`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`Format1Enum`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`List[Expand11]`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`Format1`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `str` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`List[Field33Enum]`](../../doc/models/field-33-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`List[Field33]`](../../doc/models/field-33.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseLocationsCollection`](../../doc/models/response-locations-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseLocationsCollection`](../../doc/models/response-locations-collection.md).
 
 ## Example Usage
 
 ```python
-page = Page(
+page = Page1(
     number=1,
     size=50
 )
@@ -458,24 +459,28 @@ page = Page(
 order = [
     Order21(
         key='first_name',
-        operator=OperatorEnum.ASC
+        operator=Operator.ASC
     )
 ]
 
 filter_by = [
     FilterBy(
         key='first_name',
-        operator=Operator1Enum.ENUM_1,
+        operator=Operator1.ENUM_1,
         value='Fred'
     )
 ]
 
-result = locations_controller.list_all_locations(
+result = locations_controller.listalllocations(
     page=page,
     order=order,
     filter_by=filter_by
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1087,7 +1092,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Locations Detail
@@ -1112,13 +1117,13 @@ def locations_detail(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`List[Order21]`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filter_by` | [`List[FilterBy]`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`List[Expand11Enum]`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`Format1Enum`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`List[Expand11]`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`Format1`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `str` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`List[Field34Enum]`](../../doc/models/field-34-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`List[Field34]`](../../doc/models/field-34.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 | `product_transaction_active` | `Any` | Query, Optional | Product Transaction Active |
 | `product_file_active` | `Any` | Query, Optional | Product File Active |
 | `product_invoice_active` | `Any` | Query, Optional | Product Invoice Active |
@@ -1127,12 +1132,12 @@ def locations_detail(self,
 
 ## Response Type
 
-[`ResponseLocationInfosCollection`](../../doc/models/response-location-infos-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseLocationInfosCollection`](../../doc/models/response-location-infos-collection.md).
 
 ## Example Usage
 
 ```python
-page = Page(
+page = Page1(
     number=1,
     size=50
 )
@@ -1140,14 +1145,14 @@ page = Page(
 order = [
     Order21(
         key='first_name',
-        operator=OperatorEnum.ASC
+        operator=Operator.ASC
     )
 ]
 
 filter_by = [
     FilterBy(
         key='first_name',
-        operator=Operator1Enum.ENUM_1,
+        operator=Operator1.ENUM_1,
         value='Fred'
     )
 ]
@@ -1157,7 +1162,11 @@ result = locations_controller.locations_detail(
     order=order,
     filter_by=filter_by
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1518,16 +1527,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Location Record
+# Viewsinglelocationrecord
 
 ```python
-def view_single_location_record(self,
-                               location_id,
-                               expand=None,
-                               fields=None)
+def viewsinglelocationrecord(self,
+                            location_id,
+                            expand=None,
+                            fields=None)
 ```
 
 ## Parameters
@@ -1535,20 +1544,24 @@ def view_single_location_record(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `str` | Template, Required | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand11Enum]`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`List[Field35Enum]`](../../doc/models/field-35-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`List[Expand11]`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`List[Field35]`](../../doc/models/field-35.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseLocation`](../../doc/models/response-location.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseLocation`](../../doc/models/response-location.md).
 
 ## Example Usage
 
 ```python
 location_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = locations_controller.view_single_location_record(location_id)
-print(result)
+result = locations_controller.viewsinglelocationrecord(location_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2135,7 +2148,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Location Detail
@@ -2157,8 +2170,8 @@ def location_detail(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `location_id` | `str` | Template, Required | Location ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand11Enum]`](../../doc/models/expand-11-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`List[Field36Enum]`](../../doc/models/field-36-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`List[Expand11]`](../../doc/models/expand-11.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`List[Field36]`](../../doc/models/field-36.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 | `product_transaction_active` | `Any` | Query, Optional | Product Transaction Active |
 | `product_file_active` | `Any` | Query, Optional | Product File Active |
 | `product_invoice_active` | `Any` | Query, Optional | Product Invoice Active |
@@ -2167,7 +2180,7 @@ def location_detail(self,
 
 ## Response Type
 
-[`ResponseLocationInfo`](../../doc/models/response-location-info.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseLocationInfo`](../../doc/models/response-location-info.md).
 
 ## Example Usage
 
@@ -2175,7 +2188,11 @@ def location_detail(self,
 location_id = '11e95f8ec39de8fbdb0a4f1a'
 
 result = locations_controller.location_detail(location_id)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2511,5 +2528,5 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 

@@ -11,9 +11,9 @@ class Conditions181(object):
     """Implementation of the 'Conditions181' model.
 
     Attributes:
-        method (Method53Enum): The model property of type Method53Enum.
-        values (Values51Enum): The model property of type Values51Enum.
-        additional_properties (Dict[str, object]): The additional properties for the
+        method (Method53): The model property of type Method53.
+        values (Values51): The model property of type Values51.
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -73,9 +73,10 @@ class Conditions181(object):
             if dictionary.get("values")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(method,

@@ -28,13 +28,13 @@ def merchant_boarding(self,
 
 ## Response Type
 
-[`ResponseOnboarding`](../../doc/models/response-onboarding.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseOnboarding`](../../doc/models/response-onboarding.md).
 
 ## Example Usage
 
 ```python
 body = V1OnboardingRequest(
-    primary_principal=PrimaryPrincipal1(
+    primary_principal=PrimaryPrincipal2(
         first_name='Bob',
         last_name='Fairview',
         middle_name='Nathaniel',
@@ -51,7 +51,7 @@ body = V1OnboardingRequest(
     template_code='1234YourTemplateCode',
     email='email@domain.com',
     dba_name='Discount Home Goods',
-    location=Location20(
+    location=Location19(
         phone_number='555-555-1212',
         address_line_1='1200 West Hartford Pkwy',
         address_line_2='Suite 2000',
@@ -59,18 +59,16 @@ body = V1OnboardingRequest(
         state_province='DE',
         postal_code='55022'
     ),
-    app_delivery=envrr,
-    contact=Contact11(
+    app_delivery=AppDelivery.DIRECT,
+    contact=Contact13(
         phone_number='555-555-3456',
         first_name='Jeffery',
         last_name='Todd',
         email='jtodd@example.com'
     ),
-    business_category=BusinessCategoryEnum.EDUCATION,
     swiped_percent=0,
     keyed_percent=0,
     ecommerce_percent=100,
-    ownership_type=OwnershipTypeEnum.LLP,
     fed_tax_id='0000000000',
     cc_average_ticket_range=5,
     cc_monthly_volume_range=1,
@@ -84,7 +82,11 @@ body = V1OnboardingRequest(
 )
 
 result = on_boarding_controller.merchant_boarding(body)
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -163,6 +165,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

@@ -18,7 +18,7 @@ class Data39(object):
         expands (str): An option list of expanded data to send with base data. (i.e.
             set this field to “contact,account_vault” to get the contact an
             accountvault used to run a transaction.)
-        format (FormatEnum): Options include: api-default
+        format (Any): The model property of type Any.
         is_active (bool): Flag to indicate whether configuration is active (in
             effect).
         location_id (str): The location identifier of the resource you want to
@@ -31,14 +31,12 @@ class Data39(object):
         postback_config_id (str): Postback Config ID
         product_transaction_id (str): Required when using 'transaction' or
             'transactionbatch' resource
-        resource (Resource12Enum): The resource you want to subscribe the postbacks
-            to. >Possible values include: 'contact', 'transaction',
-            'transactionbatch' >
+        resource (Resource12): The model property of type Resource12.
         number_of_attempts (int): Maximum number of attempts on failure
         url (str): The URL where the postback will be submitted
         id (str): Postback Config ID
         postback_logs (List[PostbackLog]): Postback Log Information on `expand`
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -93,7 +91,6 @@ class Data39(object):
         "basic_auth_username",
         "basic_auth_password",
         "expands",
-        "format",
         "location_api_id",
         "postback_config_id",
         "product_transaction_id",
@@ -201,7 +198,7 @@ class Data39(object):
                 else APIHelper.SKIP
         format =\
             dictionary.get("format")\
-            if "format" in dictionary.keys()\
+            if dictionary.get("format")\
                 else APIHelper.SKIP
         is_active =\
             dictionary.get("is_active")\
@@ -264,9 +261,10 @@ class Data39(object):
         else:
             postback_logs = APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(attempt_interval,

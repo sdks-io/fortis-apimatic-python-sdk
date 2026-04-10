@@ -8,7 +8,7 @@ from fortisapi.api_helper import APIHelper
 
 
 class V1DeviceTermsRequest(object):
-    """Implementation of the 'V1 Device Terms Request' model.
+    """Implementation of the 'V1DeviceTermsRequest' model.
 
     Attributes:
         location_id (str): Location ID
@@ -19,7 +19,7 @@ class V1DeviceTermsRequest(object):
             systems. Must be unique per location.
         terms_conditions (str): This is the message that is displayed on the screen
             when prompting for a signature.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -102,9 +102,10 @@ class V1DeviceTermsRequest(object):
             if "device_term_api_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(location_id,

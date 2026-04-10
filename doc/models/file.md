@@ -1,6 +1,8 @@
 
 # File
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `File`
@@ -11,7 +13,7 @@
 |  --- | --- | --- | --- |
 | `file` | `Any` | Optional | File Object |
 | `resource_id` | `str` | Optional | Resource Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `resource` | [`Resource2Enum`](../../doc/models/resource-2-enum.md) | Optional | Resource |
+| `resource` | [`Resource2`](../../doc/models/resource-2.md) | Optional | - |
 | `product_file_id` | `str` | Optional | Product File Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `file_category_id` | `str` | Optional | File Category Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `visibility_group_id` | `str` | Optional | Visibility Group Id<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
@@ -23,13 +25,13 @@
 | `created_ts` | `int` | Optional | Created Time Stamp |
 | `modified_ts` | `int` | Optional | Modified Time Stamp |
 | `created_user_id` | `str` | Optional | User ID Created the register<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
   "resource_id": "11e95f8ec39de8fbdb0a4f1a",
-  "resource": "Contact",
   "product_file_id": "11e95f8ec39de8fbdb0a4f1a",
   "file_category_id": "11e95f8ec39de8fbdb0a4f1a",
   "visibility_group_id": "11e95f8ec39de8fbdb0a4f1a",
@@ -38,6 +40,11 @@
   "modified_ts": 1422040992,
   "created_user_id": "11e95f8ec39de8fbdb0a4f1a",
   "file": {
+    "key1": "val1",
+    "key2": "val2"
+  },
+  "resource": "Location",
+  "exampleAdditionalProperty": {
     "key1": "val1",
     "key2": "val2"
   }

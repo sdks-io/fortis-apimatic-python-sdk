@@ -14,32 +14,21 @@ class AccountInfo(object):
     provided by the 3DS Requestor. The field is optional but recommended to include.
 
     Attributes:
-        ch_acc_age_ind (ChAccAgeIndEnum): Length of time that the cardholder has had
-            the account with the 3DS Requestor. >01 - No account > >02 - Created
-            during this transaction > >03 - Less than 30 days > >04 - Between 30 and
-            60 days > >05 - More than 60 days >
+        ch_acc_age_ind (ChAccAgeInd): The model property of type ChAccAgeInd.
         ch_acc_date (str): Date converted into UTC that the cardholder opened the
             account with the 3DS Requestor. Date format = YYYYMMDD.
-        ch_acc_change_ind (ChAccChangeIndEnum): Length of time since the cardholder's
-            account information with the 3DS Requestor was last changed. Includes
-            Billing or Shipping address, new payment account, or new user(s) added.
-            >01 - Changed during this transaction > >02 - Less than 30 days > >03 -
-            30 - 60 days > >04 - More than 60 days >
+        ch_acc_change_ind (ChAccChangeInd): The model property of type ChAccChangeInd.
         ch_acc_change (str): Date converted into UTC that the cardholder's account
             with the 3DS Requestor was last changed. Including Billing or Shipping
             address, new payment account, or new user(s) added. Date format =
             YYYYMMDD.
-        ch_acc_pw_change_ind (ChAccPwChangeIndEnum): Length of time since the
-            cardholder's account with the 3DS Requestor had a password change or
-            account reset. >01 - No change > >02 - Changed during this transaction >
-            >03 - Less than 30 days > >04 - 30 - 60 days > >05 - More than 60 days >
+        ch_acc_pw_change_ind (ChAccPwChangeInd): The model property of type
+            ChAccPwChangeInd.
         ch_acc_pw_change (str): Date converted into UTC that cardholder's account
             with the 3DS Requestor had a password change or account reset. Date
             format must be YYYYMMDD.
-        ship_address_usage_ind (ShipAddressUsageIndEnum): Indicates when the shipping
-            address used for this transaction was first used with the 3DS Requestor.
-            >01 - This transaction > >02 - Less than 30 days > >03 - 30 - 60 days >
-            >04 - More than 60 days >
+        ship_address_usage_ind (ShipAddressUsageInd): The model property of type
+            ShipAddressUsageInd.
         ship_address_usage (str): Date converted into UTC when the shipping address
             used for this transaction was first used with the 3DS Requestor. Date
             format must be YYYYMMDD.
@@ -53,19 +42,11 @@ class AccountInfo(object):
             hours.
         nb_purchase_account (int): Number of purchases with this cardholder account
             during the previous six months.
-        suspicious_acc_activity (SuspiciousAccActivityEnum): Indicates whether the
-            3DS Requestor has experienced suspicious activity including previous
-            fraud) on the cardholder account. >01 - No suspicious activity has been
-            observed > >02 - Suspicious activity has been observed >
-        ship_name_indicator (ShipNameIndicatorEnum): Indicates if the Cardholder Name
-            on the account is identical to the shipping Name used for this
-            transaction. >01 - Account Name identical to shipping Name > >02 -
-            Account Name different than shipping Name >
-        payment_acc_ind (PaymentAccIndEnum): Indicates the length of time that the
-            payment account was enrolled in the cardholder's account with the 3DS
-            Requestor. >01 - No account (guest check-out) > >02 - During this
-            transaction > >03 - Less than 30 days > >04 - 30 - 60 days > >05 - More
-            than 60 days >
+        suspicious_acc_activity (SuspiciousAccActivity): The model property of type
+            SuspiciousAccActivity.
+        ship_name_indicator (ShipNameIndicator): The model property of type
+            ShipNameIndicator.
+        payment_acc_ind (PaymentAccInd): The model property of type PaymentAccInd.
         payment_acc_age (str): Date converted into UTC that the payment account was
             enrolled in the cardholder's account with the 3DS Requestor. Date format
             must be YYYYMMDD.
@@ -73,7 +54,7 @@ class AccountInfo(object):
             transacting Cardholder. This identifier is a unique representation of the
             account identifier for the 3DS Requestor and is provided as a String.
             This field is supported in Starting from EMV 3DS 2.3.1 and later.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -272,9 +253,10 @@ class AccountInfo(object):
             if "ch_acc_req_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(ch_acc_age_ind,

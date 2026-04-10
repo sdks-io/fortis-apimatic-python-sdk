@@ -30,7 +30,7 @@ class Level3Data6(object):
             will be delivered.
         tax_amount (int): Amount of any value added taxes ,Can accept Two (2) decimal
             places.
-        tax_exempt (TaxExemptEnum): Sales Tax Exempt. Allowed values: “1”, “0”.
+        tax_exempt (Any): The model property of type Any.
         customer_vat_registration (str): Customer VAT Registration
         merchant_vat_registration (str): Merchant VAT Registration
         order_date (str): Order Date
@@ -39,7 +39,7 @@ class Level3Data6(object):
             decimal places.
         unique_vat_ref_number (str): Unique VAT Reference Number
         line_items (List[LineItem20]): Array of line items in transaction
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -91,7 +91,6 @@ class Level3Data6(object):
         "shipfrom_zip_code",
         "shipto_zip_code",
         "tax_amount",
-        "tax_exempt",
         "customer_vat_registration",
         "merchant_vat_registration",
         "order_date",
@@ -216,7 +215,7 @@ class Level3Data6(object):
                 else APIHelper.SKIP
         tax_exempt =\
             dictionary.get("tax_exempt")\
-            if "tax_exempt" in dictionary.keys()\
+            if dictionary.get("tax_exempt")\
                 else APIHelper.SKIP
         customer_vat_registration =\
             dictionary.get("customer_vat_registration")\
@@ -243,9 +242,10 @@ class Level3Data6(object):
             if "unique_vat_ref_number" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(line_items,

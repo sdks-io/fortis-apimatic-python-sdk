@@ -8,12 +8,12 @@ from fortisapi.api_helper import APIHelper
 
 
 class V1TagsRequest1(object):
-    """Implementation of the 'V1 Tags Request1' model.
+    """Implementation of the 'V1TagsRequest1' model.
 
     Attributes:
         location_id (str): Location ID
         title (str): Tag Title
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -78,9 +78,10 @@ class V1TagsRequest1(object):
             if "title" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(location_id,

@@ -1,6 +1,8 @@
 
 # V1 Declined Recurring Transaction Payments Request
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `V1DeclinedRecurringTransactionPaymentsRequest`
@@ -15,13 +17,14 @@
 | `exp_date` | `str` | Required | Exp Date<br><br>**Constraints**: *Maximum Length*: `4` |
 | `transaction_amount` | `int` | Required | Transaction Amount<br><br>**Constraints**: `>= 0`, `<= 999999999` |
 | `description` | `str` | Optional | Description<br><br>**Constraints**: *Maximum Length*: `255` |
-| `billing_address` | [`BillingAddress`](../../doc/models/billing-address.md) | Optional | Billing Address Object |
+| `billing_address` | [`BillingAddress7`](../../doc/models/billing-address-7.md) | Optional | - |
 | `tags` | `List[str]` | Optional | Tags |
 | `replace_account_vault` | `bool` | Optional | Replace AccountVault |
 | `save_account` | `bool` | Optional | Specifies to save account to contacts profile if account_number/track_data is present with either contact_id or contact_api_id in params. |
 | `save_account_title` | `str` | Optional | If saving token while running a transaction, this will be the title of the token.<br><br>**Constraints**: *Maximum Length*: `16` |
 | `subtotal_amount` | `int` | Optional | Subtotal Amount<br><br>**Constraints**: `>= 0`, `<= 999999999` |
 | `surcharge_amount` | `int` | Optional | Surcharge Amount<br><br>**Constraints**: `>= 0`, `<= 999999999` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -41,12 +44,21 @@
     "street": "street8",
     "city": "city2",
     "state": "state6",
-    "phone": "phone2"
+    "phone": "phone2",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "tags": [
-    "tags3"
+    "tags3",
+    "tags4"
   ],
-  "replace_account_vault": false
+  "replace_account_vault": false,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

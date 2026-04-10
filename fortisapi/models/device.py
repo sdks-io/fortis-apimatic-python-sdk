@@ -14,26 +14,9 @@ class Device(object):
     Available for supporting EMV 3DS 2.3.1 and later versions.
 
     Attributes:
-        device_binding_status (DeviceBindingStatusEnum): Enables the communication of
-            Device Binding Status between the ACS, the DS and the 3DS Requestor. For
-            bound devices (value = 11–14), Device Binding Status also conveys the
-            type of binding that was performed. >01 - Device is not bound by
-            Cardholder > >02 - Not eligible as determined by Issuer > >03 - Pending
-            confirmation by Cardholder > >04 - Cardholder rejected > >05 - Device
-            Binding Status unknown, unavailable, or does not apply > >06 through 10 -
-            Reserved for EMVCo future use (values invalid until defined by EMVCo) >
-            >11 - Device is bound by Cardholder (device is bound using hardware / SIM
-            internal to the Consumer Device. For instance, keys stored in a secure
-            element on the device) > >12 - Device is bound by Cardholder (device is
-            bound using hardware external to the Consumer Device. For example, an
-            external FIDO Authenticator > >13 - Device is bound by Cardholder (device
-            is bound using data that includes dynamically generated data and could
-            include a unique device ID) > >14 - Device is bound by Cardholder (device
-            is bound using static device data that has been obtained from the
-            Consumer Device > >15 - Device is bound by Cardholder (Other method) >
-            >16 through 79 - Reserved for EMVCo future use (values invalid until
-            defined by EMVCo) > >80 through 99 - Reserved for DS use >
-        additional_properties (Dict[str, object]): The additional properties for the
+        device_binding_status (DeviceBindingStatus): The model property of type
+            DeviceBindingStatus.
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -84,9 +67,10 @@ class Device(object):
             if dictionary.get("device_binding_status")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(device_binding_status,

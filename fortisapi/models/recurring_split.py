@@ -16,7 +16,7 @@ class RecurringSplit(object):
         id (str): Recurring ID
         created_ts (int): Created Time Stamp
         created_user_id (str): User ID Created the register
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -109,9 +109,10 @@ class RecurringSplit(object):
             if "created_user_id" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(contact_id,

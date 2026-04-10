@@ -8,21 +8,21 @@ from fortisapi.api_helper import APIHelper
 from fortisapi.models.additional_amount import (
     AdditionalAmount,
 )
-from fortisapi.models.billing_address_1 import (
-    BillingAddress1,
+from fortisapi.models.billing_address_2 import (
+    BillingAddress2,
 )
-from fortisapi.models.identity_verification_27 import (
-    IdentityVerification27,
+from fortisapi.models.identity_verification_10 import (
+    IdentityVerification10,
 )
 from fortisapi.models.joi import Joi
 
 
 class V1TransactionsAchDebitTokenRequest(object):
-    """Implementation of the 'V1 Transactions Ach Debit Token Request' model.
+    """Implementation of the 'V1TransactionsAchDebitTokenRequest' model.
 
     Attributes:
         additional_amounts (List[AdditionalAmount]): Additional amounts
-        billing_address (BillingAddress1): Billing Address Object
+        billing_address (BillingAddress2): The model property of type BillingAddress2.
         checkin_date (str): Checkin Date - The time difference between checkin_date
             and checkout_date must be less than or equal to 99 days. NOTE: if
             checkin_date is in the future, set the advance_deposit to 1 >Required if
@@ -41,8 +41,9 @@ class V1TransactionsAchDebitTokenRequest(object):
         customer_id (str): Can be used by Merchants to identify Contacts in our
             system by an ID from another system.
         description (str): Description
-        identity_verification (IdentityVerification27): Identity Verification
-        iias_ind (IiasIndEnum): Possible values are '0', '1','2'
+        identity_verification (IdentityVerification10): The model property of type
+            IdentityVerification10.
+        iias_ind (Any): The model property of type Any.
         image_front (str): A base64 encoded string for the image.  Used with Check21
             ACH transactions.
         image_back (str): A base64 encoded string for the image.  Used with Check21
@@ -57,7 +58,7 @@ class V1TransactionsAchDebitTokenRequest(object):
             field is being passed as 1, then this field must have a vlue of 1-999
             specifying the total number of installments on the plan. This number must
             be grater than or equal to installment_number.
-        recurring_flag (RecurringFlagEnum): Recurring Flag
+        recurring_flag (Any): The model property of type Any.
         installment_counter (int): Installment Counter
         installment_total (int): Installment Total
         subscription (bool): Subscription
@@ -120,11 +121,9 @@ class V1TransactionsAchDebitTokenRequest(object):
         auto_decline_cvv_override (bool): Auto Decline CVV Override
         auto_decline_street_override (bool): Auto Decline Street Override
         auto_decline_zip_override (bool): Auto Decline Zip Override
-        ebt_type (EbtTypeEnum): EBT Type
+        ebt_type (Any): The model property of type Any.
         ach_identifier (str): Required for ACH transactions in certain scenarios.
-        ach_sec_code (AchSecCode31Enum): Required for ACH transactions if
-            account_vault_id is not provided. >Only CCD, PPD, TEL, and WEB are
-            supported for FortisAch. >
+        ach_sec_code (Any): The model property of type Any.
         effective_date (str): For ACH only, this is optional and defaults to current
             day.
         account_holder_name (str): For CC, this is the 'Name (as it appears) on
@@ -140,7 +139,7 @@ class V1TransactionsAchDebitTokenRequest(object):
             would like to use an token for the transaction and are using your own
             custom api_id's to track accountvaults in the system.
         joi (Joi): The model property of type Joi.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -285,12 +284,10 @@ class V1TransactionsAchDebitTokenRequest(object):
         "contact_id",
         "customer_id",
         "description",
-        "iias_ind",
         "image_front",
         "image_back",
         "installment_number",
         "installment_count",
-        "recurring_flag",
         "installment_counter",
         "installment_total",
         "location_api_id",
@@ -314,9 +311,7 @@ class V1TransactionsAchDebitTokenRequest(object):
         "transaction_c_1",
         "transaction_c_2",
         "transaction_c_3",
-        "ebt_type",
         "ach_identifier",
-        "ach_sec_code",
         "effective_date",
         "account_holder_name",
     ]
@@ -552,7 +547,7 @@ class V1TransactionsAchDebitTokenRequest(object):
         else:
             additional_amounts = APIHelper.SKIP
         billing_address =\
-            BillingAddress1.from_dictionary(
+            BillingAddress2.from_dictionary(
                 dictionary.get("billing_address"))\
                 if "billing_address" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -589,13 +584,13 @@ class V1TransactionsAchDebitTokenRequest(object):
             if "description" in dictionary.keys()\
                 else APIHelper.SKIP
         identity_verification =\
-            IdentityVerification27.from_dictionary(
+            IdentityVerification10.from_dictionary(
                 dictionary.get("identity_verification"))\
                 if "identity_verification" in dictionary.keys()\
                 else APIHelper.SKIP
         iias_ind =\
             dictionary.get("iias_ind")\
-            if "iias_ind" in dictionary.keys()\
+            if dictionary.get("iias_ind")\
                 else APIHelper.SKIP
         image_front =\
             dictionary.get("image_front")\
@@ -619,7 +614,7 @@ class V1TransactionsAchDebitTokenRequest(object):
                 else APIHelper.SKIP
         recurring_flag =\
             dictionary.get("recurring_flag")\
-            if "recurring_flag" in dictionary.keys()\
+            if dictionary.get("recurring_flag")\
                 else APIHelper.SKIP
         installment_counter =\
             dictionary.get("installment_counter")\
@@ -759,7 +754,7 @@ class V1TransactionsAchDebitTokenRequest(object):
                 else APIHelper.SKIP
         ebt_type =\
             dictionary.get("ebt_type")\
-            if "ebt_type" in dictionary.keys()\
+            if dictionary.get("ebt_type")\
                 else APIHelper.SKIP
         ach_identifier =\
             dictionary.get("ach_identifier")\
@@ -767,7 +762,7 @@ class V1TransactionsAchDebitTokenRequest(object):
                 else APIHelper.SKIP
         ach_sec_code =\
             dictionary.get("ach_sec_code")\
-            if "ach_sec_code" in dictionary.keys()\
+            if dictionary.get("ach_sec_code")\
                 else APIHelper.SKIP
         effective_date =\
             dictionary.get("effective_date")\
@@ -799,9 +794,10 @@ class V1TransactionsAchDebitTokenRequest(object):
                 if "_joi" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(transaction_amount,

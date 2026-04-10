@@ -14,26 +14,26 @@ tokens_controller = client.tokens
 
 ## Methods
 
-* [Create a New ACH Token](../../doc/controllers/tokens.md#create-a-new-ach-token)
-* [Create a New Credit Card Token](../../doc/controllers/tokens.md#create-a-new-credit-card-token)
-* [Create a New Previous Transaction Token](../../doc/controllers/tokens.md#create-a-new-previous-transaction-token)
-* [Create a New Terminal Token with Async Method](../../doc/controllers/tokens.md#create-a-new-terminal-token-with-async-method)
-* [Create a New Terminal Token](../../doc/controllers/tokens.md#create-a-new-terminal-token)
-* [Create a New Ticket Token](../../doc/controllers/tokens.md#create-a-new-ticket-token)
-* [Create a New Wallet Token](../../doc/controllers/tokens.md#create-a-new-wallet-token)
-* [Delete a Single Token Record](../../doc/controllers/tokens.md#delete-a-single-token-record)
-* [View Single Token Record](../../doc/controllers/tokens.md#view-single-token-record)
-* [List All Tokens Related](../../doc/controllers/tokens.md#list-all-tokens-related)
+* [Createanew ACH Token](../../doc/controllers/tokens.md#createanew-ach-token)
+* [Createanew Credit Card Token](../../doc/controllers/tokens.md#createanew-credit-card-token)
+* [Createanew Previous Transaction Token](../../doc/controllers/tokens.md#createanew-previous-transaction-token)
+* [Createanew Terminal Tokenwith Asyncmethod](../../doc/controllers/tokens.md#createanew-terminal-tokenwith-asyncmethod)
+* [Createanew Terminal Token](../../doc/controllers/tokens.md#createanew-terminal-token)
+* [Createanew Ticket Token](../../doc/controllers/tokens.md#createanew-ticket-token)
+* [Createanew Wallet Token](../../doc/controllers/tokens.md#createanew-wallet-token)
+* [Deleteasingletokenrecord](../../doc/controllers/tokens.md#deleteasingletokenrecord)
+* [Viewsingletokenrecord](../../doc/controllers/tokens.md#viewsingletokenrecord)
+* [Listalltokensrelated](../../doc/controllers/tokens.md#listalltokensrelated)
 * [Update ACH Token](../../doc/controllers/tokens.md#update-ach-token)
 * [Update CC Token](../../doc/controllers/tokens.md#update-cc-token)
 
 
-# Create a New ACH Token
+# Createanew ACH Token
 
 ```python
-def create_a_new_ach_token(self,
-                          body,
-                          expand=None)
+def createanew_ach_token(self,
+                        body,
+                        expand=None)
 ```
 
 ## Parameters
@@ -41,11 +41,11 @@ def create_a_new_ach_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensAchRequest`](../../doc/models/v1-tokens-ach-request.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -62,7 +62,6 @@ body = V1TokensAchRequest(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     previous_account_vault_api_id='previousaccountvault123456',
@@ -79,13 +78,16 @@ body = V1TokensAchRequest(
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
     acs_transaction_id='13c701a3-5a88-4c45-89e9-ef65e50a8bf9',
-    account_type=AccountType13Enum.SAVINGS,
     is_company=False,
     routing_number='100020200'
 )
 
-result = tokens_controller.create_a_new_ach_token(body)
-print(result)
+result = tokens_controller.createanew_ach_token(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -552,16 +554,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Credit Card Token
+# Createanew Credit Card Token
 
 ```python
-def create_a_new_credit_card_token(self,
-                                  body,
-                                  expand=None)
+def createanew_credit_card_token(self,
+                                body,
+                                expand=None)
 ```
 
 ## Parameters
@@ -569,11 +571,11 @@ def create_a_new_credit_card_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensCcRequest`](../../doc/models/v1-tokens-cc-request.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -590,7 +592,6 @@ body = V1TokensCcRequest(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     previous_account_vault_api_id='previousaccountvault123456',
@@ -617,8 +618,12 @@ body = V1TokensCcRequest(
     ticket='12345678'
 )
 
-result = tokens_controller.create_a_new_credit_card_token(body)
-print(result)
+result = tokens_controller.createanew_credit_card_token(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1085,16 +1090,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Previous Transaction Token
+# Createanew Previous Transaction Token
 
 ```python
-def create_a_new_previous_transaction_token(self,
-                                           body,
-                                           expand=None)
+def createanew_previous_transaction_token(self,
+                                         body,
+                                         expand=None)
 ```
 
 ## Parameters
@@ -1102,11 +1107,11 @@ def create_a_new_previous_transaction_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensPreviousTransactionRequest`](../../doc/models/v1-tokens-previous-transaction-request.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -1123,7 +1128,6 @@ body = V1TokensPreviousTransactionRequest(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     previous_account_vault_api_id='previousaccountvault123456',
@@ -1142,8 +1146,12 @@ body = V1TokensPreviousTransactionRequest(
     acs_transaction_id='13c701a3-5a88-4c45-89e9-ef65e50a8bf9'
 )
 
-result = tokens_controller.create_a_new_previous_transaction_token(body)
-print(result)
+result = tokens_controller.createanew_previous_transaction_token(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1610,15 +1618,15 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Terminal Token with Async Method
+# Createanew Terminal Tokenwith Asyncmethod
 
 ```python
-def create_a_new_terminal_token_with_async_method(self,
-                                                 body)
+def createanew_terminal_tokenwith_asyncmethod(self,
+                                             body)
 ```
 
 ## Parameters
@@ -1629,7 +1637,7 @@ def create_a_new_terminal_token_with_async_method(self,
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -1646,7 +1654,6 @@ body = V1TokensTerminalAsyncRequest(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     previous_account_vault_api_id='previousaccountvault123456',
@@ -1666,8 +1673,12 @@ body = V1TokensTerminalAsyncRequest(
     acs_transaction_id='13c701a3-5a88-4c45-89e9-ef65e50a8bf9'
 )
 
-result = tokens_controller.create_a_new_terminal_token_with_async_method(body)
-print(result)
+result = tokens_controller.createanew_terminal_tokenwith_asyncmethod(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1688,16 +1699,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Terminal Token
+# Createanew Terminal Token
 
 ```python
-def create_a_new_terminal_token(self,
-                               body,
-                               expand=None)
+def createanew_terminal_token(self,
+                             body,
+                             expand=None)
 ```
 
 ## Parameters
@@ -1705,11 +1716,11 @@ def create_a_new_terminal_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensTerminalRequest`](../../doc/models/v1-tokens-terminal-request.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -1726,7 +1737,6 @@ body = V1TokensTerminalRequest(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     previous_account_vault_api_id='previousaccountvault123456',
@@ -1746,8 +1756,12 @@ body = V1TokensTerminalRequest(
     acs_transaction_id='13c701a3-5a88-4c45-89e9-ef65e50a8bf9'
 )
 
-result = tokens_controller.create_a_new_terminal_token(body)
-print(result)
+result = tokens_controller.createanew_terminal_token(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2214,16 +2228,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Ticket Token
+# Createanew Ticket Token
 
 ```python
-def create_a_new_ticket_token(self,
-                             body,
-                             expand=None)
+def createanew_ticket_token(self,
+                           body,
+                           expand=None)
 ```
 
 ## Parameters
@@ -2231,11 +2245,11 @@ def create_a_new_ticket_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensTicketRequest`](../../doc/models/v1-tokens-ticket-request.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -2252,7 +2266,6 @@ body = V1TokensTicketRequest(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     previous_account_vault_api_id='previousaccountvault123456',
@@ -2272,8 +2285,12 @@ body = V1TokensTicketRequest(
     acs_transaction_id='13c701a3-5a88-4c45-89e9-ef65e50a8bf9'
 )
 
-result = tokens_controller.create_a_new_ticket_token(body)
-print(result)
+result = tokens_controller.createanew_ticket_token(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -2740,16 +2757,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Create a New Wallet Token
+# Createanew Wallet Token
 
 ```python
-def create_a_new_wallet_token(self,
-                             body,
-                             expand=None)
+def createanew_wallet_token(self,
+                           body,
+                           expand=None)
 ```
 
 ## Parameters
@@ -2757,11 +2774,11 @@ def create_a_new_wallet_token(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TokensWalletRequest`](../../doc/models/v1-tokens-wallet-request.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -2769,7 +2786,7 @@ def create_a_new_wallet_token(self,
 body = V1TokensWalletRequest(
     location_id='11e95f8ec39de8fbdb0a4f1a',
     wallet_data='wallet_data2',
-    wallet_provider=WalletProviderEnum.GOOGLEPAY,
+    wallet_provider=WalletProvider.GOOGLEPAY,
     account_holder_name='John Smith',
     account_vault_api_id='accountvaultabcd',
     token_api_id='tokenabcd',
@@ -2779,7 +2796,6 @@ body = V1TokensWalletRequest(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     previous_account_vault_api_id='previousaccountvault123456',
@@ -2800,8 +2816,12 @@ body = V1TokensWalletRequest(
     wallet_key_id='11ee2bd392f32cb8aefd5bb5'
 )
 
-result = tokens_controller.create_a_new_wallet_token(body)
-print(result)
+result = tokens_controller.createanew_wallet_token(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -3268,15 +3288,15 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# Delete a Single Token Record
+# Deleteasingletokenrecord
 
 ```python
-def delete_a_single_token_record(self,
-                                token_id)
+def deleteasingletokenrecord(self,
+                            token_id)
 ```
 
 ## Parameters
@@ -3287,15 +3307,19 @@ def delete_a_single_token_record(self,
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
 ```python
 token_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = tokens_controller.delete_a_single_token_record(token_id)
-print(result)
+result = tokens_controller.deleteasingletokenrecord(token_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -3762,16 +3786,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Token Record
+# Viewsingletokenrecord
 
 ```python
-def view_single_token_record(self,
-                            token_id,
-                            expand=None,
-                            fields=None)
+def viewsingletokenrecord(self,
+                         token_id,
+                         expand=None,
+                         fields=None)
 ```
 
 ## Parameters
@@ -3779,20 +3803,24 @@ def view_single_token_record(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `token_id` | `str` | Template, Required | A unique, system-generated identifier for the Token.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`List[Field53Enum]`](../../doc/models/field-53-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`List[Field53]`](../../doc/models/field-53.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
 ```python
 token_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = tokens_controller.view_single_token_record(token_id)
-print(result)
+result = tokens_controller.viewsingletokenrecord(token_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4259,42 +4287,42 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# List All Tokens Related
+# Listalltokensrelated
 
 ```python
-def list_all_tokens_related(self,
-                           page=None,
-                           order=None,
-                           filter_by=None,
-                           expand=None,
-                           format=None,
-                           typeahead=None,
-                           fields=None)
+def listalltokensrelated(self,
+                        page=None,
+                        order=None,
+                        filter_by=None,
+                        expand=None,
+                        format=None,
+                        typeahead=None,
+                        fields=None)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`List[Order21]`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filter_by` | [`List[FilterBy]`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`Format1Enum`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`Format1`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `str` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`List[Field53Enum]`](../../doc/models/field-53-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`List[Field53]`](../../doc/models/field-53.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTokensCollection`](../../doc/models/response-tokens-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTokensCollection`](../../doc/models/response-tokens-collection.md).
 
 ## Example Usage
 
 ```python
-page = Page(
+page = Page1(
     number=1,
     size=50
 )
@@ -4302,24 +4330,28 @@ page = Page(
 order = [
     Order21(
         key='first_name',
-        operator=OperatorEnum.ASC
+        operator=Operator.ASC
     )
 ]
 
 filter_by = [
     FilterBy(
         key='first_name',
-        operator=Operator1Enum.ENUM_1,
+        operator=Operator1.ENUM_1,
         value='Fred'
     )
 ]
 
-result = tokens_controller.list_all_tokens_related(
+result = tokens_controller.listalltokensrelated(
     page=page,
     order=order,
     filter_by=filter_by
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -4811,7 +4843,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
 # Update ACH Token
@@ -4829,11 +4861,11 @@ def update_ach_token(self,
 |  --- | --- | --- | --- |
 | `token_id` | `str` | Template, Required | A unique, system-generated identifier for the Token.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TokensAchRequest1`](../../doc/models/v1-tokens-ach-request-1.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -4850,7 +4882,6 @@ body = V1TokensAchRequest1(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     location_id='11e95f8ec39de8fbdb0a4f1a',
@@ -4868,15 +4899,18 @@ body = V1TokensAchRequest1(
     secure_protocol_version=2,
     secure_auth_data='vVwL7UNHCf8W8M2LAfvRChNHN7c%3D',
     three_ds_server_trans_id='d65e93c3-35ab-41ba-b307-767bfc19eae',
-    acs_transaction_id='13c701a3-5a88-4c45-89e9-ef65e50a8bf9',
-    account_type=AccountType13Enum.SAVINGS
+    acs_transaction_id='13c701a3-5a88-4c45-89e9-ef65e50a8bf9'
 )
 
 result = tokens_controller.update_ach_token(
     token_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -5343,7 +5377,7 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
@@ -5362,11 +5396,11 @@ def update_cc_token(self,
 |  --- | --- | --- | --- |
 | `token_id` | `str` | Template, Required | A unique, system-generated identifier for the Token.<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TokensCcRequest1`](../../doc/models/v1-tokens-cc-request-1.md) | Body, Required | - |
-| `expand` | [`List[Expand47Enum]`](../../doc/models/expand-47-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand47]`](../../doc/models/expand-47.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseToken`](../../doc/models/response-token.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseToken`](../../doc/models/response-token.md).
 
 ## Example Usage
 
@@ -5383,7 +5417,6 @@ body = V1TokensCcRequest1(
     token_c_1='token custom 1',
     token_c_2='token custom 2',
     token_c_3='token custom 3',
-    ach_sec_code=AchSecCode3Enum.WEB,
     contact_id='11e95f8ec39de8fbdb0a4f1a',
     customer_id='123456',
     location_id='11e95f8ec39de8fbdb0a4f1a',
@@ -5409,7 +5442,11 @@ result = tokens_controller.update_cc_token(
     token_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -5876,6 +5913,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

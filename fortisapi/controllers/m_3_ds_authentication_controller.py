@@ -20,31 +20,31 @@ from fortisapi.controllers.base_controller import (
     BaseController,
 )
 from fortisapi.exceptions.response_401_token_exception import (
-    Response401tokenException,
+    Response401TokenException,
 )
 from fortisapi.exceptions.response_412_exception import (
     Response412Exception,
 )
-from fortisapi.exceptions.response_error_exception import (
-    ResponseErrorException,
+from fortisapi.exceptions.v_1_merchant_threedsecure_authentication_400_error_exception import (  # noqa: E501
+    V1MerchantThreedsecureAuthentication400ErrorException,
 )
 from fortisapi.http.http_method_enum import (
     HttpMethodEnum,
 )
 from fortisapi.models.response_three_ds_authentication import (
-    ResponseThreeDSAuthentication,
+    ResponseThreeDsAuthentication,
 )
 
 
-class M3DSAuthenticationController(BaseController):
+class M3DsAuthenticationController(BaseController):
     """A Controller to access Endpoints in the fortisapi API."""
 
     def __init__(self, config):
-        """Initialize M3DSAuthenticationController object."""
-        super(M3DSAuthenticationController, self).__init__(config)
+        """Initialize M3DsAuthenticationController object."""
+        super(M3DsAuthenticationController, self).__init__(config)
 
-    def m3_ds_authentication_request(self,
-                                     body):
+    def m_3_ds_authentication_request(self,
+                                      body):
         """Perform a POST request to /v1/merchant/threedsecure/authentication.
 
         Makes a 3DS Authentication request to authenticate a card or begin the
@@ -57,10 +57,11 @@ class M3DSAuthenticationController(BaseController):
                 parameter.
 
         Returns:
-            ResponseThreeDSAuthentication: Response from the API. Created
+            ApiResponse: An object with the response value as well as other useful
+                information such as status codes and headers. Created
 
         Raises:
-            APIException: When an error occurs while fetching the data from the
+            ApiException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -73,7 +74,8 @@ class M3DSAuthenticationController(BaseController):
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body))
+                .value(body)
+                .is_required(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -83,8 +85,11 @@ class M3DSAuthenticationController(BaseController):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ResponseThreeDSAuthentication.from_dictionary)
-            .local_error("400", "Bad Request", ResponseErrorException)
-            .local_error("401", "Unauthorized", Response401tokenException)
+            .deserialize_into(ResponseThreeDsAuthentication.from_dictionary)
+            .is_api_response(True)
+            .local_error("400",
+                "Bad Request",
+                V1MerchantThreedsecureAuthentication400ErrorException)
+            .local_error("401", "Unauthorized", Response401TokenException)
             .local_error("412", "Precondition Failed", Response412Exception),
         ).execute()

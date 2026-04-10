@@ -8,13 +8,13 @@ from fortisapi.api_helper import APIHelper
 from fortisapi.models.data_12 import Data12
 
 
-class ResponseThreeDSAuthentication(object):
+class ResponseThreeDsAuthentication(object):
     """Implementation of the 'responseThreeDSAuthentication' model.
 
     Attributes:
-        mtype (Type45Enum): Resource Type
+        mtype (Type45): The model property of type Type45.
         data (Data12): The model property of type Data12.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -32,12 +32,13 @@ class ResponseThreeDSAuthentication(object):
 
     def __init__(
         self,
-        mtype="ThreeDSAuthentication",
+        mtype=APIHelper.SKIP,
         data=APIHelper.SKIP,
         additional_properties=None):
-        """Initialize a ResponseThreeDSAuthentication instance."""
+        """Initialize a ResponseThreeDsAuthentication instance."""
         # Initialize members of the class
-        self.mtype = mtype
+        if mtype is not APIHelper.SKIP:
+            self.mtype = mtype
         if data is not APIHelper.SKIP:
             self.data = data
 
@@ -67,16 +68,17 @@ class ResponseThreeDSAuthentication(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else "ThreeDSAuthentication"
+                else APIHelper.SKIP
         data =\
             Data12.from_dictionary(
                 dictionary.get("data"))\
                 if "data" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,

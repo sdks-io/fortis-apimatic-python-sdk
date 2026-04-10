@@ -19,20 +19,12 @@ class ThreeDsRequestor(object):
     Contains information for the 3DS Requestor.
 
     Attributes:
-        three_ds_requestor_authentication_ind
-            (ThreeDsRequestorAuthenticationIndEnum): Indicates the type of
-            Authentication request. This data element provides additional information
-            to the ACS to determine the best approach for handling an authentication
-            request. This value is used for App-based and Browser flows. >01 -
-            Payment transaction > >02 - Recurring transaction > >03 - Installment
-            transaction > >04 - Add card > >05 - Maintain card > >06 - Cardholder
-            verification as part of EMV token ID&V > >07 - Billing agreement > >80
-            through 99 - can be used for PS-specific values, regardless of protocol
-            version >
+        three_ds_requestor_authentication_ind (ThreeDsRequestorAuthenticationInd):
+            The model property of type ThreeDsRequestorAuthenticationInd.
         three_ds_requestor_authentication_info
             (List[ThreeDsRequestorAuthenticationInfo]): Information about how the 3DS
             Requestor authenticated the cardholder before or during the transaction.
-        three_ds_requestor_challenge_ind (List[ThreeDsRequestorChallengeIndEnum]):
+        three_ds_requestor_challenge_ind (List[ThreeDsRequestorChallengeInd]):
             Indicates whether a challenge is requested for this transaction. For
             example: For 01-PA, a 3DS Requestor may have concerns about the
             transaction, and request a challenge. For 02-NPA, a challenge may be
@@ -65,21 +57,8 @@ class ThreeDsRequestor(object):
             array size may be 1-3.  This field is optional, but recommended to
             include for versions prior to 2.3.1. From 2.3.1, it is required for 3RI
             in the case of Decoupled Authentication Fallback or for SPC.
-        three_ds_requestor_dec_req_ind (ThreeDsRequestorDecReqIndEnum): Indicates
-            whether the 3DS Requestor requests the ACS to utilise Decoupled
-            Authentication and agrees to utilise Decoupled Authentication if the ACS
-            confirms its use.   Value "F" and "B" are only valid for EMV 3DS 2.3.1 or
-            later.  The field is optional and if value is not present, the expected
-            action is for the ACS to interpret as "N". Available for supporting EMV
-            3DS 2.2.0 and later versions. >Y - Decoupled Authentication is supported
-            and preferred if challenge is necessary. > >N - Do not use Decoupled
-            Authentication. > >F - Decoupled Authentication is supported and is to be
-            used only as a fallback challenge method if a challenge is necessary
-            (Transaction Status = D in RReq). Available in EMV 3DS 2.3.1 and later. >
-            >B - Decoupled Authentication is supported and can be used as a primary
-            or fallback challenge method if a challenge is necessary (Transaction
-            Status = D in either ARes or RReq). Available in EMV 3DS 2.3.1 and later.
-            >
+        three_ds_requestor_dec_req_ind (ThreeDsRequestorDecReqInd): The model
+            property of type ThreeDsRequestorDecReqInd.
         three_ds_requestor_dec_max_time (int): Indicates the maximum amount of time
             that the 3DS Requestor will wait for an ACS to provide the results of a
             Decoupled Authentication transaction (in minutes). Valid values are
@@ -88,16 +67,13 @@ class ThreeDsRequestor(object):
             days). Available for supporting EMV 3DS 2.2.0 and later versions.
             Starting from EMV 3DS 2.3.1: This field is required if
             three_ds_requestor_dec_req_ind = Y, F or B
-        three_ds_requestor_spc_support (ThreeDsRequestorSpcSupportEnum): Indicate if
-            the 3DS Requestor supports the SPC authentication.  This field is
-            required if device_channel = 02 (BRW) and it is supported by the 3DS
-            Requestor. Available for supporting EMV 3DS 2.3.1 and later versions. >Y
-            - Supported >
+        three_ds_requestor_spc_support (ThreeDsRequestorSpcSupport): The model
+            property of type ThreeDsRequestorSpcSupport.
         spc_incomp_ind (str): Reason that the SPC authentication was not completed.
             This field is required if device_channel = 02 (BRW) and the 3DS Requestor
             attempts to invoke SPC API and there is an error. Available for
             supporting EMV 3DS 2.3.1 and later versions.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -223,9 +199,10 @@ class ThreeDsRequestor(object):
             if dictionary.get("spc_incomp_ind")\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(three_ds_requestor_authentication_ind,

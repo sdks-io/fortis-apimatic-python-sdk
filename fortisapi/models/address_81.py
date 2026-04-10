@@ -19,8 +19,8 @@ class Address81(object):
         state_province (str): State or province of address.
         postal_code (str): Postal code of address.
         country_code (str): Country of address.
-        address_type (AddressTypeEnum): Address type of address.
-        additional_properties (Dict[str, object]): The additional properties for the
+        address_type (AddressType): The model property of type AddressType.
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -117,9 +117,10 @@ class Address81(object):
             if "address_line_2" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(address_line_1,

@@ -12,9 +12,9 @@ class ResponseSendVerification(object):
     """Implementation of the 'responseSendVerification' model.
 
     Attributes:
-        mtype (Type135Enum): Resource Type
+        mtype (Type135): The model property of type Type135.
         data (Data32): The model property of type Data32.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -32,12 +32,13 @@ class ResponseSendVerification(object):
 
     def __init__(
         self,
-        mtype="SendVerification",
+        mtype=APIHelper.SKIP,
         data=APIHelper.SKIP,
         additional_properties=None):
         """Initialize a ResponseSendVerification instance."""
         # Initialize members of the class
-        self.mtype = mtype
+        if mtype is not APIHelper.SKIP:
+            self.mtype = mtype
         if data is not APIHelper.SKIP:
             self.data = data
 
@@ -67,16 +68,17 @@ class ResponseSendVerification(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else "SendVerification"
+                else APIHelper.SKIP
         data =\
             Data32.from_dictionary(
                 dictionary.get("data"))\
                 if "data" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,

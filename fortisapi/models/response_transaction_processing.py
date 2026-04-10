@@ -12,9 +12,9 @@ class ResponseTransactionProcessing(object):
     """Implementation of the 'responseTransactionProcessing' model.
 
     Attributes:
-        mtype (Type5Enum): Resource Type
+        mtype (Type5): The model property of type Type5.
         data (Data1): The model property of type Data1.
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -32,12 +32,13 @@ class ResponseTransactionProcessing(object):
 
     def __init__(
         self,
-        mtype="TransactionProcessing",
+        mtype=APIHelper.SKIP,
         data=APIHelper.SKIP,
         additional_properties=None):
         """Initialize a ResponseTransactionProcessing instance."""
         # Initialize members of the class
-        self.mtype = mtype
+        if mtype is not APIHelper.SKIP:
+            self.mtype = mtype
         if data is not APIHelper.SKIP:
             self.data = data
 
@@ -67,16 +68,17 @@ class ResponseTransactionProcessing(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else "TransactionProcessing"
+                else APIHelper.SKIP
         data =\
             Data1.from_dictionary(
                 dictionary.get("data"))\
                 if "data" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(mtype,

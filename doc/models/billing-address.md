@@ -3,6 +3,8 @@
 
 Billing Address Object
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `BillingAddress`
@@ -17,6 +19,7 @@ Billing Address Object
 | `state` | `str` | Optional | The State portion of the address associated with the Credit Card (CC) or Bank Account (ACH).<br><br>**Constraints**: *Maximum Length*: `24` |
 | `phone` | `str` | Optional | The Phone # to be used to contact Payer if there are any issues processing a transaction.<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `10`, *Pattern*: `^\d{10}$` |
 | `country` | `str` | Optional | The alpha 3 format country code. |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@ Billing Address Object
   "state": "Michigan",
   "phone": "3339998822",
   "country": "USA",
-  "street": "street6"
+  "street": "street6",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

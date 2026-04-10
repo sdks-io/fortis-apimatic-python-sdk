@@ -3,6 +3,8 @@
 
 Forecast Information on `expand`
 
+*This model accepts additional fields of type Any.*
+
 ## Structure
 
 `Forecast`
@@ -18,6 +20,7 @@ Forecast Information on `expand`
 | `month` | `str` | Optional | Month |
 | `created_ts` | `int` | Optional | Created Time Stamp |
 | `modified_ts` | `int` | Optional | Modified Time Stamp |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example (as JSON)
 
@@ -29,7 +32,11 @@ Forecast Information on `expand`
   "modified_ts": 1422040992,
   "recurring_type": 118.0,
   "amount": 7.04,
-  "month": "month2"
+  "month": "month2",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -10,18 +10,18 @@ terminals_controller = client.terminals
 
 ## Methods
 
-* [Create a New Terminal Device](../../doc/controllers/terminals.md#create-a-new-terminal-device)
-* [List All Terminals Related](../../doc/controllers/terminals.md#list-all-terminals-related)
-* [View Single Terminals Record](../../doc/controllers/terminals.md#view-single-terminals-record)
-* [Update Terminal Record](../../doc/controllers/terminals.md#update-terminal-record)
+* [Createanewterminaldevice](../../doc/controllers/terminals.md#createanewterminaldevice)
+* [Listallterminalsrelated](../../doc/controllers/terminals.md#listallterminalsrelated)
+* [Viewsingleterminalsrecord](../../doc/controllers/terminals.md#viewsingleterminalsrecord)
+* [Updateterminalrecord](../../doc/controllers/terminals.md#updateterminalrecord)
 
 
-# Create a New Terminal Device
+# Createanewterminaldevice
 
 ```python
-def create_a_new_terminal_device(self,
-                                body,
-                                expand=None)
+def createanewterminaldevice(self,
+                            body,
+                            expand=None)
 ```
 
 ## Parameters
@@ -29,11 +29,11 @@ def create_a_new_terminal_device(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `body` | [`V1TerminalsRequest`](../../doc/models/v1-terminals-request.md) | Body, Required | - |
-| `expand` | [`List[Expand40Enum]`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand40]`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTerminal`](../../doc/models/response-terminal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTerminal`](../../doc/models/response-terminal.md).
 
 ## Example Usage
 
@@ -41,7 +41,7 @@ def create_a_new_terminal_device(self,
 body = V1TerminalsRequest(
     location_id='11e95f8ec39de8fbdb0a4f1a',
     terminal_application_id='11e95f8ec39de8fbdb0a4f1a',
-    terminal_manufacturer_code=TerminalManufacturerCodeEnum.ENUM_1,
+    terminal_manufacturer_code=TerminalManufacturerCode.ENUM_4,
     title='My terminal',
     serial_number='1234567890',
     debit=False,
@@ -72,12 +72,15 @@ body = V1TerminalsRequest(
     is_provisioned=False,
     tip_enable=False,
     validated_decryption=False,
-    communication_type=CommunicationTypeEnum.HTTP,
     active=True
 )
 
-result = terminals_controller.create_a_new_terminal_device(body)
-print(result)
+result = terminals_controller.createanewterminaldevice(body)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -311,43 +314,43 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 
 
-# List All Terminals Related
+# Listallterminalsrelated
 
 ```python
-def list_all_terminals_related(self,
-                              page=None,
-                              order=None,
-                              filter_by=None,
-                              expand=None,
-                              format=None,
-                              typeahead=None,
-                              fields=None)
+def listallterminalsrelated(self,
+                           page=None,
+                           order=None,
+                           filter_by=None,
+                           expand=None,
+                           format=None,
+                           typeahead=None,
+                           fields=None)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `page` | [`Page`](../../doc/models/page.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
+| `page` | [`Page1`](../../doc/models/page-1.md) | Query, Optional | Use this field to specify paginate your results, by using page size and number. You can use one of the following methods:<br><br>> /endpoint?page={ "number": 1, "size": 50 }<br>> <br>> /endpoint?page[number]=1&page[size]=50 |
 | `order` | [`List[Order21]`](../../doc/models/order-21.md) | Query, Optional | Criteria used in query string parameters to order results.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`.  Must be encoded, or use syntax that does not require encoding.<br><br>> /endpoint?order[0][key]=created_ts&order[0][operator]=asc<br>> <br>> /endpoint?order=[{ "key": "created_ts", "operator": "asc"}]<br>> <br>> /endpoint?order=[{ "key": "balance", "operator": "desc"},{ "key": "created_ts", "operator": "asc"}]<br><br>**Constraints**: *Minimum Items*: `1` |
 | `filter_by` | [`List[FilterBy]`](../../doc/models/filter-by.md) | Query, Optional | Filter criteria that can be used in query string parameters.  Most fields from the endpoint results can be used as a `key`.  Unsupported fields or operators will return a `412`. Must be encoded, or use syntax that does not require encoding.<br><br>> ?filter_by[0][key]=first_name&filter_by[0][operator]==&filter_by[0][value]=Steve<br>> <br>> /endpoint?filter_by=[{ "key": "first_name", "operator": "=", "value": "Fred" }]<br>> <br>> /endpoint?filter_by=[{ "key": "account_type", "operator": "=", "value": "VISA" }]<br>> <br>> /endpoint?filter_by=[{ "key": "created_ts", "operator": ">=", "value": "946702799" }, { "key": "created_ts", "operator": "<=", value: "1695061891" }]<br>> <br>> /endpoint?filter_by=[{ "key": "last_name", "operator": "IN", "value": "Williams,Brown,Allman" }]<br><br>**Constraints**: *Minimum Items*: `1` |
-| `expand` | [`List[Expand40Enum]`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `format` | [`Format1Enum`](../../doc/models/format-1-enum.md) | Query, Optional | Reporting format, valid values: csv, tsv |
+| `expand` | [`List[Expand40]`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `format` | [`Format1`](../../doc/models/format-1.md) | Query, Optional | Reporting format, valid values: csv, tsv |
 | `typeahead` | `str` | Query, Optional | You can use any `field_name` from this endpoint results to order the list using the value provided as filter for the same `field_name`. It will be ordered using the following rules: 1) Exact match, 2) Starts with, 3) Contains.<br><br>> /endpoint?filter={ "field_name": "Value" }&_typeahead=field_name |
-| `fields` | [`List[Field49Enum]`](../../doc/models/field-49-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `fields` | [`List[Field49]`](../../doc/models/field-49.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTerminalsCollection`](../../doc/models/response-terminals-collection.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTerminalsCollection`](../../doc/models/response-terminals-collection.md).
 
 ## Example Usage
 
 ```python
-page = Page(
+page = Page1(
     number=1,
     size=50
 )
@@ -355,24 +358,28 @@ page = Page(
 order = [
     Order21(
         key='first_name',
-        operator=OperatorEnum.ASC
+        operator=Operator.ASC
     )
 ]
 
 filter_by = [
     FilterBy(
         key='first_name',
-        operator=Operator1Enum.ENUM_1,
+        operator=Operator1.ENUM_1,
         value='Fred'
     )
 ]
 
-result = terminals_controller.list_all_terminals_related(
+result = terminals_controller.listallterminalsrelated(
     page=page,
     order=order,
     filter_by=filter_by
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -631,16 +638,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# View Single Terminals Record
+# Viewsingleterminalsrecord
 
 ```python
-def view_single_terminals_record(self,
-                                terminal_id,
-                                expand=None,
-                                fields=None)
+def viewsingleterminalsrecord(self,
+                             terminal_id,
+                             expand=None,
+                             fields=None)
 ```
 
 ## Parameters
@@ -648,20 +655,24 @@ def view_single_terminals_record(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `terminal_id` | `str` | Template, Required | Terminal ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
-| `expand` | [`List[Expand40Enum]`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
-| `fields` | [`List[Field49Enum]`](../../doc/models/field-49-enum.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
+| `expand` | [`List[Expand40]`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
+| `fields` | [`List[Field49]`](../../doc/models/field-49.md) | Query, Optional | You can use any `field_name` from this endpoint results to filter the list of fields returned on the response. |
 
 ## Response Type
 
-[`ResponseTerminal`](../../doc/models/response-terminal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTerminal`](../../doc/models/response-terminal.md).
 
 ## Example Usage
 
 ```python
 terminal_id = '11e95f8ec39de8fbdb0a4f1a'
 
-result = terminals_controller.view_single_terminals_record(terminal_id)
-print(result)
+result = terminals_controller.viewsingleterminalsrecord(terminal_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -895,16 +906,16 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 
 
-# Update Terminal Record
+# Updateterminalrecord
 
 ```python
-def update_terminal_record(self,
-                          terminal_id,
-                          body,
-                          expand=None)
+def updateterminalrecord(self,
+                        terminal_id,
+                        body,
+                        expand=None)
 ```
 
 ## Parameters
@@ -913,11 +924,11 @@ def update_terminal_record(self,
 |  --- | --- | --- | --- |
 | `terminal_id` | `str` | Template, Required | Terminal ID<br><br>**Constraints**: *Pattern*: `^(([0-9a-fA-F\-]{24,36})\|(([0-9a-fA-F]{8})-(([0-9a-fA-F]{4}\-){3})([0-9a-fA-F]{12})))$` |
 | `body` | [`V1TerminalsRequest1`](../../doc/models/v1-terminals-request-1.md) | Body, Required | - |
-| `expand` | [`List[Expand40Enum]`](../../doc/models/expand-40-enum.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required*, *Pattern*: `^[\w]+$` |
+| `expand` | [`List[Expand40]`](../../doc/models/expand-40.md) | Query, Optional | Most endpoints in the API have a way to retrieve extra data related to the current record being retrieved. For example, if the API request is for the accountvaults endpoint, and the end user also needs to know which contact the token belongs to, this data can be returned in the accountvaults endpoint request.<br><br>**Constraints**: *Unique Items Required* |
 
 ## Response Type
 
-[`ResponseTerminal`](../../doc/models/response-terminal.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ResponseTerminal`](../../doc/models/response-terminal.md).
 
 ## Example Usage
 
@@ -929,7 +940,6 @@ body = V1TerminalsRequest1(
     default_product_transaction_id='11e95f8ec39de8fbdb0a4f1a',
     terminal_application_id='11e95f8ec39de8fbdb0a4f1a',
     terminal_cvm_id='11e95f8ec39de8fbdb0a4f1a',
-    terminal_manufacturer_code=TerminalManufacturerCodeEnum.ENUM_1,
     title='My terminal',
     mac_address='3D:F2:C9:A6:B3:4F',
     local_ip_address='192.168.0.10',
@@ -958,15 +968,18 @@ body = V1TerminalsRequest1(
     is_provisioned=False,
     tip_enable=False,
     validated_decryption=False,
-    communication_type=CommunicationTypeEnum.HTTP,
     active=True
 )
 
-result = terminals_controller.update_terminal_record(
+result = terminals_controller.updateterminalrecord(
     terminal_id,
     body
 )
-print(result)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
 ```
 
 ## Example Response *(as JSON)*
@@ -1200,6 +1213,6 @@ print(result)
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`Response401tokenException`](../../doc/models/response-401-token-exception.md) |
+| 401 | Unauthorized | [`Response401TokenException`](../../doc/models/response-401-token-exception.md) |
 | 412 | Precondition Failed | [`Response412Exception`](../../doc/models/response-412-exception.md) |
 

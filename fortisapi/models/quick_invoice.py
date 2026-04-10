@@ -37,8 +37,8 @@ class QuickInvoice(object):
         item_footer (str): Item footer
         amount_due (float): Amount Due
         notification_email (str): Notification email
-        status_id (StatusIdEnum): (DEPRECATED) Status Id
-        status_code (StatusCode14Enum): Status Code
+        status_id (Any): The model property of type Any.
+        status_code (Any): The model property of type Any.
         note (str): Note
         notification_days_before_due_date (int): Notification days before due date
         notification_days_after_due_date (int): Notification days after due date
@@ -64,7 +64,7 @@ class QuickInvoice(object):
         active (bool): Active status
         payment_status_id (int): Payment Status Id
         is_active (bool): Register is active
-        additional_properties (Dict[str, object]): The additional properties for the
+        additional_properties (Dict[str, Any]): The additional properties for the
             model.
 
     """
@@ -186,8 +186,6 @@ class QuickInvoice(object):
         "item_footer",
         "amount_due",
         "notification_email",
-        "status_id",
-        "status_code",
         "note",
         "notification_days_before_due_date",
         "notification_days_after_due_date",
@@ -468,11 +466,11 @@ class QuickInvoice(object):
                 else APIHelper.SKIP
         status_id =\
             dictionary.get("status_id")\
-            if "status_id" in dictionary.keys()\
+            if dictionary.get("status_id")\
                 else APIHelper.SKIP
         status_code =\
             dictionary.get("status_code")\
-            if "status_code" in dictionary.keys()\
+            if dictionary.get("status_code")\
                 else APIHelper.SKIP
         note =\
             dictionary.get("note")\
@@ -571,9 +569,10 @@ class QuickInvoice(object):
             if "is_active" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        # Clean out expected properties from dictionary
-        additional_properties =\
-            {k: v for k, v in dictionary.items() if k not in cls._names.values()}
+        additional_properties = APIHelper.get_additional_properties(
+            dictionary={k: v for k, v in dictionary.items()
+                        if k not in cls._names.values()},
+            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(location_id,
